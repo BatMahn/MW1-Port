@@ -21,14 +21,14 @@ jobs:
   linux:
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Install SDL2
         run: sudo apt-get update && sudo apt-get install -y libsdl2-dev
       - name: Build
         run: make -j4
       - name: Package
         run: sh tools/package.sh linux-x86_64 mechwarrior
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v5
         with:
           name: MW1-Port-linux-x86_64
           path: dist/*.zip
@@ -37,13 +37,14 @@ jobs:
     strategy:
       matrix:
         include:
-          - runner: macos-14
+          # GitHub's current macOS images: Apple Silicon and the last Intel image
+          - runner: macos-15
             arch: arm64
-          - runner: macos-13
+          - runner: macos-15-intel
             arch: x86_64
     runs-on: ${{ matrix.runner }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - name: Install SDL2 and dylibbundler
         run: brew install sdl2 dylibbundler
       - name: Build MechWarrior.app
@@ -55,7 +56,7 @@ jobs:
           codesign --force --deep -s - MechWarrior.app
       - name: Package
         run: sh tools/package.sh macos-${{ matrix.arch }} MechWarrior.app
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v5
         with:
           name: MW1-Port-macos-${{ matrix.arch }}
           path: dist/*.zip
@@ -66,7 +67,7 @@ jobs:
       run:
         shell: msys2 {0}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: msys2/setup-msys2@v2
         with:
           msystem: MINGW64
@@ -83,7 +84,7 @@ jobs:
           ls dlls
       - name: Package
         run: sh tools/package.sh windows-x86_64 mechwarrior.exe dlls
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v5
         with:
           name: MW1-Port-windows-x86_64
           path: dist/*.zip
@@ -93,7 +94,7 @@ jobs:
     needs: [linux, macos, windows]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v5
         with:
           path: artifacts
           merge-multiple: true
