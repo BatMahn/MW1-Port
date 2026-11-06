@@ -322,7 +322,7 @@ void english_program_loaded(const char *name, u16 seg)
     /* second tier: a translation table (file, offset, max_bytes, terminator, english, japanese)
      * for text with no DOS counterpart. Offsets are file offsets; anything that already got
      * DOS English is left alone. */
-    int fb = 0;
+    int fb = 0, fb_mismatch = 0;
     need_upper = 0;
     if (english_fallback && !(getenv("MW_EN_NOFB") && strcasestr(name, getenv("MW_EN_NOFB")))) {
         FILE *t = fopen(english_fallback, "r");
@@ -335,7 +335,7 @@ void english_program_loaded(const char *name, u16 seg)
         while (t && hdr && fgets(line, sizeof line, t)) {
             char *col[6]; int n = 0; char *p = line;
             for (; n < 6; n++) { col[n] = p; char *tab = strchr(p, '\t'); if (!tab) { n++; break; } *tab = 0; p = tab + 1; }
-            if (n < 5 || strcasecmp(col[0], name)) continue;
+            if (line[0] == '#' || n < 5 || strcasecmp(col[0], name)) continue;
             long off = strtol(col[1], NULL, 16) - hdr; int mx = atoi(col[2]);
             if (off < 0 || mx <= 0) continue;
             u32 at = base + off; int skip = 0;
@@ -343,6 +343,12 @@ void english_program_loaded(const char *name, u16 seg)
             for (int k = 0; k < ndone && !skip; k++) if (at < done_hi[k] && at + mx > done_lo[k]) skip = 1;
             if (getenv("MW_FBDBG") && (unsigned)off == strtoul(getenv("MW_FBDBG"), NULL, 16)) fprintf(stderr, "fb %lx skip=%d mx=%d\n", off, skip, mx);
             if (skip) continue;
+            /* MW1-Port's own table carries a hash of the original bytes instead of the Japanese:
+             * a row that doesn't match this copy of the game is not applied */
+            if (n >= 6 && strlen(col[5]) >= 8 && strspn(col[5], "0123456789abcdefABCDEF") == 8) {
+                u32 h = 2166136261u; for (int i = 0; i < mx; i++) { h ^= mem[at + i]; h *= 16777619u; }
+                if (h != (u32)strtoul(col[5], NULL, 16)) { fb_mismatch++; continue; }
+            }
             /* english column: UTF-8; U+23CE (E2 8F 8E) marks a line break */
             static u8 out[2048]; int o = 0;
             for (u8 *q = (u8 *)col[4]; *q && o < (int)sizeof out; q++) {
@@ -383,6 +389,7 @@ void english_program_loaded(const char *name, u16 seg)
             fb++;
         }
         if (t) fclose(t);
+        if (fb_mismatch) fprintf(stderr, "english: %d rows of %s don't match %s (different release?) and were skipped\n", fb_mismatch, english_fallback, name);
     }
     if (!strcasecmp(name, "MW_MAIN.EXE")) {
         /* text routine of the strategy program: code segment 709h, entry at 0966h */

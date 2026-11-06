@@ -214,7 +214,8 @@ static int setup_layout(const char *data_root, int game_dir_given, int want_dos,
                 if (sz != want[k]) fprintf(stderr, "warning: DOS/%s is %ld bytes, the English maps expect %ld; text may be wrong\n", chk[k], sz, want[k]); } } }
             extern const char *english_dir, *english_fallback;
             if (!english_dir) english_dir = lay_dos;
-            if (!english_fallback && lay_tsv[0]) english_fallback = lay_tsv;
+            /* second English source: a table you supply, else the one that ships in textmap/ */
+            if (!english_fallback) english_fallback = lay_tsv[0] ? lay_tsv : "textmap/pc98_english.tsv";
         }
         return 1;
     }

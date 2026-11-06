@@ -19,13 +19,12 @@ After cloning and building, the repository folder *is* that folder:
 ```
 MW1-Port/
 ├── mechwarrior            the program (mechwarrior.exe on Windows) — built by `make`
-├── textmap/               ships with the source (text offset maps, no text)
+├── textmap/               ships with the source (offset maps and the English table, no Japanese text)
 ├── fonts/                 ships with the source (public-domain stand-in font)
 │
 ├── DOS/                   ← you supply: the DOS MechWarrior files
 ├── PC98/                  ← you supply: the PC-98 disk images
 ├── MT32/                  ← optional: Roland MT-32 ROMs
-└── mechwarrior_pc98_translation.tsv   ← optional: second translation source
 ```
 
 Folder names are not case-sensitive (`DOS`, `dos`, `Dos` all work).
@@ -94,12 +93,21 @@ Names don't matter: the ROMs are recognised by their contents (via Munt's ROM da
 With ROMs present the DOS edition uses the MT-32 (the game's own default); without them it
 uses AdLib. The PC-98 edition has its own FM sound and doesn't use these.
 
-### mechwarrior_pc98_translation.tsv (optional)
+### English for PC-98-only text (included)
 
-A translation table for text the DOS version never had (the PC-98's longer opening, story
-scenes, news). It is the table from the third-party PC-98 translation project
-(`apply_translation.py` format: file, offset, max_bytes, terminator, english, japanese).
-Put it next to the program or in `PC98/`. Without it that text stays Japanese.
+Text the DOS game never had (the PC-98's longer opening, story scenes, news, extra menus) comes
+from `textmap/pc98_english.tsv`, which ships with the port. It holds offsets, lengths and
+English only, plus a checksum of the original bytes at each offset; rows that don't match your
+copy of the game are skipped. No Japanese text is stored in it.
+
+To use a different table instead (same columns; a sixth column may hold the Japanese or a
+checksum), put it next to the program as `mechwarrior_pc98_translation.tsv`.
+
+**About the translation.** The English in `pc98_english.tsv` was machine-translated from the
+PC-98 game. All story elements, characters, names, places and setting are the property of the
+original rights holders of *MechWarrior* (Dynamix / Activision, 1989) and *Battletech:
+Ubawareta Seihai* (PC-98, 1993). BattleTech and MechWarrior are trademarks of their respective
+owners.
 
 ---
 
@@ -163,7 +171,7 @@ Other options: `--data DIR` (look for the folders in DIR), `--mt32 DIR`, `--cycl
   text VRAM and the character-generator window, the YM2203 FM chip (ymfm), bus mouse,
   INT 18h BIOS. DOS services are emulated (files, memory, EXEC, overlays).
 - **Timing** runs on an emulated clock, so game speed doesn't depend on the host.
-- **English**: `textmap/*.map` pairs Japanese string offsets in the PC-98 programs with
+- **English**: first from your DOS copy, then from `textmap/pc98_english.tsv`. `textmap/*.map` pairs Japanese string offsets in the PC-98 programs with
   English string offsets in the DOS programs (offsets only, no text). At start-up the English
   is copied from your DOS files: in place where it fits, otherwise swapped in when drawn.
   `*.overrides` adjust individual strings; `pc98_art.overrides` repaints a few labels that are
@@ -173,8 +181,8 @@ Other options: `--data DIR` (look for the folders in DIR), `--mt32 DIR`, `--cycl
 ## 5. Known limitations
 
 - The PC-98 title logo keeps its Japanese title (it is the game's artwork).
-- A few story fragments have no source in either the DOS game or the translation table and
-  stay Japanese.
+- A few story fragments have no entry in either the DOS game or `pc98_english.tsv` and stay
+  Japanese.
 - The Japanese font is a public-domain stand-in for the PC-98 character ROM, so Japanese
   and half-width characters look slightly different from real hardware.
 - The PC-98 opening's hardware smooth-scroll isn't emulated.

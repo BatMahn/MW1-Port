@@ -1,0 +1,1135 @@
+# MW1-Port English text for the PC-98 edition (text the DOS game does not have).
+# Columns: file, offset (in the PC-98 file), max bytes, terminator, English, check.
+# "check" is a hash of the original bytes at that offset: rows that do not match your
+# copy of the game are skipped. No Japanese text is stored here.
+# The English was machine-translated from the PC-98 game. All story, characters, names,
+# places and setting are the property of the original rights holders of MechWarrior (1989)
+# and Battletech: Ubawareta Seihai (PC-98, 1993); BattleTech and MechWarrior are trademarks
+# of their respective owners.
+file	offset_hex	max_bytes	terminator	english	check
+MW_MAIN.EXE	0xa029	14	NUL	G. Braver	f2a07092
+MW_MAIN.EXE	0xa712	65	NUL	Insert Game Disk 1 in drive A and⏎press any key.	97cfae76
+MW_MAIN.EXE	0xa754	65	NUL	Insert Game Disk 2 in drive B and⏎press any key.	23c54984
+MW_MAIN.EXE	0xa796	143	NUL	Insert one of these disks in drive B⏎and press any key.⏎⏎Game Disk 2 (start from demo)⏎Game Disk 3 (start game)	bd424d15
+MW_MAIN.EXE	0xa85f	58	NUL	WARNING: Fighting without a ready mech is suicide!	2bc22235
+MW_MAIN.EXE	0xa89a	50	NUL	WARNING: Fighting in a broken mech is risky!	2edd46e9
+MW_MAIN.EXE	0xa8cd	65	NUL	Contract canceled. Stop fighting and return⏎immediately.	28b65939
+MW_MAIN.EXE	0xa911	44	NUL	Not bad. You'll do fine in real combat.	4a18be3f
+MW_MAIN.EXE	0xa93e	52	NUL	Can't face real combat like that! Practice more.	2f9b5713
+MW_MAIN.EXE	0xa973	50	NUL	All talk... You'd never survive real combat.	a820506a
+MW_MAIN.EXE	0xaa85	5	NUL	Year 	1647023d
+MW_MAIN.EXE	0xaa9e	4	NUL	Good	21937a4a
+MW_MAIN.EXE	0xaaa6	4	NUL	Dead	04430c14
+MW_MAIN.EXE	0xaaae	4	NUL	Unk.	aa47a5f9
+MW_MAIN.EXE	0xaae8	55	NUL	No enemy showed. Dull job, but you⏎got paid unscathed.	112bc22a
+MW_MAIN.EXE	0xab2a	112	NUL	Failing so simple a job shows your worth. A true⏎warrior would choose death.⏎	81dbe7ea
+MW_MAIN.EXE	0xab9b	83	NUL	We overrated you badly. You dare return in⏎shame?	c7b87e99
+MW_MAIN.EXE	0xabef	102	NUL	Is that your best? Some mercenary. We⏎can't trust you with Marik work.⏎	e7c53778
+MW_MAIN.EXE	0xac56	67	NUL	You're unworthy of Liao work. Go die.⏎	eacb5c39
+MW_MAIN.EXE	0xac9a	75	NUL	You're no warrior. Don't show your⏎face until you've improved.	c15e8169
+MW_MAIN.EXE	0xacf0	55	NUL	Superb results. Too good to be a⏎mere mercenary.	799bda0b
+MW_MAIN.EXE	0xad28	59	NUL	You met our expectations. Your⏎skill deserves praise.	febc37bb
+MW_MAIN.EXE	0xad64	67	NUL	Well done. This success brings us great profit.⏎	541e8a38
+MW_MAIN.EXE	0xada8	55	NUL	A perfect victory. You've⏎earned our trust.	af1c68d6
+MW_MAIN.EXE	0xade0	55	NUL	Fine fighting. Keep meeting⏎our expectations.	dfe1c392
+MW_MAIN.EXE	0xae1e	83	NUL	You used up all supplies. Extra costs come⏎out of your pay.	ba14bf71
+MW_MAIN.EXE	0xae72	89	NUL	Not a complete success. Sorry, we can't pay⏎in full.	926ef3b5
+MW_MAIN.EXE	0xaecc	83	NUL	You missed the return rocket. That cost⏎comes out of your pay.	45f57ed3
+MW_MAIN.EXE	0xaf20	91	NUL	Not a complete success. Your pay is only this.⏎	1d8c1517
+MW_MAIN.EXE	0xaf7c	302	NUL	Dark Wing is destroyed; the infantry flee. You recover⏎Hahn's Chalice from their empty base, McBrin's plot is⏎exposed and House Vandenburg's honor is restored.⏎⏎⏎⏎	c77d59ce
+MW_MAIN.EXE	0xb0ae	105	NUL	Dark Wing could not be defeated. In the chaos, escaping⏎alive was all you could do.	2bf96db0
+MW_MAIN.EXE	0xb11a	14	NUL	G. Braver	f2a07092
+MW_MAIN.EXE	0xb148	12	NUL	Mech Crew	b5ccf402
+MW_MAIN.EXE	0xb15a	14	NUL	News Net	290d75c3
+MW_MAIN.EXE	0xb16e	8	NUL	EXIT	19486efd
+MW_MAIN.EXE	0xb1ca	6	NUL	Name:	6a9f7230
+MW_MAIN.EXE	0xb1d6	10	NUL	Age:   yr	fd42d8db
+MW_MAIN.EXE	0xb1e6	6	NUL	Rec.:	4dfd1905
+MW_MAIN.EXE	0xb1f2	7	NUL	Funds:	09a16e10
+MW_MAIN.EXE	0xb1ff	10	NUL	Attitude	c0f2da3f
+MW_MAIN.EXE	0xb20f	9	NUL	Kurita :	b06858d2
+MW_MAIN.EXE	0xb21e	11	NUL	Steiner:	ded95312
+MW_MAIN.EXE	0xb22f	9	NUL	Marik  :	40fbb475
+MW_MAIN.EXE	0xb23e	9	NUL	Liao   :	498b912e
+MW_MAIN.EXE	0xb24d	10	NUL	Davion :	fcb99d82
+MW_MAIN.EXE	0xb298	6	NUL	Shoot	4643e53c
+MW_MAIN.EXE	0xb2a4	6	NUL	Pilot	f89f65c6
+MW_MAIN.EXE	0xb2b6	6	NUL	Salary	62480131
+MW_MAIN.EXE	0xb34f	4	NUL	Bad	a47b10e2
+MW_MAIN.EXE	0xb35d	4	NUL	Best	0b6d5414
+MW_MAIN.EXE	0xb3c4	8	NUL	Dismiss	c6dd6071
+MW_MAIN.EXE	0xb3ce	10	NUL	No mech	7bafd7d2
+MW_MAIN.EXE	0xb3da	10	NUL	Locust	1545e155
+MW_MAIN.EXE	0xb3e6	6	NUL	Wasp	05ce1e81
+MW_MAIN.EXE	0xb3ee	10	NUL	Jenner	97aea39c
+MW_MAIN.EXE	0xb3fa	12	NUL	Phoenix Hawk	2ca222a1
+MW_MAIN.EXE	0xb408	14	NUL	Shadow Hawk	e6891501
+MW_MAIN.EXE	0xb418	10	NUL	Wolverine	11051a36
+MW_MAIN.EXE	0xb424	12	NUL	Rifleman	5e990774
+MW_MAIN.EXE	0xb432	14	NUL	Warhammer	cc4b0f85
+MW_MAIN.EXE	0xb442	10	NUL	Marauder	9110575b
+MW_MAIN.EXE	0xb44e	14	NUL	Battlemaster	a211385d
+MW_MAIN.EXE	0xb4bd	10	NUL	That's it.	d6db6da6
+MW_MAIN.EXE	0xb4d4	32	NUL	No demand for mechs now.	dcb52f6a
+MW_MAIN.EXE	0xb51a	10	NUL	Check Mech	c5880ff2
+MW_MAIN.EXE	0xb52a	12	NUL	Buy Ammo	23636df3
+MW_MAIN.EXE	0xb53c	10	NUL	Buy Mech	b3fdc516
+MW_MAIN.EXE	0xbaa2	4	NUL	OK	09bd0d64
+MW_MAIN.EXE	0xbaa7	10	NUL	Light dmg	fdba578e
+MW_MAIN.EXE	0xbab2	10	NUL	Medium dmg	65b11981
+MW_MAIN.EXE	0xbabd	10	NUL	Heavy dmg	92a91193
+MW_MAIN.EXE	0xbac8	8	NUL	Disabled	f925b936
+MW_MAIN.EXE	0xbad9	4	NUL	OK	09bd0d64
+MW_MAIN.EXE	0xbaed	4	NUL	Out	cc41cb51
+MW_MAIN.EXE	0xbb11	46	NUL	Not enough funds to repair everything!	4090c2cd
+MW_MAIN.EXE	0xbb40	22	NUL	All parts are OK.	4db85321
+MW_MAIN.EXE	0xbb57	13	NUL	     Repaired	f7980ba9
+MW_MAIN.EXE	0xbb65	28	NUL	Parts are in short supply.	2e01156a
+MW_MAIN.EXE	0xbc1a	8	NUL	Fix Part	804fbbf1
+MW_MAIN.EXE	0xbc28	8	NUL	Fix All	bd997d96
+MW_MAIN.EXE	0xbc36	8	NUL	Reload	831bc6dd
+MW_MAIN.EXE	0xbc44	6	NUL	Sell	1cdf6ce6
+MW_MAIN.EXE	0xbc50	8	NUL	EXIT	19486efd
+MW_MAIN.EXE	0xbcb5	17	NUL	Locust         : 	8892d745
+MW_MAIN.EXE	0xbcc7	17	NUL	Wasp           : 	97df87e1
+MW_MAIN.EXE	0xbcd9	17	NUL	Jenner         : 	865ba4a6
+MW_MAIN.EXE	0xbceb	17	NUL	Phoenix Hawk   : 	ce809eea
+MW_MAIN.EXE	0xbcfd	17	NUL	Shadow Hawk    : 	012cfc11
+MW_MAIN.EXE	0xbd0f	17	NUL	Wolverine      : 	a71b1360
+MW_MAIN.EXE	0xbd21	17	NUL	Rifleman       : 	40b96305
+MW_MAIN.EXE	0xbd33	17	NUL	Warhammer      : 	dd9c6aed
+MW_MAIN.EXE	0xbd45	17	NUL	Marauder       : 	4776f89b
+MW_MAIN.EXE	0xbd57	17	NUL	Battlemaster   : 	b05ef825
+MW_MAIN.EXE	0xbd69	17	NUL	Dropship       : 	e7f1dd1b
+MW_MAIN.EXE	0xbd91	10	NUL	Locust	1545e155
+MW_MAIN.EXE	0xbd9c	6	NUL	Wasp	05ce1e81
+MW_MAIN.EXE	0xbda3	10	NUL	Jenner	97aea39c
+MW_MAIN.EXE	0xbdae	12	NUL	Phoenix Hawk	2ca222a1
+MW_MAIN.EXE	0xbdbb	14	NUL	Shadow Hawk	e6891501
+MW_MAIN.EXE	0xbdca	10	NUL	Wolverine	11051a36
+MW_MAIN.EXE	0xbdd5	12	NUL	Rifleman	5e990774
+MW_MAIN.EXE	0xbde2	14	NUL	Warhammer	cc4b0f85
+MW_MAIN.EXE	0xbdf1	10	NUL	Marauder	9110575b
+MW_MAIN.EXE	0xbdfc	14	NUL	Battlemaster	a211385d
+MW_MAIN.EXE	0xbe0b	14	NUL	Dropship	9db6bf63
+MW_MAIN.EXE	0xbf50	16	NUL	No pilot	079b68fc
+MW_MAIN.EXE	0xbf61	47	NUL	                EXIT                 EXIT      	0dfe0d06
+MW_MAIN.EXE	0xbfcc	43	NUL	      C-Bills⏎offered. Sell it?	37daae0d
+MW_MAIN.EXE	0xbffd	8	NUL	Sell	803e0688
+MW_MAIN.EXE	0xc00b	6	NUL	Refuse	5d458e91
+MW_MAIN.EXE	0xc086	18	NUL	    Reload ammo	82c503b9
+MW_MAIN.EXE	0xc09e	18	NUL	    Cancel	ede5e557
+MW_MAIN.EXE	0xc0b1	30	NUL	Ammo is already full.	ee7bdfd4
+MW_MAIN.EXE	0xc0d0	47	NUL	Not enough funds⏎to reload everything.	499402dc
+MW_MAIN.EXE	0xc373	51	NUL	Arms      Loc. Dmg⏎⏎⏎⏎⏎⏎⏎⏎⏎⏎⏎⏎Repair cost:⏎Funds:	7daf3ceb
+MW_MAIN.EXE	0xc699	4	NUL	None	c03561ee
+MW_MAIN.EXE	0xc6bd	26	NUL	M.LASER         Center    	026ad7a7
+MW_MAIN.EXE	0xc6d8	26	NUL	MG              R.Arm     	2d5c02c6
+MW_MAIN.EXE	0xc6f3	26	NUL	MG              L.Arm     	e98e17ef
+MW_MAIN.EXE	0xc70e	8	NUL	EXIT	19486efd
+MW_MAIN.EXE	0xc733	26	NUL	SRM-2           L.Torso   	6913ff0b
+MW_MAIN.EXE	0xc74e	8	NUL	EXIT	19486efd
+MW_MAIN.EXE	0xc773	26	NUL	M.LASER         R.Arm     	412832b7
+MW_MAIN.EXE	0xc78e	26	NUL	M.LASER         R.Arm     	412832b7
+MW_MAIN.EXE	0xc7a9	26	NUL	M.LASER         L.Arm     	d98761f6
+MW_MAIN.EXE	0xc7c4	26	NUL	M.LASER         L.Arm     	d98761f6
+MW_MAIN.EXE	0xc7df	8	NUL	EXIT	19486efd
+MW_MAIN.EXE	0xc804	26	NUL	M.LASER         R.Arm     	412832b7
+MW_MAIN.EXE	0xc81f	26	NUL	M.LASER         L.Arm     	d98761f6
+MW_MAIN.EXE	0xc83a	26	NUL	MG              L.Arm     	e98e17ef
+MW_MAIN.EXE	0xc855	26	NUL	MG              R.Arm     	2d5c02c6
+MW_MAIN.EXE	0xc870	8	NUL	EXIT	19486efd
+MW_MAIN.EXE	0xc895	26	NUL	LRM-5           R.Torso   	9dbc4b1a
+MW_MAIN.EXE	0xc8b0	26	NUL	SRM-2           Head      	35703592
+MW_MAIN.EXE	0xc8cb	26	NUL	M.LASER         R.Arm     	412832b7
+MW_MAIN.EXE	0xc8e6	8	NUL	EXIT	19486efd
+MW_MAIN.EXE	0xc90b	26	NUL	SRM-6           L.Torso   	e3c05767
+MW_MAIN.EXE	0xc926	26	NUL	M.LASER         Head      	90b313a3
+MW_MAIN.EXE	0xc941	8	NUL	EXIT	19486efd
+MW_MAIN.EXE	0xc966	26	NUL	L.LASER         L.Arm     	2f3853eb
+MW_MAIN.EXE	0xc981	26	NUL	AC-5            R.Arm     	2f74dba1
+MW_MAIN.EXE	0xc99c	26	NUL	AC-5            L.Arm     	93c50db4
+MW_MAIN.EXE	0xc9b7	26	NUL	M.LASER         R.Torso   	4b2582f7
+MW_MAIN.EXE	0xc9d2	26	NUL	M.LASER         L.Arm     	d98761f6
+MW_MAIN.EXE	0xc9ed	8	NUL	EXIT	19486efd
+MW_MAIN.EXE	0xca12	26	NUL	PPC             L.Arm     	c4d6b588
+MW_MAIN.EXE	0xca2d	26	NUL	SRM-6           R.Torso   	956e6fda
+MW_MAIN.EXE	0xca48	26	NUL	M.LASER         R.Torso   	4b2582f7
+MW_MAIN.EXE	0xca63	26	NUL	M.LASER         L.Torso   	bd54f862
+MW_MAIN.EXE	0xca7e	26	NUL	S.LASER         R.Torso   	5c25cc5d
+MW_MAIN.EXE	0xca99	26	NUL	S.LASER         L.Torso   	3ff9118c
+MW_MAIN.EXE	0xcab4	26	NUL	MG              R.Torso   	cc896db2
+MW_MAIN.EXE	0xcacf	26	NUL	MG              L.Torso   	d4f0079f
+MW_MAIN.EXE	0xcaea	8	NUL	EXIT	19486efd
+MW_MAIN.EXE	0xcb0f	26	NUL	PPC             L.Arm     	c4d6b588
+MW_MAIN.EXE	0xcb2a	26	NUL	M.LASER         R.Arm     	412832b7
+MW_MAIN.EXE	0xcb45	26	NUL	M.LASER         L.Arm     	d98761f6
+MW_MAIN.EXE	0xcb60	26	NUL	AC-5            R.Torso   	70c4fcdd
+MW_MAIN.EXE	0xcb7b	8	NUL	EXIT	19486efd
+MW_MAIN.EXE	0xcba0	26	NUL	M.LASER         R.Torso   	4b2582f7
+MW_MAIN.EXE	0xcbbb	26	NUL	M.LASER         R.Torso   	4b2582f7
+MW_MAIN.EXE	0xcbd6	26	NUL	M.LASER         R.Torso   	4b2582f7
+MW_MAIN.EXE	0xcbf1	26	NUL	MG              L.Arm     	e98e17ef
+MW_MAIN.EXE	0xcc0c	26	NUL	MG              L.Arm     	e98e17ef
+MW_MAIN.EXE	0xcc27	26	NUL	SRM-6           L.Torso   	e3c05767
+MW_MAIN.EXE	0xcc42	26	NUL	M.LASER         L.Torso   	bd54f862
+MW_MAIN.EXE	0xcc5d	26	NUL	M.LASER         L.Torso   	bd54f862
+MW_MAIN.EXE	0xcc78	26	NUL	M.LASER         L.Torso   	bd54f862
+MW_MAIN.EXE	0xcc93	8	NUL	EXIT	19486efd
+MW_MAIN.EXE	0xcf1b	28	NUL	Parts are in short supply.	2e01156a
+MW_MAIN.EXE	0xd0ab	8	NUL	Buy Ammo	07488e6f
+MW_MAIN.EXE	0xd0b4	8	NUL	SellAmmo	5438beab
+MW_MAIN.EXE	0xd0ee	73	NUL	             Buy Ammo⏎Ammo type         Price       Owned⏎⏎⏎⏎⏎⏎⏎⏎Funds:	935c36b1
+MW_MAIN.EXE	0xd1f5	8	NUL	EXIT	19486efd
+MW_MAIN.EXE	0xd2c6	20	NUL	Not enough funds.	565f6019
+MW_MAIN.EXE	0xd2db	50	NUL	Space law forbids owning 13+ mechs.	7dc197fb
+MW_MAIN.EXE	0xd3b8	6	NUL	Buy	d9baca3a
+MW_MAIN.EXE	0xd3c4	16	NUL	Damage level	5aa96fa5
+MW_MAIN.EXE	0xd3da	8	NUL	EXIT	19486efd
+MW_MAIN.EXE	0xd5d4	20	NUL	Arms      Loc. Dmg	223b6977
+MW_MAIN.EXE	0xd7a1	14	NUL	Job Request	e0fb7f3a
+MW_MAIN.EXE	0xd7b5	11	NUL	 Cancel	4196c223
+MW_MAIN.EXE	0xd805	7	NUL	Client:	57bf8abd
+MW_MAIN.EXE	0xd812	6	NUL	Area :	91e4db68
+MW_MAIN.EXE	0xd81e	6	NUL	Job  :	fb1e9b43
+MW_MAIN.EXE	0xd82a	12	NUL	Enemy Force	7d1ffb8a
+MW_MAIN.EXE	0xd83c	42	NUL	Heavy mechs:        Contract:       kCBill	061f6a19
+MW_MAIN.EXE	0xd86c	40	NUL	Medium mechs:       Loot share:        %	3d50f8ad
+MW_MAIN.EXE	0xd89a	38	NUL	Light mechs:        Advance:         %	af4229e5
+MW_MAIN.EXE	0xd8ee	8	NUL	Accept	8f816a0d
+MW_MAIN.EXE	0xd8fc	8	NUL	Next job	b3f48520
+MW_MAIN.EXE	0xd90a	8	NUL	EXIT	19486efd
+MW_MAIN.EXE	0xd972	9	NUL	:･:Kurita	87b2b41b
+MW_MAIN.EXE	0xd97c	10	NUL	Steiner	009e13dc
+MW_MAIN.EXE	0xd987	6	NUL	Marik	6531aca5
+MW_MAIN.EXE	0xd98e	6	NUL	Liao	4956f8a0
+MW_MAIN.EXE	0xd995	8	NUL	Davion	6ba42be4
+MW_MAIN.EXE	0xd9ec	16	ctl0a	Accept offer	463874e2
+MW_MAIN.EXE	0xdab9	36	NUL	No jobs on offer right now.	612d29f6
+MW_MAIN.EXE	0xdade	68	NUL	We can't accept your terms.⏎Contract talks are over.⏎	17bd9ec1
+MW_MAIN.EXE	0xdb23	11	NUL	Signed...	a553ce1b
+MW_MAIN.EXE	0xdb2f	101	NUL	Considering your past actions toward⏎us, we have no intention of offering⏎you work at present.⏎	0b950e49
+MW_MAIN.EXE	0xe81f	8	NUL	EXIT	19486efd
+MW_MAIN.EXE	0xe9fd	6	NUL	Kurita	9d6c877c
+MW_MAIN.EXE	0xea09	10	NUL	Steiner	009e13dc
+MW_MAIN.EXE	0xea19	6	NUL	Marik	6531aca5
+MW_MAIN.EXE	0xea25	6	NUL	Liao	4956f8a0
+MW_MAIN.EXE	0xea31	8	NUL	Davion	6ba42be4
+MW_MAIN.EXE	0xea3f	8	NUL	EXIT	19486efd
+MW_MAIN.EXE	0xeba4	10	NUL	Trip cost	38c701ce
+MW_MAIN.EXE	0xebb4	6	NUL	Funds	17b9e38a
+MW_MAIN.EXE	0xebd2	6	NUL	Move	a75a3e6e
+MW_MAIN.EXE	0xebf0	8	NUL	EXIT	19486efd
+MW_MAIN.EXE	0xec36	15	NUL	Pop.:        	684fb6fe
+MW_MAIN.EXE	0xec67	6	NUL	Select	98fa0e16
+MW_MAIN.EXE	0xec85	4	NUL	Hot	3b862730
+MW_MAIN.EXE	0xec8a	4	NUL	Cold	15f702d3
+MW_MAIN.EXE	0xedf4	14	NUL	G. Braver	f2a07092
+MW_MAIN.EXE	0xee10	4	NUL	Atk	05120038
+MW_MAIN.EXE	0xee16	6	NUL	Flee	46cc0237
+MW_MAIN.EXE	0xee1e	18	NUL	Go to location	42cdaf05
+MW_MAIN.EXE	0xee32	12	NUL	Throw away	dd22e39e
+MW_MAIN.EXE	0xee40	6	NUL	Hide	e1fb1e57
+MW_MAIN.EXE	0xee48	10	NUL	Talk	344d8ab5
+MW_MAIN.EXE	0xee54	14	NUL	Trust her	fbf32ae5
+MW_MAIN.EXE	0xee64	20	NUL	Don't believe it	3616c821
+MW_MAIN.EXE	0xee7a	16	NUL	Chase her	f91f9b2b
+MW_MAIN.EXE	0xee8c	16	NUL	Hide and watch	9027a44a
+MW_MAIN.EXE	0xee9e	18	NUL	Trust Tasha	7983bbfb
+MW_MAIN.EXE	0xeeb2	18	NUL	Trust Kearney	e0379509
+MW_MAIN.EXE	0xeecf	10	NUL	Replay?	e5b3cbeb
+MW_MAIN.EXE	0xeedb	4	NUL	End	f9ec624d
+MW_MAIN.EXE	0xeee1	12	NUL	Hear more	9e0165c8
+MW_MAIN.EXE	0xeeef	10	NUL	No thanks	4e54ba4d
+MW_MAIN.EXE	0xeefb	8	NUL	Accept	8f816a0d
+MW_MAIN.EXE	0xef05	4	NUL	No	38830cc8
+MW_MAIN.EXE	0xef0b	10	NUL	Give up	0ead45a5
+MW_MAIN.EXE	0xef17	10	NUL	Wait	4084233b
+MW_MAIN.EXE	0xef23	8	NUL	Attack	6674984b
+MW_MAIN.EXE	0xef2d	14	NUL	Obey Griez	69251895
+MW_MAIN.EXE	0xef3d	12	NUL	Pull trigger	4954ed2a
+MW_MAIN.EXE	0xef4b	14	NUL	Wait a while	d5c7734a
+MW_MAIN.EXE	0xef5b	16	NUL	Attack now	df822f20
+MW_MAIN.EXE	0xef6d	6	NUL	Go on	9cc245dd
+MW_MAIN.EXE	0xf073	104	NUL	You skipped Dropship payments for 2 months, so⏎the pilot took the Dropship away.⏎	c9bf5293
+MW_MAIN.EXE	0xf0dc	85	NUL	You couldn't pay the crew this month, but they⏎agreed to wait one month.	487ab04f
+MW_MAIN.EXE	0xf132	95	NUL	You didn't pay the Dropship pilot this month, but he⏎agreed to wait one month.	414e583f
+MW_MAIN.EXE	0xf8f6	8	NUL	Luthien	2dfd3a0c
+MW_MAIN.EXE	0xf8ff	24	NUL	Draconis Combine capital	4256aaaf
+MW_MAIN.EXE	0xf922	8	NUL	Pesht	440d4336
+MW_MAIN.EXE	0xf92b	14	NUL	Key army post	82e2970b
+MW_MAIN.EXE	0xf944	10	NUL	Qandahar	5a4d3285
+MW_MAIN.EXE	0xf94f	16	NUL	Hazardous world	ac795c7f
+MW_MAIN.EXE	0xf96a	20	NUL	New Samarkand	5f993849
+MW_MAIN.EXE	0xf97f	14	NUL	ISF HQ	7152b75e
+MW_MAIN.EXE	0xf998	8	NUL	Tabayama	c4abdc29
+MW_MAIN.EXE	0xf9a1	30	NUL	Galedon outer capital	b8e4118b
+MW_MAIN.EXE	0xf9ca	12	NUL	Galedon V	91fe3c90
+MW_MAIN.EXE	0xf9d7	40	NUL	Famed for industrial diamonds	5ce6181a
+MW_MAIN.EXE	0xfa0a	10	NUL	Kaznejov	dca98455
+MW_MAIN.EXE	0xfa15	30	NUL	Galedon 17th Regulars base	78ee3f09
+MW_MAIN.EXE	0xfa3e	10	NUL	Thestria	27674976
+MW_MAIN.EXE	0xfa49	48	NUL	Frozen world known only for precious metals	a6696096
+MW_MAIN.EXE	0xfa84	10	NUL	Misery	95362216
+MW_MAIN.EXE	0xfa8f	22	NUL	Known only for mining	10b4a588
+MW_MAIN.EXE	0xfab0	8	NUL	Matsuida	0e6979ab
+MW_MAIN.EXE	0xfab9	16	NUL	Famed seafood	b76880b4
+MW_MAIN.EXE	0xfad4	6	NUL	Oshika	8c8682f9
+MW_MAIN.EXE	0xfadb	30	NUL	Galedon 16th Regulars base	9bad195c
+MW_MAIN.EXE	0xfb04	10	NUL	Irurzun	ab4e593d
+MW_MAIN.EXE	0xfb0f	28	NUL	Valuable / key army post	2312b6aa
+MW_MAIN.EXE	0xfb36	12	NUL	Proserpina	43d15aed
+MW_MAIN.EXE	0xfb43	32	NUL	Benjamin 19th Regulars base	903c2929
+MW_MAIN.EXE	0xfb6e	12	NUL	Benjamin	077bf217
+MW_MAIN.EXE	0xfb7b	12	NUL	Industrial	439acf12
+MW_MAIN.EXE	0xfb92	8	NUL	Dieron	2ee415d3
+MW_MAIN.EXE	0xfb9b	22	NUL	Dieron capital	2e39b0ab
+MW_MAIN.EXE	0xfbbc	8	NUL	Kessel	c0ee26a8
+MW_MAIN.EXE	0xfbc5	26	NUL	Strong rebels / dangerous	d91989ba
+MW_MAIN.EXE	0xfbea	16	NUL	Buckminster	1fad7392
+MW_MAIN.EXE	0xfbfb	30	NUL	Light Sword 2nd unit base	4a2e1373
+MW_MAIN.EXE	0xfc24	8	NUL	Karbala	f00c6f3e
+MW_MAIN.EXE	0xfc2d	36	NUL	Summer resort / famed gems	1ac08719
+MW_MAIN.EXE	0xfc5c	8	NUL	Rubigen	2b6d87d0
+MW_MAIN.EXE	0xfc65	22	NUL	Frozen; famed for fur	132c50c2
+MW_MAIN.EXE	0xfc86	8	NUL	Galuzzo	fdb85728
+MW_MAIN.EXE	0xfc8f	28	NUL	Known for fine wine & pizza	463ea4ce
+MW_MAIN.EXE	0xfcb6	12	NUL	Alshain	00aa13f0
+MW_MAIN.EXE	0xfcc3	22	NUL	BattleMech industry	42e646ab
+MW_MAIN.EXE	0xfce4	14	NUL	Radstadt	cb96569e
+MW_MAIN.EXE	0xfcf3	32	NUL	Draconis' biggest prison	8e2ed109
+MW_MAIN.EXE	0xfd1e	12	NUL	Kirchbach	f9d22475
+MW_MAIN.EXE	0xfd2b	24	NUL	Mild; few resources	7a938d02
+MW_MAIN.EXE	0xfd4e	10	NUL	Rasalhague	07412880
+MW_MAIN.EXE	0xfd59	22	NUL	Industry & resources	c00d04c3
+MW_MAIN.EXE	0xfd7a	10	NUL	Albiero	a6119016
+MW_MAIN.EXE	0xfd85	18	NUL	Matabushi Inc. HQ	a6628263
+MW_MAIN.EXE	0xfda2	4	NUL	Vega	0b7dd7e4
+MW_MAIN.EXE	0xfda7	40	NUL	Cosby-Myomar Research HQ	7b0c9d37
+MW_MAIN.EXE	0xfdda	10	NUL	Skokie	b908e2cc
+MW_MAIN.EXE	0xfde5	30	NUL	Frozen, rich in minerals	b45f203c
+MW_MAIN.EXE	0xfe0e	8	NUL	Xinyang	6d81074b
+MW_MAIN.EXE	0xfe17	28	NUL	Resort popular with mercs	4d475718
+MW_MAIN.EXE	0xfe3e	12	NUL	Delacruz	0107e93b
+MW_MAIN.EXE	0xfe4b	40	NUL	War-torn / several big factories	366525d3
+MW_MAIN.EXE	0xfe7e	14	NUL	Land's End	6f34d24d
+MW_MAIN.EXE	0xfe8d	22	NUL	Run-down outer world	2df0069d
+MW_MAIN.EXE	0xfeae	10	NUL	Tharkad	a9c71601
+MW_MAIN.EXE	0xfeb9	22	NUL	Lyran Alliance capital	a454e64c
+MW_MAIN.EXE	0xfeda	8	NUL	Donegal	00f46035
+MW_MAIN.EXE	0xfee3	40	NUL	Diamonds, rare metals, trade	b2739fb4
+MW_MAIN.EXE	0xff16	10	NUL	Alarion	30220e76
+MW_MAIN.EXE	0xff21	32	NUL	Heavy industry, rocket yards	60e9b232
+MW_MAIN.EXE	0xff4c	12	NUL	Coventry	16a2cbea
+MW_MAIN.EXE	0xff59	38	NUL	HQ of Lyran's #2 BattleMech firm	79d90011
+MW_MAIN.EXE	0xff8a	12	NUL	Poulsbo	96779765
+MW_MAIN.EXE	0xff97	36	NUL	Jump point for striking Marik	883e9d87
+MW_MAIN.EXE	0xffc6	12	NUL	Timbuktu	3e4c2a69
+MW_MAIN.EXE	0xffd3	34	NUL	11th Arcturus Guards HQ	24da461d
+MW_MAIN.EXE	0x10000	26	NUL	Bountiful Harvest	45156cf4
+MW_MAIN.EXE	0x1001b	26	NUL	Lyran's top farm world	73741b13
+MW_MAIN.EXE	0x10040	14	NUL	Chuckchi III	7184e48e
+MW_MAIN.EXE	0x1004f	22	NUL	Titanium mining	0cb08825
+MW_MAIN.EXE	0x10070	6	NUL	Skye	ee9494ed
+MW_MAIN.EXE	0x10077	26	NUL	Industry beside wilderness	218e68dc
+MW_MAIN.EXE	0x1009c	16	NUL	Alexandria	89704dfe
+MW_MAIN.EXE	0x100ad	34	NUL	Ruined by war with Kurita	70823ce6
+MW_MAIN.EXE	0x100da	6	NUL	Rahne	cd8c3bde
+MW_MAIN.EXE	0x100e1	50	NUL	Harsh world / outdoors only 2 seasons	b284f5fb
+MW_MAIN.EXE	0x1011e	10	NUL	Hesperus	926347f7
+MW_MAIN.EXE	0x10129	26	NUL	Big BattleMech factory	0922e134
+MW_MAIN.EXE	0x1014e	16	NUL	Port Moseby	bc4e4d72
+MW_MAIN.EXE	0x1015f	46	NUL	Trade hub / anything for money	9ff1d768
+MW_MAIN.EXE	0x10198	8	NUL	Mizar	683342ee
+MW_MAIN.EXE	0x101a1	22	NUL	Tasteful resort world	aedbfb5b
+MW_MAIN.EXE	0x101c2	8	NUL	Sevren	f17ec9ea
+MW_MAIN.EXE	0x101cb	24	NUL	Large reactor plant	b3aeeca6
+MW_MAIN.EXE	0x101ee	6	NUL	Carse	98b4d243
+MW_MAIN.EXE	0x101f5	40	NUL	Plastics & resin-metal center	2e1786f0
+MW_MAIN.EXE	0x10228	6	NUL	Kobe	a4603b9b
+MW_MAIN.EXE	0x1022f	38	NUL	Electronics & chem engines	9c36fa28
+MW_MAIN.EXE	0x10260	12	NUL	Dustball	210fe462
+MW_MAIN.EXE	0x1026d	42	NUL	High society; vice for sale	f40e51c0
+MW_MAIN.EXE	0x102a2	6	NUL	Suk II	1502f7a3
+MW_MAIN.EXE	0x102a9	18	NUL	Precious metals	ffdba379
+MW_MAIN.EXE	0x102c6	16	NUL	Winfield	6ee4f791
+MW_MAIN.EXE	0x102d7	18	NUL	Mild farm world	8de342d4
+MW_MAIN.EXE	0x102f4	10	NUL	Anywhere	74a8ea87
+MW_MAIN.EXE	0x102ff	22	NUL	Nothing but bandits	59ea8cb8
+MW_MAIN.EXE	0x10320	6	NUL	Tamar	873de7b0
+MW_MAIN.EXE	0x10327	22	NUL	Key trade & industry	1883d688
+MW_MAIN.EXE	0x10348	8	NUL	Anembo	4f38f54a
+MW_MAIN.EXE	0x10351	22	NUL	Barren, few resources	ada6871b
+MW_MAIN.EXE	0x10372	10	NUL	Timbiqui	89dff538
+MW_MAIN.EXE	0x1037d	24	NUL	Industrial, mineral-rich	09c51279
+MW_MAIN.EXE	0x103a0	10	NUL	Dixie	4cbc3e93
+MW_MAIN.EXE	0x103ab	34	NUL	Good food, warm hospitality	4f03a1d5
+MW_MAIN.EXE	0x103d8	12	NUL	Arcadia	2d0311d4
+MW_MAIN.EXE	0x103e5	20	NUL	Farming & industry	db1c105a
+MW_MAIN.EXE	0x10404	10	NUL	Valloire	0c99ceed
+MW_MAIN.EXE	0x1040f	30	NUL	Lyran's finest tea region	7b8c7533
+MW_MAIN.EXE	0x10438	8	NUL	Thorin	f7d0f2bd
+MW_MAIN.EXE	0x10441	30	NUL	Old world of minerals & gems	8d45b9f7
+MW_MAIN.EXE	0x1046a	10	NUL	Garrison	4e75eeb7
+MW_MAIN.EXE	0x10475	38	NUL	Military training center & base	a8a73eef
+MW_MAIN.EXE	0x104a6	12	NUL	Niangol	ef6997d1
+MW_MAIN.EXE	0x104b3	30	NUL	Oil & precious metal refining	3381edb7
+MW_MAIN.EXE	0x104dc	10	NUL	Atreus	22312a3d
+MW_MAIN.EXE	0x104e7	30	NUL	Free Worlds League capital	9813c789
+MW_MAIN.EXE	0x10510	12	NUL	Angell II	b1e3325c
+MW_MAIN.EXE	0x1051d	22	NUL	Marik's top funding	8405428c
+MW_MAIN.EXE	0x1053e	6	NUL	Marik	6531aca5
+MW_MAIN.EXE	0x10545	20	NUL	Officers' winter spa	f6265517
+MW_MAIN.EXE	0x10564	8	NUL	Silver	5666e3dc
+MW_MAIN.EXE	0x1056d	14	NUL	Silver ore	448975c4
+MW_MAIN.EXE	0x10586	14	NUL	Andurien	40ab42d5
+MW_MAIN.EXE	0x10595	12	NUL	Gardens	79c6a872
+MW_MAIN.EXE	0x105ac	22	NUL	Alula Australis	47a91296
+MW_MAIN.EXE	0x105c3	40	NUL	Cirebon, Lengko, Mosiro mines	776cc2a7
+MW_MAIN.EXE	0x105f6	8	NUL	Gibson	a70164e0
+MW_MAIN.EXE	0x105ff	26	NUL	Diverse peoples & faiths	ea3dee2f
+MW_MAIN.EXE	0x10624	6	NUL	Mosiro	70309125
+MW_MAIN.EXE	0x1062b	52	NUL	Mostly Muslim / known for astrophysics & arts	0c4f8e56
+MW_MAIN.EXE	0x1066a	14	NUL	Calloway VI	e7e96337
+MW_MAIN.EXE	0x10679	34	NUL	BattleMech plant; busy trade	a0a3b6a8
+MW_MAIN.EXE	0x106a6	10	NUL	Oriente	4b0b1640
+MW_MAIN.EXE	0x106b1	24	NUL	Green hills and forests	ff658ff1
+MW_MAIN.EXE	0x106d4	14	NUL	New Delos	1cdc909c
+MW_MAIN.EXE	0x106e3	28	NUL	Lovely but economy is poor	63cbe0c9
+MW_MAIN.EXE	0x1070a	10	NUL	Regulus	b2f1ed1d
+MW_MAIN.EXE	0x10715	50	NUL	Home of John 'Icepick' Melton	2fa0be56
+MW_MAIN.EXE	0x10752	8	NUL	Lesnovo	6db7d68f
+MW_MAIN.EXE	0x1075b	40	NUL	Often raided by Marian bandits	eed37146
+MW_MAIN.EXE	0x1078e	8	NUL	Amity	fcbb7dd5
+MW_MAIN.EXE	0x10797	20	NUL	Varied industries	26ded7ec
+MW_MAIN.EXE	0x107b6	4	NUL	Shlo	b4f70910
+MW_MAIN.EXE	0x107bb	34	NUL	Exports woodcraft & silkscreen	7c6786c9
+MW_MAIN.EXE	0x107e8	10	NUL	Procyon	a8224167
+MW_MAIN.EXE	0x107f3	48	NUL	Ex-HQ of Brigadier Mech Co.	91c56542
+MW_MAIN.EXE	0x1082e	10	NUL	Tamarind	66ebe5e4
+MW_MAIN.EXE	0x10839	22	NUL	Famed for its artists	7b1a903a
+MW_MAIN.EXE	0x1085a	14	NUL	Claybrooke	3e647a47
+MW_MAIN.EXE	0x10869	12	NUL	Ranching	3215adee
+MW_MAIN.EXE	0x10880	8	NUL	Irian	9c79dc70
+MW_MAIN.EXE	0x10889	20	NUL	Huge mech factory	18f2cebf
+MW_MAIN.EXE	0x108a8	8	NUL	Oliver	3c890302
+MW_MAIN.EXE	0x108b1	26	NUL	Major industry, mech plant	5b9b32f4
+MW_MAIN.EXE	0x108d6	6	NUL	Suzano	c519f526
+MW_MAIN.EXE	0x108dd	24	NUL	Fish from icy seas	9539bfe6
+MW_MAIN.EXE	0x10900	6	NUL	Goodna	894dcea3
+MW_MAIN.EXE	0x10907	24	NUL	Rich in rare delicacies	d2fe32c5
+MW_MAIN.EXE	0x1092a	8	NUL	Sadurni	ba9c1645
+MW_MAIN.EXE	0x10933	14	NUL	Frozen, barren	0493615d
+MW_MAIN.EXE	0x1094c	10	NUL	Cirebon	a48fc67c
+MW_MAIN.EXE	0x10957	36	NUL	Computer & aerospace industry	4b3d97d3
+MW_MAIN.EXE	0x10986	8	NUL	Nestor	fa9df948
+MW_MAIN.EXE	0x1098f	24	NUL	Grain-farming world	bd0c6b75
+MW_MAIN.EXE	0x109b2	10	NUL	Griffith	aad9d7f3
+MW_MAIN.EXE	0x109bd	28	NUL	Small but key arms maker	315d0591
+MW_MAIN.EXE	0x109e4	18	NUL	Autumn Wind	450ecf69
+MW_MAIN.EXE	0x109f7	22	NUL	Lush resort world	cc30c5f8
+MW_MAIN.EXE	0x10a18	10	NUL	Chalouba	68dec070
+MW_MAIN.EXE	0x10a23	40	NUL	Pastoral, electronics growing	89384339
+MW_MAIN.EXE	0x10a56	20	NUL	Sophie's World	c8020ad1
+MW_MAIN.EXE	0x10a6b	18	NUL	Arts & learning	54c5f5fe
+MW_MAIN.EXE	0x10a88	10	NUL	Zortman	f2768e51
+MW_MAIN.EXE	0x10a93	16	NUL	Tech research	32339335
+MW_MAIN.EXE	0x10aae	6	NUL	Sian	832d41f2
+MW_MAIN.EXE	0x10ab5	20	NUL	Capellan capital	8ceb1dd7
+MW_MAIN.EXE	0x10ad4	14	NUL	Betelgeuse	fb11b5af
+MW_MAIN.EXE	0x10ae3	26	NUL	Big industry, mech plant	63b71840
+MW_MAIN.EXE	0x10b08	18	NUL	Buenos Aires	2692e9a0
+MW_MAIN.EXE	0x10b1b	28	NUL	Underground & sea farming	7d83dc32
+MW_MAIN.EXE	0x10b42	16	NUL	Grand Base	080695e4
+MW_MAIN.EXE	0x10b53	40	NUL	Army base, training, repair yard	50385f5c
+MW_MAIN.EXE	0x10b86	6	NUL	Menke	aa6667c4
+MW_MAIN.EXE	0x10b8d	28	NUL	McCarron's Armored HQ	e3ec42ec
+MW_MAIN.EXE	0x10bb4	10	NUL	Turin	3e3f5441
+MW_MAIN.EXE	0x10bbf	22	NUL	Horses & cattle	7a053afc
+MW_MAIN.EXE	0x10be0	10	NUL	Tikonov	18aa4d16
+MW_MAIN.EXE	0x10beb	28	NUL	Capellan largest mech works	9c4cacae
+MW_MAIN.EXE	0x10c12	12	NUL	Aldebaran	b579f17e
+MW_MAIN.EXE	0x10c1f	16	NUL	Trade & industry	584e86f5
+MW_MAIN.EXE	0x10c3a	10	NUL	Bharat	1a426488
+MW_MAIN.EXE	0x10c45	16	NUL	Game preserve	6b820c0f
+MW_MAIN.EXE	0x10c60	6	NUL	Keid	5edca5ed
+MW_MAIN.EXE	0x10c67	32	NUL	Many drill & research sites	050d5c03
+MW_MAIN.EXE	0x10c92	10	NUL	Nanking	64bfe400
+MW_MAIN.EXE	0x10c9d	30	NUL	Daidachi Warriors HQ	7899a701
+MW_MAIN.EXE	0x10cc6	16	NUL	New Hessen	9065bc82
+MW_MAIN.EXE	0x10cd7	30	NUL	Main Liao training center	8f2c3a6f
+MW_MAIN.EXE	0x10d00	16	NUL	Tall Trees	21480290
+MW_MAIN.EXE	0x10d11	44	NUL	Lab that built the New Plague	4f623a5c
+MW_MAIN.EXE	0x10d48	6	NUL	Capel.	a81e4998
+MW_MAIN.EXE	0x10d4f	34	NUL	Ceres Metals & Capella Bank HQ	65e46351
+MW_MAIN.EXE	0x10d7c	6	NUL	Ares	cb5a2315
+MW_MAIN.EXE	0x10d83	32	NUL	Free port / mech factory	7fa4a6f1
+MW_MAIN.EXE	0x10dae	8	NUL	Bithinia	9ae6a378
+MW_MAIN.EXE	0x10db7	30	NUL	Entertainment / steel works	796f75c3
+MW_MAIN.EXE	0x10de0	10	NUL	Exedor	31432339
+MW_MAIN.EXE	0x10deb	34	NUL	Strong force guards Liao's assets	95f89166
+MW_MAIN.EXE	0x10e18	8	NUL	Necromo	b75df810
+MW_MAIN.EXE	0x10e21	38	NUL	Liao Dropship repair yard	a5de40b5
+MW_MAIN.EXE	0x10e52	6	NUL	Rabala	e1a6fa16
+MW_MAIN.EXE	0x10e59	26	NUL	Aerospace research center	9b3def06
+MW_MAIN.EXE	0x10e7e	10	NUL	Styk	80f5351f
+MW_MAIN.EXE	0x10e89	30	NUL	Capella's #2 trade/industry	7333e48b
+MW_MAIN.EXE	0x10eb2	10	NUL	Tsinghai	52e6326f
+MW_MAIN.EXE	0x10ebd	32	NUL	Known for wine & nuclear ore	c0ba9fce
+MW_MAIN.EXE	0x10ee8	10	NUL	Warlock	d7942cd7
+MW_MAIN.EXE	0x10ef3	30	NUL	Military R&D facilities	65ef4f4a
+MW_MAIN.EXE	0x10f1c	4	NUL	Mats	6c04115b
+MW_MAIN.EXE	0x10f21	16	NUL	Precious metals	c6248516
+MW_MAIN.EXE	0x10f3c	10	NUL	Zanzibar	491badcb
+MW_MAIN.EXE	0x10f47	52	NUL	Famed black market / anything available	7e4745d7
+MW_MAIN.EXE	0x10f86	6	NUL	Milos	d38625bb
+MW_MAIN.EXE	0x10f8d	42	NUL	Farm world / some strategic value	8f635c40
+MW_MAIN.EXE	0x10fc2	16	NUL	New Avalon	f9300bf6
+MW_MAIN.EXE	0x10fd3	18	NUL	FedSuns capital	757b205b
+MW_MAIN.EXE	0x10ff0	18	NUL	New Syrtis	9d08ea2f
+MW_MAIN.EXE	0x11003	20	NUL	Capellan army HQ	40577517
+MW_MAIN.EXE	0x11022	10	NUL	Robinson	b3270607
+MW_MAIN.EXE	0x1102d	14	NUL	Terran army HQ	6ad11d87
+MW_MAIN.EXE	0x11046	8	NUL	Kesai IV	056513dd
+MW_MAIN.EXE	0x1104f	38	NUL	Key military site, little else	e2c4950d
+MW_MAIN.EXE	0x11080	12	NUL	Galax	046cccc8
+MW_MAIN.EXE	0x1108d	20	NUL	Mining & industry	0e31a51d
+MW_MAIN.EXE	0x110ac	18	NUL	Mallory's World	1b0a0ef1
+MW_MAIN.EXE	0x110bf	34	NUL	Ex-farm world, ruined by war	d518fd8b
+MW_MAIN.EXE	0x110ec	8	NUL	Kathil	a3cc473b
+MW_MAIN.EXE	0x110f5	58	NUL	Main JumpShip & DropShip building yards	6305493f
+MW_MAIN.EXE	0x1113a	16	NUL	Redfield	e267afc7
+MW_MAIN.EXE	0x1114b	24	NUL	Endless war; barren	20fc3b5a
+MW_MAIN.EXE	0x1116e	14	NUL	Okefenokee	5f06cb03
+MW_MAIN.EXE	0x1117d	26	NUL	Oil recently found	4c36a126
+MW_MAIN.EXE	0x111a2	12	NUL	Gambler	cbb6f715
+MW_MAIN.EXE	0x111af	32	NUL	Entertainment / some industry	ac4845fb
+MW_MAIN.EXE	0x111da	10	NUL	Marduk	7b2bddc7
+MW_MAIN.EXE	0x111e5	38	NUL	Norse BattleMech Works HQ	81e319d4
+MW_MAIN.EXE	0x11216	18	NUL	Ander's Moon	f8afc859
+MW_MAIN.EXE	0x11229	30	NUL	Unremarkable farming world	cc739121
+MW_MAIN.EXE	0x11252	12	NUL	Hyalite	d4d65879
+MW_MAIN.EXE	0x1125f	14	NUL	Chemicals	6f49c916
+MW_MAIN.EXE	0x11278	14	NUL	Tancredi IV	22bc136e
+MW_MAIN.EXE	0x11287	24	NUL	Key mining & industry	37db5a77
+MW_MAIN.EXE	0x112aa	8	NUL	Hobbs	f4cd87da
+MW_MAIN.EXE	0x112b3	22	NUL	Giant cave storage	3ed91203
+MW_MAIN.EXE	0x112d4	10	NUL	Kittery	9687c42f
+MW_MAIN.EXE	0x112df	44	NUL	Deep jungle / native rebellion	2c30e74c
+MW_MAIN.EXE	0x11316	18	NUL	Great Gorge	e358fb2a
+MW_MAIN.EXE	0x11329	40	NUL	Mild, mineral-rich / near deep space	3193d243
+MW_MAIN.EXE	0x1135c	6	NUL	Caph	a52b19ff
+MW_MAIN.EXE	0x11363	34	NUL	Davion-Steiner main border port	b9f66268
+MW_MAIN.EXE	0x11390	4	NUL	Hoff	54baa4ef
+MW_MAIN.EXE	0x11395	30	NUL	Friden Aerospace Institute	b664d493
+MW_MAIN.EXE	0x113be	12	NUL	Baxley	eec8c05d
+MW_MAIN.EXE	0x113cb	34	NUL	Remote world with nothing to see	1348db88
+MW_MAIN.EXE	0x113f8	10	NUL	Greely	91832173
+MW_MAIN.EXE	0x11403	32	NUL	Recently rebuilt as a base	9d5f1c24
+MW_MAIN.EXE	0x1142e	10	NUL	Cogdell	66760350
+MW_MAIN.EXE	0x11439	26	NUL	Politically unstable farms	f92880cd
+MW_MAIN.EXE	0x1145e	10	NUL	Frazer	800e901d
+MW_MAIN.EXE	0x11469	18	NUL	Rice & oil	7c1a107f
+MW_MAIN.EXE	0x11486	10	NUL	Moravian	e0a61ca3
+MW_MAIN.EXE	0x11491	40	NUL	Mining ruined by war; economy a mess	abb8d2e2
+MW_MAIN.EXE	0x114c4	16	NUL	New Aragon	6541977a
+MW_MAIN.EXE	0x114d5	40	NUL	Liao claims it since 2832	30f00b20
+MW_MAIN.EXE	0x11508	10	NUL	Noatak	373107a0
+MW_MAIN.EXE	0x11513	14	NUL	Sea animals	f3da8f22
+MW_MAIN.EXE	0x1152c	10	NUL	Beecher	234299d9
+MW_MAIN.EXE	0x11537	34	NUL	Farms, industry; top wines	bf17ad9b
+MW_MAIN.EXE	0x11564	8	NUL	Xhosa	5b84eb88
+MW_MAIN.EXE	0x1156d	32	NUL	Aerospace ruined by war	88a7c3cb
+MW_MAIN.EXE	0x11598	16	NUL	Immenstadt	9add5d58
+MW_MAIN.EXE	0x115a9	42	NUL	Cold most of year; hydroponics	ce00c8f1
+MW_MAIN.EXE	0x115de	14	NUL	Delacambre	ff460ce9
+MW_MAIN.EXE	0x115ed	26	NUL	Supplies food to neighbors	cd12ebbf
+MW_MAIN.EXE	0x11612	18	NUL	Ander's Moon	f8afc859
+MW_MAIN.EXE	0x11625	30	NUL	Unremarkable farming world	cc739121
+MW_MAIN.EXE	0x11699	8	NUL	Garrison	282e1d91
+MW_MAIN.EXE	0x116a4	8	NUL	Security	daf8fa32
+MW_MAIN.EXE	0x116af	12	NUL	Guard water	97b89cb4
+MW_MAIN.EXE	0x116be	12	NUL	Guard arms	a01bbbe9
+MW_MAIN.EXE	0x116cd	14	NUL	Guard fuel	753f2f5f
+MW_MAIN.EXE	0x116de	26	NUL	Guard computer center	8dcc70c1
+MW_MAIN.EXE	0x116fb	10	NUL	Guard dump	1439cc5e
+MW_MAIN.EXE	0x11708	12	NUL	Guard port	3de96802
+MW_MAIN.EXE	0x11717	8	NUL	Suppress	1729c13d
+MW_MAIN.EXE	0x11722	12	NUL	Relieve unit	06b9ad47
+MW_MAIN.EXE	0x11731	8	NUL	Hostage	beadfa11
+MW_MAIN.EXE	0x1173c	8	NUL	Captives	82c3eced
+MW_MAIN.EXE	0x11747	12	NUL	Retake loot	6b904e54
+MW_MAIN.EXE	0x11756	14	NUL	Retake mechs	6b9d427c
+MW_MAIN.EXE	0x11767	12	NUL	Long attack	195ae2e8
+MW_MAIN.EXE	0x11776	12	NUL	Long defense	448d9008
+MW_MAIN.EXE	0x11785	8	NUL	Raid	adee340b
+MW_MAIN.EXE	0x11790	12	NUL	Siege	8df522bb
+MW_MAIN.EXE	0x1179f	12	NUL	Support atk	c75a4385
+MW_MAIN.EXE	0x117ae	8	NUL	Recon	e9f28908
+MW_MAIN.EXE	0x117b9	8	NUL	Feint	bf3e61ed
+MW_MAIN.EXE	0x117c4	10	NUL	Rout guard	f15d7cd3
+MW_MAIN.EXE	0x117d1	12	NUL	Wreck water	8197ed6e
+MW_MAIN.EXE	0x117e0	12	NUL	Wreck arms	e834862b
+MW_MAIN.EXE	0x117ef	14	NUL	Wreck fuel	948974dd
+MW_MAIN.EXE	0x11800	14	NUL	Wreck armory	925fc9ad
+MW_MAIN.EXE	0x11811	26	NUL	Wreck computer center	1644e923
+MW_MAIN.EXE	0x1182e	10	NUL	Rout def.	6e872e4d
+MW_MAIN.EXE	0x1183b	16	NUL	Destroy new arms	5e645f74
+MW_MAIN.EXE	0x1184e	14	NUL	Wreck mech fac	6386a623
+MW_MAIN.EXE	0x1185f	10	NUL	Kill guard	4e22d6da
+MW_MAIN.EXE	0x1186c	12	NUL	Wreck port	565d70d8
+MW_MAIN.EXE	0x1187b	16	NUL	Wreck arms/mechs	edde0121
+MW_MAIN.EXE	0x1188e	8	NUL	Abduct	d65176e4
+MW_MAIN.EXE	0x11a61	12	NUL	Order drink	0084163d
+MW_MAIN.EXE	0x11a73	14	NUL	Recruit crew	b7ab8614
+MW_MAIN.EXE	0x11ad1	56	NUL	A mercenary approaches......⏎⏎⏎⏎⏎⏎⏎Hire as crew?	24abc9a8
+MW_MAIN.EXE	0x11baa	16	NUL	Elli Gujar	d85deb06
+MW_MAIN.EXE	0x11bbb	45	NUL	Just started, but I'll give it⏎my all.	23e4d423
+MW_MAIN.EXE	0x11bec	16	NUL	Karen Blak	ca0e485f
+MW_MAIN.EXE	0x11bfd	38	NUL	Green, but I deliver when it counts.	bd44e6aa
+MW_MAIN.EXE	0x11c27	12	NUL	Taris Ren	bdf85fb5
+MW_MAIN.EXE	0x11c38	67	NUL	I'll do any job. Whatever you pay,⏎it'll be worth it.	b8dbc5ac
+MW_MAIN.EXE	0x11c7f	4	NUL	TJ	4208e54b
+MW_MAIN.EXE	0x11c90	49	NUL	Name the target and⏎leave the rest to me.	1ddc95cd
+MW_MAIN.EXE	0x11cc5	14	NUL	B. Sajak	0fbcecf1
+MW_MAIN.EXE	0x11cd6	49	NUL	B is for Blood. I'll⏎take down anyone.	1efdd7cb
+MW_MAIN.EXE	0x11d0b	12	NUL	Pam North	b0824ae0
+MW_MAIN.EXE	0x11d1c	65	NUL	Till lately I worked with the⏎Vegan Rangers' 12th Division.	faec83c3
+MW_MAIN.EXE	0x11d61	12	NUL	Tara Ellis	d8b23282
+MW_MAIN.EXE	0x11d72	77	NUL	My last job was a medium mech with the⏎Eridani Light Horse.	8f91e86e
+MW_MAIN.EXE	0x11dc3	10	NUL	A. Morris	1302f94a
+MW_MAIN.EXE	0x11dd4	57	NUL	On a Kurita job I fought to the⏎end in a Locust.	2801cc1d
+MW_MAIN.EXE	0x11e11	14	NUL	Ilsa Marn	cee95d62
+MW_MAIN.EXE	0x11e22	63	NUL	It was secret, so I can't say, but I⏎joined an operation.	ef2f9569
+MW_MAIN.EXE	0x11e65	4	NUL	Ara	1e769f15
+MW_MAIN.EXE	0x11e76	71	NUL	No surname, just Ara. Piloting isn't⏎my only skill.	42b88a04
+MW_MAIN.EXE	0x11ec1	10	NUL	S. Miller	1369c4f2
+MW_MAIN.EXE	0x11ed2	30	NUL	Learned in 3rd Recon Unit.	1604ab88
+MW_MAIN.EXE	0x11ef4	14	NUL	Rose Artz	fbe82731
+MW_MAIN.EXE	0x11f05	78	NUL	Last I was hired by Eridani Light⏎Horse, in a Thunderbolt.⏎	0d1a6c17
+MW_MAIN.EXE	0x11f57	14	NUL	JJ Kitter	ebdeda78
+MW_MAIN.EXE	0x11f68	67	NUL	I've worked with Waco Rangers and⏎Miller's Marauders.	3729d01a
+MW_MAIN.EXE	0x11faf	14	NUL	Emma Meyer	26b15c34
+MW_MAIN.EXE	0x11fc0	45	NUL	Did scouting and defense for⏎Brion's army.	ce0683bd
+MW_MAIN.EXE	0x11ff1	16	NUL	Erin Falls	9c7c2be6
+MW_MAIN.EXE	0x12002	38	NUL	No mech I can't handle.	c48dede1
+MW_MAIN.EXE	0x1202c	16	NUL	A. Chu Lai	50aef576
+MW_MAIN.EXE	0x1203d	47	NUL	Rode a Javelin in the Waco⏎Rangers' recon.	e3f10a2d
+MW_MAIN.EXE	0x12070	14	NUL	Zera Tith	55049817
+MW_MAIN.EXE	0x12081	78	NUL	Been around. Last gig was bandit⏎king Helmar Valasek.⏎	b6b33d7b
+MW_MAIN.EXE	0x120d3	16	NUL	Chaney Ti	85e12f1d
+MW_MAIN.EXE	0x120e4	45	NUL	I've worked for the Black Widow.⏎	d74ad1ac
+MW_MAIN.EXE	0x12115	14	NUL	Bob True	857bd1ea
+MW_MAIN.EXE	0x12126	45	NUL	Hire me and see. I'll be⏎useful.	c361851a
+MW_MAIN.EXE	0x12157	16	NUL	Ted Hegel	37b0565d
+MW_MAIN.EXE	0x12168	78	NUL	Had a little trouble with the⏎Widow. Looking for a new mech.⏎	fbe47926
+MW_MAIN.EXE	0x121ba	16	NUL	Tim Seers	a5c6f570
+MW_MAIN.EXE	0x121cb	28	NUL	Ex-infantry, but not now.	4542d0a7
+MW_MAIN.EXE	0x121eb	14	NUL	Z. Rodgers	9936ea71
+MW_MAIN.EXE	0x121fc	57	NUL	Once an engineer in Richard's Panzer⏎Brigade.	c5676002
+MW_MAIN.EXE	0x12239	14	NUL	T.D. Bente	6cf21ee4
+MW_MAIN.EXE	0x1224a	36	NUL	Give me a mech. I'll be useful.	95b855db
+MW_MAIN.EXE	0x12272	10	NUL	T. Rich	c4da4753
+MW_MAIN.EXE	0x12283	51	NUL	Learned a lot with Hansen's⏎Roughriders.	c4ea1d36
+MW_MAIN.EXE	0x122ba	12	NUL	John Zo	b58f1c5d
+MW_MAIN.EXE	0x122cb	38	NUL	My last job was with Wolf's Dragoons.	d849d5ab
+MW_MAIN.EXE	0x122f5	10	NUL	Kelly T	48c6e5b6
+MW_MAIN.EXE	0x12306	38	NUL	Show me the money; I'll do the job.	7da9d6dc
+MW_MAIN.EXE	0x12330	14	NUL	Kinji Tsi	479039a7
+MW_MAIN.EXE	0x12341	51	NUL	My way is bushido. That's⏎what a warrior is.	4900606c
+MW_MAIN.EXE	0x12378	14	NUL	Billy Chow	34df9fde
+MW_MAIN.EXE	0x12389	30	NUL	Pay me and I'll do anything.	5f9238eb
+MW_MAIN.EXE	0x123ab	16	NUL	Alex Bear	eeae6df8
+MW_MAIN.EXE	0x123bc	32	NUL	I honed my skills on Solaris.	f7bba7f4
+MW_MAIN.EXE	0x123e0	16	NUL	Pete Ryan	da43ea8f
+MW_MAIN.EXE	0x123f1	38	NUL	My luck is up. Leave it to me.	5609cad5
+MW_MAIN.EXE	0x1241b	16	NUL	B. Hendrick	427369c0
+MW_MAIN.EXE	0x1242c	67	NUL	Started with Narhal's Raiders, then⏎did all kinds of jobs.	d8b91bda
+MW_MAIN.EXE	0x12473	12	NUL	A. Cooper	8b682463
+MW_MAIN.EXE	0x12484	43	NUL	Years of work since I⏎started in FedSuns.	b5b68638
+MW_MAIN.EXE	0x124b3	16	NUL	Tricky Lee	b850d4db
+MW_MAIN.EXE	0x124c4	86	NUL	Ever heard of Redjak Ryan? I⏎fought for him a while.⏎	04e6ed67
+MW_MAIN.EXE	0x1251e	6	NUL	Killer	4737666a
+MW_MAIN.EXE	0x1252f	55	NUL	My hobby is killing. And⏎eating the bodies.	1ee26297
+MW_MAIN.EXE	0x1256a	14	NUL	R. Tosak	8b099dff
+MW_MAIN.EXE	0x1257b	40	NUL	Marauder pilot, 21st Centauri Lancers.	d005e795
+MW_MAIN.EXE	0x125a7	16	NUL	G. Lowfall	5d50277d
+MW_MAIN.EXE	0x125b8	78	NUL	Fair warning: I'm not easy to work⏎with. But I fight like no other.⏎	c03983ce
+MW_MAIN.EXE	0x1260a	14	NUL	Dark Horse	8d362296
+MW_MAIN.EXE	0x1261b	65	NUL	I usually work alone, but I might take⏎your job.	b3e28a34
+MW_MAIN.EXE	0x12660	14	NUL	Jim Eagle	8c41b8fc
+MW_MAIN.EXE	0x12671	45	NUL	Lately I worked in Lyndon's⏎unit.	c4542d56
+MW_MAIN.EXE	0x126a2	14	NUL	Tank Smith	adf34560
+MW_MAIN.EXE	0x126b3	49	NUL	I like heavy mechs. Maybe⏎everyone does.	9d70ceaa
+MW_MAIN.EXE	0x126e8	14	NUL	Kevin Cole	653824a0
+MW_MAIN.EXE	0x126f9	32	NUL	Honed my skills in Gray Death.	4b4aec99
+MW_MAIN.EXE	0x1271d	14	NUL	J. Holmars	c17046b6
+MW_MAIN.EXE	0x1272e	36	NUL	I've worked with top mercenaries.	68f51733
+MW_MAIN.EXE	0x12756	14	NUL	Nasty Bill	988e40e2
+MW_MAIN.EXE	0x12767	36	NUL	Dirty or not, I always win.	4fbc3621
+MW_MAIN.EXE	0x1278c	38	NUL	No mercenaries in the bar now.	c3a63bab
+MW_MAIN.EXE	0x127b3	30	NUL	You can't hire 4+ crew.	cab05caa
+MW_MAIN.EXE	0x127d2	30	NUL	You can't hire 3+ crew.	d193f75d
+MW_MAIN.EXE	0x1280d	26	NUL	Really quit?	b08ee300
+MW_MAIN.EXE	0x1282d	26	NUL	Start over?	2145b1b9
+MW_MAIN.EXE	0x1289a	12	NUL	Quit game	038a2ed4
+MW_MAIN.EXE	0x128ac	14	NUL	Load game	edc1ba7b
+MW_MAIN.EXE	0x128c0	14	NUL	Save game	2980c4b5
+MW_MAIN.EXE	0x128d4	10	NUL	Resume	40d34c33
+MW_MAIN.EXE	0x128e4	13	NUL	Terrain: Easy	ac82e117
+MW_MAIN.EXE	0x128f7	10	NUL	Practice	0097584f
+MW_MAIN.EXE	0x1299f	32	NUL	Choose a game to load	f2d1e749
+MW_MAIN.EXE	0x129c5	32	NUL	Choose a game to save	3e8a892f
+MW_MAIN.EXE	0x12ac3	17	NUL	   Cancel	93988bf1
+MW_MAIN.EXE	0x12c09	4	NUL	Easy	b3585370
+MW_MAIN.EXE	0x12c0e	4	NUL	Norm	cbce888b
+MW_MAIN.EXE	0x12c13	4	NUL	Full	acb4842c
+MW_MAIN.EXE	0x12c18	59	NUL	Disk is full. Could not save the⏎game.	e2950759
+MW_MAIN.EXE	0x12c54	65	NUL	Disk error. Could not save the⏎game.	44786567
+MW_MAIN.EXE	0x12c96	63	NUL	Disk error. Please check the⏎drive.	30330266
+MW_MAIN.EXE	0x12cd6	49	NUL	Put Game Disk 3 in drive⏎B.	182c1ba6
+MW_MAIN.EXE	0x12d08	30	NUL	Directory GDT not found.	17fd1b14
+MW_MAIN.EXE	0x12d27	55	NUL	Disk is write-protected. Please⏎check.	41198040
+MW_MAIN.EXE	0x12de0	4	NUL	Job	aaf4f2a9
+MW_MAIN.EXE	0x12dea	12	NUL	Enemy mechs	b2fbc5a1
+MW_MAIN.EXE	0x12dfc	13	NUL	Heavy mechs:	b19558eb
+MW_MAIN.EXE	0x12e0f	13	NUL	Medium mechs:	71bcfca6
+MW_MAIN.EXE	0x12e22	13	NUL	Light mechs:	04eb1dd3
+MW_MAIN.EXE	0x12f70	208	NUL	Skull and black wings? Never heard. Gray Death has a⏎skull, but they're mercs, not bandits.⏎⏎⏎	c29ff714
+MW_MAIN.EXE	0x13044	186	NUL	If Kurita or Davion use skull and wings, Grigg Griez⏎may know. You may not live through the visit.⏎⏎⏎	f42a2d63
+MW_MAIN.EXE	0x13102	209	NUL	See Grigg? Crazy. Maybe tomorrow; I'll talk to his⏎men. Triple price for this drink.⏎⏎⏎⏎	43ac5957
+MW_MAIN.EXE	0x132aa	74	NUL	                             is where Grigg may be found.⏎	593718e0
+MW_MAIN.EXE	0x132f8	316	NUL	An old engineer, for a brandy: "Gray Death uses a skull,⏎so does Valasek's ship. Find Grigg Griez; he'd know."⏎⏎⏎⏎⏎⏎	cb1ff886
+MW_MAIN.EXE	0x13438	425	NUL	Two brutes took me to a secret bunker: dancers, revelers, like⏎Arabian Nights. From a raised seat Grigg Griez watched coldly.⏎⏎⏎⏎⏎⏎⏎⏎	a51c0caa
+MW_MAIN.EXE	0x137a6	57	NUL	Grigg's eyes gleamed. "Perfect."⏎	785d1dd9
+MW_MAIN.EXE	0x137e3	239	NUL	"What a shame." His flat voice smelled of death. I left⏎sensing a path in my life had closed.⏎⏎⏎	071ca298
+MW_MAIN.EXE	0x138d6	176	NUL	Bandit king Grigg Griez was last seen at Tabayama, raiding⏎nearby worlds.⏎	8d0c5f1a
+MW_MAIN.EXE	0x1398a	252	NUL	In Dustball's Pleasure Dome money buys any desire.⏎Griez's agent Brown said "Follow me" and pushed through⏎the crowd.⏎⏎	a3217dbb
+MW_MAIN.EXE	0x13a8a	388	NUL	Past a broken door and empty warehouse was an office. Brown⏎took my artificial-skin pocket. "About your reward... Grigg⏎gave orders." A laser appeared. "You're finished."⏎⏎⏎⏎⏎⏎⏎⏎⏎⏎  Fight⏎  Flee	ece33889
+MW_MAIN.EXE	0x13c13	312	NUL	I punched Brown; his laser seared my arm. Wounded but alive.⏎His gun fell, still firing. White gas burst from the⏎artificial skin.⏎⏎⏎⏎⏎⏎⏎  Fight⏎  Flee	5a164549
+MW_MAIN.EXE	0x13d50	269	NUL	Nowhere to run. Brown's laser aimed at me. Then white⏎gas burst from the artificial skin and he choked.⏎⏎⏎⏎⏎⏎⏎  Fight⏎  Flee	6debafc2
+MW_MAIN.EXE	0x13e61	222	NUL	In his shock I landed punches and Brown passed out. But gas⏎filled the room; darkness came.⏎⏎⏎	ff9ec4db
+MW_MAIN.EXE	0x13f43	117	NUL	Your fate in the 31st-century Successor States⏎was a grisly death.⏎⏎Play again?⏎⏎  Replay?⏎  End	d90e932c
+MW_MAIN.EXE	0x13fbc	449	NUL	I fled. Brown chased me but fell, gasping: "Damn Grigg...⏎Find his JumpShip, the Stone Arrow... he never gives up..."⏎⏎⏎⏎⏎⏎⏎⏎	df3f4816
+MW_MAIN.EXE	0x14181	382	NUL	I fled. Brown, choking, fell: "The Stone Arrow... avenge me⏎on Grigg..." Death showed on his face.⏎⏎⏎⏎⏎	38cf618f
+MW_MAIN.EXE	0x14303	241	NUL	A JumpShip called Stone Arrow? Never heard it. 25⏎C-Bills and I'll look; 75 more if I find something.⏎⏎⏎⏎	d95605f8
+MW_MAIN.EXE	0x1451a	62	NUL	                             is where⏎he guards, I hear.	5125c48a
+MW_MAIN.EXE	0x1455c	226	NUL	In a factory corner stood a rare SCP-1N Scorpion. A man⏎cursing its wiring turned; his badge read 'Andrew Puritan'.⏎⏎⏎	6bafa089
+MW_MAIN.EXE	0x147c1	75	NUL	                             - I'll go.⏎His woman should be there."	ecd1b4da
+MW_MAIN.EXE	0x14811	387	NUL	Behind the mech factory a path led to an abandoned plant⏎with bored guards. A figure stepped out; a gyrojet round⏎grazed me and smashed the fence.⏎⏎⏎⏎⏎⏎⏎⏎⏎⏎  Fight⏎  Flee	a1f9cb73
+MW_MAIN.EXE	0x14998	179	NUL	He aimed carefully and fired again. A round tore off⏎my right arm, the next hit my chest.⏎⏎	390f82a1
+MW_MAIN.EXE	0x14a4f	117	NUL	Your fate in the 31st-century Successor States⏎was a grisly death.⏎⏎Play again?⏎⏎  Replay?⏎  End	d90e932c
+MW_MAIN.EXE	0x14ac8	247	NUL	I ran to the next building and rolled down. Guards shouted⏎and shot up the wall; the man vanished into the dark.⏎⏎⏎⏎	35a41892
+MW_MAIN.EXE	0x14bc5	330	NUL	 ⏎ Free Worlds League terrorist attack⏎Unknown attackers hit the 5th Armored with gyrojet guns and were⏎repelled. No injuries.⏎⏎⏎	6299f3f7
+MW_MAIN.EXE	0x14d13	184	NUL	Kangaroo Jack? Shows up sometimes, not⏎lately. Ask the man with the hat in the⏎corner.⏎⏎	1a6f02dc
+MW_MAIN.EXE	0x14dcf	799	NUL	"Kearney, Davion intelligence, probing Anders Moon. Wolf's⏎Dragoons did it, carried by Kangaroo Jack's Stone Arrow;⏎skull and wings are a disguise. Look for a black spider. Meet⏎me here in an hour." He gave me a note.⏎⏎⏎⏎⏎⏎⏎⏎⏎⏎⏎⏎⏎	83abe68a
+MW_MAIN.EXE	0x150f3	108	NUL	The street was empty. The wind nearly took the⏎note.⏎⏎  Go to location⏎  Throw away	988235f5
+MW_MAIN.EXE	0x15164	472	NUL	The meeting place: a deserted rental building. Door ajar; a⏎body by the desk, face shot up, a kangaroo hat beside it. A⏎rifleman's shadow in the hall.⏎⏎⏎⏎⏎⏎⏎⏎⏎⏎⏎⏎  Hide⏎  Fight⏎  Talk	7e586f6f
+MW_MAIN.EXE	0x15340	63	NUL	The note blew away as scrap.⏎	37e3c96f
+MW_MAIN.EXE	0x15384	197	NUL	The chair barely hid me. A vicious-faced man with a⏎needle rifle entered and took aim.⏎⏎⏎⏎⏎  Fight⏎  Flee	23cc8624
+MW_MAIN.EXE	0x1544d	355	NUL	I fired at the door; he groaned. While he reloaded I emptied⏎my rounds and he flew against the wall. A spider emblem was⏎sewn in his jacket.⏎⏎⏎⏎⏎	b6d06e6b
+MW_MAIN.EXE	0x155b4	183	NUL	A vicious-looking man entered. My call gave me away; a⏎bullet pierced me.⏎⏎	e5f26f95
+MW_MAIN.EXE	0x1566f	117	NUL	Your fate in the 31st-century Successor States⏎was a grisly death.⏎⏎Play again?⏎⏎  Replay?⏎  End	d90e932c
+MW_MAIN.EXE	0x156e8	247	NUL	He fired across the room, then raked me from behind. I leapt⏎out but a round hit my leg. He pulled the trigger.⏎⏎⏎⏎	6dd37b86
+MW_MAIN.EXE	0x157e3	117	NUL	Your fate in the 31st-century Successor States⏎was a grisly death.⏎⏎Play again?⏎⏎  Replay?⏎  End	d90e932c
+MW_MAIN.EXE	0x1585c	284	NUL	A sandstorm-like wind roared. Seven Karnov VTOLs landed before a⏎huge iron door in a cliff; Kurita soldiers set guard.⏎⏎⏎⏎⏎	199b5cca
+MW_MAIN.EXE	0x1597b	223	NUL	The door opened; Matabushi soldiers formed ranks and⏎trucks loaded cargo into the VTOLs.⏎⏎⏎⏎	13d0f31f
+MW_MAIN.EXE	0x15a5d	391	NUL	After the last container, raiders rose from the sand firing⏎lasers; half the guards fell, the rest hid in VTOLs. A⏎firefight began.⏎⏎⏎⏎⏎	03e77ed6
+MW_MAIN.EXE	0x15be8	387	NUL	A VTOL lifted off in panic, was hit by a missile and blocked the⏎door. A woman soldier in flight jacket ran toward the lead VTOL.⏎⏎⏎⏎⏎⏎⏎⏎⏎  Chase her⏎  Hide and watch	800f101d
+MW_MAIN.EXE	0x15d6f	315	NUL	The lead VTOL crashed in the desert; the others scattered.⏎Matabushi soldiers pried the door open. A chance to flee.⏎⏎⏎⏎	e1287a3b
+MW_MAIN.EXE	0x15eae	378	NUL	Luck favored Kearney. "Fool, Vandenburg!" cried Tasha,⏎kicking, but he fired and she hit the wall. "What Tasha said⏎was true," he said, aiming at me.⏎⏎⏎⏎⏎⏎	09a0728d
+MW_MAIN.EXE	0x1602c	117	NUL	Your fate in the 31st-century Successor States⏎was a grisly death.⏎⏎Play again?⏎⏎  Replay?⏎  End	d90e932c
+MW_MAIN.EXE	0x160a5	466	NUL	Luck favored Tasha. She chopped Kearney's neck and he⏎fell. "Well done, Gideon. We hurt Matabushi badly.⏎We're M16, Davion special forces.⏎⏎⏎⏎⏎⏎⏎⏎⏎	be5d59a6
+MW_MAIN.EXE	0x1627a	463	NUL	We learned of a huge asset move. This disk shows who killed⏎your family and where Hahn's Chalice is hidden. Split it and⏎10 million C-Bills with me? I'm the last M16 survivor." She⏎smiled.⏎⏎⏎⏎⏎⏎	d3e04716
+MW_MAIN.EXE	0x166fa	70	NUL	                             ⏎is there, guarded by Dark Wing.	d6bced0f
+MW_MAIN.EXE	0x16744	310	NUL	I leapt onto a VTOL as it lifted off. Below, the desert⏎burned; bodies lay inside.⏎⏎⏎⏎⏎	0f47ca1b
+MW_MAIN.EXE	0x1687e	682	NUL	In the cockpit Kearney held a gun on a long-haired woman.⏎"Too bad, Tasha." She dived; both fell. "Just in time,⏎Gideon. She's a ringleader." Tasha: "Lies! He's a Kurita⏎spy!"⏎⏎⏎⏎⏎⏎⏎⏎⏎⏎⏎⏎  Trust Tasha⏎  Trust Kearney	46621873
+MW_MAIN.EXE	0x16b2c	234	NUL	Personal Message (1/5)⏎From: Tasha⏎Address: unknown⏎Pages: 5 (incl. this)⏎⏎We got secret Matabushi mail. Relevant parts follow.⏎	aa1a4243
+MW_MAIN.EXE	0x16c19	578	NUL	(2/5)⏎To: Duke Ishi Tahiro, CEO⏎From: H. Anato, Import/Export⏎CC: Count T. Koetsu⏎Date: 1 Dec 3023⏎ Smuggling plan⏎⏎Target: Anders Moon. Tiny, no Davion interest, easy to buy.⏎Plan on request.⏎⏎⏎⏎⏎	2602d78b
+MW_MAIN.EXE	0x16e5e	454	NUL	(3/5)⏎To: Duke Ishi Tahiro, CEO⏎From: H. Anato, Import/Export⏎CC: Count T. Koetsu⏎Date: 10 Jan 3024⏎ Smuggling plan⏎⏎Duke Cameron Vandenburg's influence is too strong. Request use⏎of Dark Wing.⏎⏎	1b29ca74
+MW_MAIN.EXE	0x17027	551	NUL	(4/5)⏎To: Duke Ishi Tahiro, CEO⏎From: H. Anato, Import/Export⏎CC: Count T. Koetsu⏎Date: 14 Feb 3024⏎ Smuggling plan⏎⏎Kurita Guard pressure worked. Jaris McBrin moves as we wish;⏎both factions bought. Dark Wing arranged.⏎⏎⏎⏎⏎	8f53ebe9
+MW_MAIN.EXE	0x17251	249	NUL	(5/5)⏎To: Count Tanji Koetsu⏎From: CEO Ishi Tahiro⏎CC: H. Anato⏎Date: 1 Mar 3024⏎ Smuggling plan⏎⏎Execute the plan.	090a1650
+MW_MAIN.EXE	0x1734e	355	NUL	Personal Message⏎From: Jordan Rowe⏎Anders Moon⏎⏎Gideon,⏎⏎Kurita forces aid Jaris via a Kurita-linked firm. A big supply⏎move is due at Albiero; contact the Davion agent there.⏎⏎Jordan⏎⏎⏎	534d9316
+MW_MAIN.EXE	0x174b7	424	NUL	 ⏎Federated Suns, Draconis March⏎ Murder in a tenement⏎⏎Willard Puritan (Kangaroo Jack), a smuggler, was found dead with a⏎wanted hitman: a syndicate power struggle.⏎⏎⏎	5daddd82
+MW_MAIN.EXE	0x17663	183	NUL	Back in the bar a gray-haired merc told his neighbor: "Any⏎real merc would talk of secret ops that way."⏎⏎	618ebb58
+MW_MAIN.EXE	0x1771e	367	NUL	A guard swung a chair at me; I dodged and kicked him. A young⏎woman with a lightning saber joined in and floored one man;⏎another leapt at her.⏎⏎⏎⏎⏎	1398ece8
+MW_MAIN.EXE	0x17890	390	NUL	The Widow drew a pistol, but she held her saber at a⏎stunned man's neck. The Widow lowered it: "Fine. Take⏎Vandenburg, no more trouble."⏎⏎⏎⏎⏎⏎	9acf27b7
+MW_MAIN.EXE	0x17a19	505	NUL	She said her name was Tasha. "Kearney fooled you, Gideon! He's⏎a Kurita Guard spy. He framed the Widow for Anders Moon so⏎she'd kill you."⏎⏎⏎⏎⏎⏎⏎⏎	1992ba1f
+MW_MAIN.EXE	0x17c15	484	NUL	"I doubt Kurita's lord has heard of Anders Moon. But since⏎you left, Kurita-linked trader Matabushi has surged into⏎Davion space. I think it's behind the plot."⏎⏎⏎⏎⏎⏎	9bab0a16
+MW_MAIN.EXE	0x17dfe	857	NUL	A noisy group wore red jackets with a black spider. Their⏎queen, a red-haired beauty, said coldly: "Listen, boy. I pity⏎your family, but you're mistaken. We never worked on any Anders⏎world."⏎⏎⏎⏎⏎⏎⏎⏎⏎⏎⏎⏎⏎⏎⏎⏎  Trust her⏎  Don't believe it	bc9e7ccc
+MW_MAIN.EXE	0x18260	144	NUL	                             is there.⏎Their aim is attacking Davion space; job length unknown.⏎Why interested?⏎⏎- Jordan	d4dab769
+MW_MAIN.EXE	0x182f4	312	NUL	 ⏎Draconis, Galedon⏎Land's End⏎ Bandits raid outer region⏎⏎Bandits took a mining site; others raided the armory. No trace.⏎⏎	a7a5b51f
+MW_MAIN.EXE	0x18430	380	NUL	Draconis, Galedon District⏎Thestria⏎13 Aug 3024⏎ Kurita Guard tightens Davion border⏎⏎Retaliation expected after territory lost to Wolf's Dragoons.⏎⏎⏎⏎	a27029f5
+MW_MAIN.EXE	0x185b0	349	NUL	Federated Suns, New Avalon⏎6 Nov 3027⏎ Galahad 3027 and Thor end⏎⏎Both finished on schedule.⏎⏎⏎⏎	e8b2ac65
+MW_MAIN.EXE	0x18711	436	NUL	Federated Suns, New Avalon⏎10 Aug 3027⏎ Galahad begins; Thor declared⏎⏎Lyrans began Thor on the Draconis and Free Worlds borders.⏎⏎⏎⏎⏎⏎	bc9439b3
+MW_MAIN.EXE	0x188c9	388	NUL	Federated Suns, New Avalon⏎7 Jul 3027⏎ Galahad to repeat⏎⏎30 mech and 200 armor units on 20+ planets.⏎⏎⏎⏎⏎	e90b3ce8
+MW_MAIN.EXE	0x18a51	388	NUL	Federated Suns, New Avalon⏎21 Nov 3026⏎ Galahad ends⏎⏎Davion calls it a perfect success.⏎⏎⏎⏎⏎	194dd54d
+MW_MAIN.EXE	0x18bd9	407	NUL	Federated Suns, New Avalon⏎1 Sep 3026⏎ Galahad begins⏎⏎10 mech and 100 armor units. Kurita and Liao on alert.⏎⏎⏎⏎⏎⏎	93b1aab2
+MW_MAIN.EXE	0x18d74	302	NUL	Federated Suns, New Avalon⏎9 Aug 3026⏎ Big exercise announced⏎⏎Operation Galahad starts next month.⏎⏎⏎	ae876c84
+MW_MAIN.EXE	0x18ea6	413	NUL	Lyran Alliance, Skye⏎Skye⏎Jun 3024⏎ Alliance Games set⏎⏎Steiner's 10th Defense vs a Davion unit; wagers rival a small planet's⏎output.⏎⏎⏎⏎	5719d752
+MW_MAIN.EXE	0x19047	389	NUL	Draconis, Pesht District⏎Luthien, Peace Ministry⏎ Wanted - 50,000 C-Bills⏎⏎Weyland Smith, fraud and theft suspect in the Styx mining scandal.⏎⏎⏎⏎	cb0c4f90
+MW_MAIN.EXE	0x191d0	351	NUL	Free Worlds League⏎Helm⏎21 May 3027⏎ Gray Death cleared⏎⏎ComStar: the Sirius V massacre (7.98M dead) was caused by corruption and a⏎religious agitator.⏎⏎	8ffa44a3
+MW_MAIN.EXE	0x19333	568	NUL	Capellan Confederation, Tikonov⏎Sirius V⏎10 Mar 3027⏎ Mercenaries massacre millions⏎⏎Gray Death, under Marik contract, reportedly killed 8M civilians.⏎⏎⏎⏎⏎⏎	e868ac10
+MW_MAIN.EXE	0x1956f	686	NUL	Draconis, Galedon District⏎Misery⏎14 Jan 3028⏎ Kurita infighting⏎⏎Dragoons defeat Kurita Ryuken and rule Misery; Hanse Davion reportedly⏎courts them.⏎⏎⏎⏎⏎⏎⏎⏎	f8815d16
+MW_MAIN.EXE	0x19821	579	NUL	Draconis, Galedon District⏎Misery⏎2 Jan 3028⏎ Riot in capital⏎⏎Dragoons killed three civilians; 'Kurita Patriots' seized station⏎Hephaestus.⏎⏎⏎⏎⏎⏎	7ba6ef7e
+MW_MAIN.EXE	0x19a68	579	NUL	Draconis, Galedon District⏎Misery⏎3 Jan 3028⏎ Mine raided; Hephaestus destroyed⏎⏎Hijackers blew up the station, killing all aboard.⏎⏎⏎⏎⏎⏎⏎⏎	d14de572
+MW_MAIN.EXE	0x19caf	385	NUL	Lyran Alliance, Tamar Pact⏎Verthandi⏎1 Nov 3024⏎ Verthandi revolt widens⏎⏎Freedom fighters resist Kurita's Governor Nagumo.⏎⏎⏎⏎⏎	beb2d727
+MW_MAIN.EXE	0x19e34	530	NUL	Federated Suns, Draconis March⏎Anders Moon⏎ Duke succession twist⏎⏎Jaris McBrin charged Gideon B. Vandenburg with treason; Gideon has⏎vanished.⏎⏎⏎⏎⏎⏎	18a49f98
+MW_MAIN.EXE	0x1a04a	343	NUL	Personal Message⏎From: Jordan Rowe⏎Anders Moon⏎⏎Happy birthday. Jaris McBrin consolidates power, but many stay loyal⏎to Vandenburg. GOOD LUCK!⏎⏎⏎⏎	54f6678e
+MW_MAIN.EXE	0x1a1a5	438	NUL	Draconis, Rasalhague District⏎Kirchbach⏎23 Apr 3024⏎ Bandit Valasek's raid⏎⏎Helmar Valasek's light mechs froze Kurita Warhammers at the grain plant.⏎⏎⏎⏎	5d098d0d
+MW_MAIN.EXE	0x1a35f	525	NUL	Draconis, Galedon⏎Galedon V, Peace Ministry⏎ Grigg Griez wanted - 200,000 C-Bills⏎⏎Murder, robbery, arson, forgery and more. Paid on proof of arrest or⏎execution.⏎⏎⏎⏎⏎⏎	fe6ec9fa
+MW_MAIN.EXE	0x1a570	207	NUL	Personal Message⏎From: Jordan Rowe⏎Anders Moon⏎⏎Friendship from all of us on your birthday.⏎⏎We haven't lost hope. Good luck!⏎⏎	6cab4eee
+MW_MAIN.EXE	0x1a643	290	NUL	Griez pushed a guard's corpse off the hovercraft. "I hoped⏎you'd accept my offer..." His gun flashed; my carbine fired⏎twice and he flew back.⏎⏎⏎	362682b4
+MW_MAIN.EXE	0x1a768	304	NUL	I landed the black hovercraft at the civic center. An official⏎whispered: "Take the reward and leave this planet fast."⏎⏎⏎⏎⏎	0b99d570
+MW_MAIN.EXE	0x1a89c	284	NUL	Grigg shoved the corpse off the hood, grinning. "Wise⏎choice, boy." His gun flashed and pain hit my chest.⏎⏎⏎⏎	2e3d9cc6
+MW_MAIN.EXE	0x1a9bc	117	NUL	Your fate in the 31st-century Successor States⏎was a grisly death.⏎⏎Play again?⏎⏎  Replay?⏎  End	d90e932c
+MW_MAIN.EXE	0x1aa35	85	NUL	Grigg and guards returned to the hovercraft,⏎which flew silently off into the night.	36b731ab
+MW_MAIN.EXE	0x1aa8f	545	NUL	I shot the two guards. Griez rose smiling: "Listen,⏎Vandenburg. Brown wasn't my order. Want my head for a bounty?⏎I'll pay double. You won't escape."⏎⏎⏎⏎⏎⏎⏎⏎⏎⏎  Obey Griez⏎  Pull trigger	bb847a0b
+MW_MAIN.EXE	0x1acb5	211	NUL	Loading finished and a truck left. Griez walked toward the⏎hovercraft with only two guards.⏎⏎⏎⏎⏎  Attack⏎  Watch	09ecc661
+MW_MAIN.EXE	0x1ad8c	47	NUL	Another time. There's⏎other work to do.	6b03924e
+MW_MAIN.EXE	0x1adbf	267	NUL	Lights came on around the empty airfield. A 12,000-ton⏎Mule-class Dropship landed.⏎⏎⏎⏎	7a00955f
+MW_MAIN.EXE	0x1b081	368	NUL	A drunk in rags muttered: "Young man, you know Griez? There's a⏎big bounty on him. You can do it."⏎⏎⏎⏎⏎⏎⏎⏎⏎  Hear more⏎  No interest	bdaaaeb5
+MW_MAIN.EXE	0x1b1f6	387	NUL	"I've hunted him for years but I'm no warrior. A big⏎shipment goes out tonight; Griez oversees it with two⏎guards. Kill him."⏎⏎⏎⏎⏎⏎⏎  Accept⏎  Decline	7883804c
+MW_MAIN.EXE	0x1b37d	119	NUL	The old man nodded. "I seem to have been wrong."⏎⏎	3c93d56c
+MW_MAIN.EXE	0x1b3f8	97	NUL	The locals haven't forgotten past attacks on Kurita. Hostile⏎stares all around.	06f70feb
+MW_MAIN.EXE	0x1b45d	97	NUL	The locals haven't forgotten past attacks on Marik. Hostile⏎stares all around.	d4cc90e0
+MW_MAIN.EXE	0x1b4c2	97	NUL	The locals haven't forgotten past attacks on Liao. Hostile⏎stares all around.	46a2ce1f
+MW_MAIN.EXE	0x1b527	193	NUL	The locals haven't forgotten past attacks on Davion; they⏎call me a vile traitor.⏎⏎	d50bf1d7
+MW_MAIN.EXE	0x1b5ec	246	NUL	The locals haven't forgotten past attacks on Steiner; allied with⏎Davion, they call me a traitor.⏎⏎⏎	6670deb8
+MW_MAIN.EXE	0x1b6e6	460	NUL	Draconis, Pesht District⏎Albiero⏎ Matabushi's new strategy⏎⏎An elite team with authority to use any means to expand beyond Kurita⏎space.⏎⏎⏎⏎⏎⏎	addaeebb
+MW_MAIN.EXE	0x1b8b6	486	NUL	Federated Suns, Anders Moon⏎ Council tackles finances⏎⏎The McBrins lobby to revise finance and trade laws.⏎⏎⏎⏎⏎⏎⏎⏎	d58be361
+MW_MAIN.EXE	0x1baa0	380	NUL	Federated Suns, Anders Moon⏎ Finance firm opens⏎⏎The McBrins launch DW Finance for local business.⏎⏎⏎⏎⏎⏎	a4c14fe8
+MW_MAIN.EXE	0x1bc20	461	NUL	Federated Suns, Anders Moon⏎ Economy in chaos⏎⏎Jaris McBrin proposes supervising Vandenburg firms.⏎⏎⏎⏎⏎⏎⏎	4262e884
+MW_MAIN.EXE	0x1bdf1	516	NUL	Federated Suns, Anders Moon⏎Editorial: Alicia Rowe⏎ "Forests and Money Worship"⏎⏎Land is cleared at 200,000 sq m a minute. I oppose reckless development.⏎⏎⏎⏎⏎⏎⏎	933de169
+MW_MAIN.EXE	0x1bff9	406	NUL	Federated Suns, Anders Moon⏎ New alliance⏎⏎Vandenburg supporters and big firms stayed away.⏎⏎⏎⏎⏎⏎	0a35edf8
+MW_MAIN.EXE	0x1c193	460	NUL	Federated Suns, Anders Moon⏎ Winery makes comeback⏎⏎McBrin Winery (ex-Vandenburg) recovered under McBrin's control.⏎⏎⏎⏎⏎⏎⏎⏎	ade3656e
+MW_MAIN.EXE	0x1c363	561	NUL	Federated Suns, Anders Moon⏎ McBrin charges dismissed⏎⏎Court: "McBrin is a local hero." No action taken.⏎⏎⏎⏎⏎⏎⏎⏎⏎	986f9c0d
+MW_MAIN.EXE	0x1c598	209	NUL	Headline News⏎Federated Suns, New Avalon⏎20 Jan 3027⏎⏎Treason trial opens for Justin Allard⏎	4ee9c308
+MW_MAIN.EXE	0x1c66d	159	NUL	Headline News⏎Federated Suns, New Avalon⏎30 Jan 3027⏎⏎Allard trial ends in chaos; he is banished⏎	ea0fa14f
+MW_MAIN.EXE	0x1c710	205	NUL	Headline News⏎Lyran Alliance, Solaris VII⏎20 Mar 3027⏎⏎Justin Xiang (Allard) shoots down a Davion pilot in revenge⏎	9fdaf97c
+MW_MAIN.EXE	0x1c7e1	181	NUL	Headline News⏎Lyran Alliance, Solaris VII⏎20 Apr 3027⏎⏎Xiang downs veteran Billy Wolfson in a match⏎	e4b05eb0
+MW_MAIN.EXE	0x1c89a	165	NUL	Headline News⏎Lyran Alliance, Solaris VII⏎26 May 3027⏎⏎Xiang downs veteran Philip Capet in a match⏎	28d29aa3
+MW_MAIN.EXE	0x1c943	175	NUL	Headline News⏎Federated Suns, New Avalon⏎Oct 3027⏎⏎Hanse Davion and Melissa Steiner engaged! Best⏎man: Morgan Hasek-Davion	6d15cd16
+MW_MAIN.EXE	0x1c9f6	154	NUL	Headline News⏎Federated Suns, Kittery⏎20 Nov 3027⏎⏎Col. A. Redburn and 1st Special Forces men attacked in a restaurant	1a1c1b08
+MW_MAIN.EXE	0x1ca94	144	NUL	Headline News⏎Federated Suns, New Avalon⏎Jun 3028⏎⏎Galahad and Thor 3028 on schedule	21b0700c
+MW_MAIN.EXE	0x1cb28	271	NUL	Headline News⏎Federated Suns, Robinson⏎10 Aug 3028⏎⏎Wolf's Dragoons stationed in Davion space⏎Harrow's Sun, Glenmora, Wapakoneta⏎⏎⏎Terra, North America⏎Wedding guests gather	d03bc296
+MW_MAIN.EXE	0x1cc3b	210	NUL	Headline News⏎Terra, North America⏎20 Aug 3028⏎Hanse Davion and Melissa Steiner wed!⏎⏎⏎Terra, North America⏎War declared!!⏎The Fox declares war on Liao at the wedding	b036e524
+MW_MAIN.EXE	0x1cd11	341	NUL	Headline News⏎Federated Suns, New Avalon⏎Jun 3028⏎Davion attacks several Liao worlds⏎Besieging Aldebaran, New Hessen and more⏎⏎⏎Lyran Alliance, Tharkad⏎23 Aug 3028⏎Steiner raids 23 Kurita sites!	1b3988b8
+MW_MAIN.EXE	0x1ce6a	157	NUL	Headline News⏎Federated Suns, New Avalon⏎25 Sep 3028⏎⏎Fox's forces advance into Liao space; next,⏎Tikonov!	194b4577
+MW_MAIN.EXE	0x1cf0b	153	NUL	Headline News⏎Federated Suns, New Avalon⏎25 Sep 3028⏎⏎Davion takes Tikonov! Main cities seized⏎	4d620856
+MW_MAIN.EXE	0x1cfa8	151	NUL	Headline News⏎Federated Suns, New Avalon⏎13 Nov 3028⏎⏎Fox's advance goes on; 8 more planets attacked⏎	ba2e906f
+MW_MAIN.EXE	0x1d043	277	NUL	Headline News⏎Draconis, Vega⏎20 Dec 3028⏎Theodore Kurita routs Lyran forces⏎⏎⏎Draconis, Buckminster⏎31 Dec 3028⏎Defenders hold Buckminster City⏎Lyrans retreat	a79c64a1
+MW_MAIN.EXE	0x1d15c	372	NUL	Federated Suns, Anders Moon⏎ Council to elect new Duke⏎⏎Election in confusion since the charges against Jaris McBrin.⏎⏎⏎⏎⏎⏎	55ab621d
+MW_MAIN.EXE	0x1d2d4	371	NUL	Federated Suns, Anders Moon⏎ McBrin recovers Hahn's Chalice!⏎⏎Jaris McBrin is back with the Chalice; his faction expects his⏎election.⏎⏎⏎⏎	fe5b08ce
+MW_MAIN.EXE	0x1d44b	379	NUL	Federated Suns, Anders Moon⏎ Jaris McBrin is new Duke⏎⏎Elected by popular acclaim while Gideon B. Vandenburg is still⏎missing.⏎⏎⏎⏎	a430a437
+MW_MAIN.EXE	0x1d5ca	55	NUL	Nothing noteworthy yet. Drop by again.⏎	8b72bb2c
+MW_MAIN.EXE	0x1d606	120	NUL	The secret-ops data disk shows Dark Wing's base location.⏎⏎⏎  Attack now⏎  Wait a while	3041bc7d
+MW_MAIN.EXE	0x1d682	279	NUL	Dark Wing's base is near. But McBrin brought back the⏎Chalice and was elected Duke: my chance to clear the⏎Vandenburg name is gone...⏎⏎⏎	418e46ea
+MW_MAIN.EXE	0x1d79d	224	NUL	Until I find my enemy and recover the Chalice my⏎wounds won't heal... My only clue: a horned skull with⏎black wings, the raiders' emblem. I have five years...⏎⏎	82389b09
+MW_MAIN.EXE	0x1d881	285	NUL	Returning to Anders Moon without the Chalice means death. Police⏎seized me at the airport; a secret trial convicted me of⏎everything. In prison I have no allies.⏎⏎⏎	053057f5
+MW_MAIN.EXE	0x1d9a2	117	NUL	Your fate in the 31st-century Successor States⏎was a grisly death.⏎⏎Play again?⏎⏎  Replay?⏎  End	d90e932c
+MW_MAIN.EXE	0x1da1c	39	NUL	Continue the game?⏎⏎  Go on⏎  End	5e24694f
+MW_MAIN.EXE	0x1eb13	63	ctl0a	          The Star League fell to hatred and betrayal. Until⏎	d1ac4817
+MW_MAIN.EXE	0x1eb54	61	ctl0a	          Steiner and Davion allied came an age of endless⏎	1f910baa
+MW_MAIN.EXE	0x1eb93	41	ctl0a	          wars, begun in 2785. The five⏎	2b15df4c
+MW_MAIN.EXE	0x1ebbe	69	ctl0a	          Houses - Kurita, Steiner, Marik, Liao, Davion - fought for⏎	e04e259b
+MW_MAIN.EXE	0x1ec05	65	ctl0a	          the stars with BattleMechs, peerless war machines.⏎	fd1d8094
+MW_MAIN.EXE	0x1ec48	75	ctl0a	          Love and trust were forgotten; betrayal ruled and order was in⏎	b1eec174
+MW_MAIN.EXE	0x1ec95	69	ctl0a	          chaos.⏎	88c84264
+MW_MAIN.EXE	0x1ecdc	31	ctl0a	          ⏎	2bc57811
+MW_MAIN.EXE	0x1ecfd	75	ctl0a	          ⏎	6ad62543
+MW_MAIN.EXE	0x1ed4a	63	NUL	          $My name is,	d7b76961
+MW_MAIN.EXE	0x1ed8a	38	NUL	Gideon Braver Vandenburg.	cd8a921b
+MW_MAIN.EXE	0x1edb3	40	NUL	Written 3 March 3024 at Anders Moon,	d2bdb580
+MW_MAIN.EXE	0x1eddc	40	NUL	Draconis March, Federated Suns. If I	b8f52a77
+MW_MAIN.EXE	0x1ee05	24	NUL	die, send this to the	24b7557b
+MW_MAIN.EXE	0x1ee20	40	NUL	five Houses' press.	19a3ac0a
+MW_MAIN.EXE	0x1ee49	38	NUL		b1a9e280
+MW_MAIN.EXE	0x1ee72	40	NUL	It began in 2137, when the Vandenburg	428803d7
+MW_MAIN.EXE	0x1ee9b	40	NUL	and McBrin clans came to co-rule this	f62a1f05
+MW_MAIN.EXE	0x1eec4	40	NUL	planet, now Anders Moon.	136e0b6c
+MW_MAIN.EXE	0x1eeed	18	NUL		561a5e7f
+MW_MAIN.EXE	0x1ef00	40	NUL	Anders Moon had no resources or	81c33e82
+MW_MAIN.EXE	0x1ef29	34	NUL	strategic worth. But in the	37abdb7d
+MW_MAIN.EXE	0x1ef4c	40	NUL	Succession Wars its soldiers' bravery	7429b401
+MW_MAIN.EXE	0x1ef75	40	NUL	made it a duchy, with a Duke elected.	1e91d344
+MW_MAIN.EXE	0x1ef9e	28	NUL		c6b03e71
+MW_MAIN.EXE	0x1efbb	38	NUL		70747d98
+MW_MAIN.EXE	0x1efe2	40	NUL	A new Duke was to be elected when a Duke	e3907a9d
+MW_MAIN.EXE	0x1f00b	36	NUL	died. This caused the feud between	c5d6266b
+MW_MAIN.EXE	0x1f030	40	NUL	Vandenburg and McBrin, and hatred and	e59667cb
+MW_MAIN.EXE	0x1f059	36	NUL	betrayal returned.	bf813d82
+MW_MAIN.EXE	0x1f07e	40	NUL		ccb7c8c2
+MW_MAIN.EXE	0x1f0a7	36	NUL		99264a1a
+MW_MAIN.EXE	0x1f0ce	20	NUL	Two days ago, while	add9e290
+MW_MAIN.EXE	0x1f0e3	40	NUL	I was away, mech bandits raided	a01ad133
+MW_MAIN.EXE	0x1f10c	36	NUL	Vandenburg Castle and killed my	ca8e0b1c
+MW_MAIN.EXE	0x1f131	40	NUL	father Duke Cameron and my family.	ac3be43a
+MW_MAIN.EXE	0x1f15a	40	NUL		e964849a
+MW_MAIN.EXE	0x1f183	4	NUL		cd2fdb2b
+MW_MAIN.EXE	0x1f188	40	NUL	The alarms were disabled first. They	fb92239e
+MW_MAIN.EXE	0x1f1b1	10	NUL	took	c385c1a1
+MW_MAIN.EXE	0x1f1bc	40	NUL	Hahn's Chalice, the Duke's symbol, and	07cb3903
+MW_MAIN.EXE	0x1f1e5	40	NUL	all Vandenburg treasure.	c4f5cb62
+MW_MAIN.EXE	0x1f20e	40	NUL		5b565a2f
+MW_MAIN.EXE	0x1f237	12	NUL		4f77c40d
+MW_MAIN.EXE	0x1f246	40	NUL	Witnesses say Jaris McBrin appeared	9d9dc3ad
+MW_MAIN.EXE	0x1f26f	40	NUL	right after and drove the bandits off,	d95c03ec
+MW_MAIN.EXE	0x1f298	18	NUL	and a news crew	270b0d37
+MW_MAIN.EXE	0x1f2ab	40	NUL	happened by.	743f8482
+MW_MAIN.EXE	0x1f2d4	40	NUL		80472da5
+MW_MAIN.EXE	0x1f2fd	24	NUL		89e93821
+MW_MAIN.EXE	0x1f316	40	NUL	He said he rushed over but Cameron was	9b2f8bb3
+MW_MAIN.EXE	0x1f33f	40	NUL	already dead. McBrin surely bribed the	6e992ff3
+MW_MAIN.EXE	0x1f368	40	NUL	crew to stage it: a terrible plot.	de8b0166
+MW_MAIN.EXE	0x1f391	38	NUL		f9f446ea
+MW_MAIN.EXE	0x1f3b8	40	NUL		1a7d5db3
+MW_MAIN.EXE	0x1f3e1	26	NUL		e967e1e0
+MW_MAIN.EXE	0x1f3fc	20	NUL		b000c69a
+MW_MAIN.EXE	0x1f413	40	NUL	The survivors only said the raiders'	80b53bc6
+MW_MAIN.EXE	0x1f43c	40	NUL	mechs bore a strange emblem: a skull on	e9049385
+MW_MAIN.EXE	0x1f465	26	NUL	wings.	57161e41
+MW_MAIN.EXE	0x1f480	32	NUL		5c14333b
+MW_MAIN.EXE	0x1f4a3	40	NUL	Next day the Council met to elect a	cfa3b75f
+MW_MAIN.EXE	0x1f4cc	24	NUL	Duke. Jaris accused my	213721d1
+MW_MAIN.EXE	0x1f4e5	40	NUL	father of belonging to the bandits and	53c1fe32
+MW_MAIN.EXE	0x1f50e	40	NUL	being killed for betraying them.	191bd28d
+MW_MAIN.EXE	0x1f537	26	NUL		df718697
+MW_MAIN.EXE	0x1f552	40	NUL		7f34ad42
+MW_MAIN.EXE	0x1f57b	40	NUL		e52532c6
+MW_MAIN.EXE	0x1f5a4	28	NUL		b280d1b7
+MW_MAIN.EXE	0x1f5c1	40	NUL	He offered forged proof, proposed	9f8fce03
+MW_MAIN.EXE	0x1f5ea	40	NUL	seizing all Vandenburg property, which	9e098d3c
+MW_MAIN.EXE	0x1f613	40	NUL	passed, and demanded a new Duke at once.	c28925dc
+MW_MAIN.EXE	0x1f63c	40	NUL		7dd5efff
+MW_MAIN.EXE	0x1f665	32	NUL		a3cbe36d
+MW_MAIN.EXE	0x1f686	40	NUL		60b9a748
+MW_MAIN.EXE	0x1f6af	28	NUL		9c58ab38
+MW_MAIN.EXE	0x1f6cc	40	NUL	But the Council postponed the election	a87be97f
+MW_MAIN.EXE	0x1f6f5	40	NUL	until I reach 23; then Jaris or I would	9f03a87d
+MW_MAIN.EXE	0x1f71e	18	NUL	become Duke.	e0dfd855
+MW_MAIN.EXE	0x1f731	40	NUL		fbfac564
+MW_MAIN.EXE	0x1f75a	38	NUL		3bdaa40f
+MW_MAIN.EXE	0x1f781	36	NUL		3ad471e8
+MW_MAIN.EXE	0x1f7a8	38	NUL	After the Council I was dazed.	5fa0eacf
+MW_MAIN.EXE	0x1f7cf	4	NUL		cd2fdb2b
+MW_MAIN.EXE	0x1f7d4	38	NUL	Suddenly I was attacked, taken	df4bb964
+MW_MAIN.EXE	0x1f7fb	38	NUL	somewhere and tortured.	c9e5b565
+MW_MAIN.EXE	0x1f822	14	NUL		9d5d474f
+MW_MAIN.EXE	0x1f831	40	NUL	Jaris looked down at me: "I won't let	1a632cef
+MW_MAIN.EXE	0x1f85a	30	NUL	you be Duke. Hahn's Chalice is	1832be64
+MW_MAIN.EXE	0x1f879	30	NUL	hidden light-years away;	3cef3a9c
+MW_MAIN.EXE	0x1f898	40	NUL	without it you can't be Duke. I'll hunt	6e7f4506
+MW_MAIN.EXE	0x1f8c1	4	NUL	the	a32dd367
+MW_MAIN.EXE	0x1f8c6	40	NUL	bandits, crush the Vandenburg treason	8093f0bb
+MW_MAIN.EXE	0x1f8ef	24	NUL	and be welcomed as a	f1008e17
+MW_MAIN.EXE	0x1f908	40	NUL	hero Duke."	ffc3a288
+MW_MAIN.EXE	0x1f931	4	NUL		41df0686
+MW_MAIN.EXE	0x1f936	34	NUL		aa5e60b3
+MW_MAIN.EXE	0x1f959	40	NUL		e3cb5627
+MW_MAIN.EXE	0x1f982	22	NUL		2d4a6fc5
+MW_MAIN.EXE	0x1f999	40	NUL		12310092
+MW_MAIN.EXE	0x1f9c2	36	NUL		43ac2154
+MW_MAIN.EXE	0x1f9e9	30	NUL	I gasped: "I won't let you	ef1f670b
+MW_MAIN.EXE	0x1fa08	40	NUL	have Anders Moon..."	1cd9da34
+MW_MAIN.EXE	0x1fa31	8	NUL		72d76541
+MW_MAIN.EXE	0x1fa3a	32	NUL		17179f58
+MW_MAIN.EXE	0x1fa5b	24	NUL	Jaris laughed coldly:	dc34255d
+MW_MAIN.EXE	0x1fa74	40	NUL	"Sorry, Gideon. You'll die on some	1795d45c
+MW_MAIN.EXE	0x1fa9d	22	NUL	strange star; killing	53294f06
+MW_MAIN.EXE	0x1fab4	40	NUL	you here would be troublesome."	047ab202
+MW_MAIN.EXE	0x1fadd	40	NUL		b2df1dd0
+MW_MAIN.EXE	0x1fb06	26	NUL		3172d461
+MW_MAIN.EXE	0x1fb21	40	NUL	Your life is a matter of time. "24	8f024ea9
+MW_MAIN.EXE	0x1fb4a	8	NUL	hours.	a26cc90d
+MW_MAIN.EXE	0x1fb55	28	NUL	Leave Anders Moon, and pray	3b123d50
+MW_MAIN.EXE	0x1fb72	32	NUL	we never meet again."	bae65a85
+MW_MAIN.EXE	0x1fb93	40	NUL		ea40feed
+MW_MAIN.EXE	0x1fbbc	40	NUL		ff20b55d
+MW_MAIN.EXE	0x1fbe5	8	NUL		1487e1c1
+MW_MAIN.EXE	0x1fbee	40	NUL	Jaris vanished into dark space with his	d7625a51
+MW_MAIN.EXE	0x1fc17	24	NUL	men. I was powerless,	36968c78
+MW_MAIN.EXE	0x1fc32	32	NUL	but a few people remained to	840f14d9
+MW_MAIN.EXE	0x1fc53	40	NUL	help.	fd55af01
+MW_MAIN.EXE	0x1fc7c	4	NUL		cd2fdb2b
+MW_MAIN.EXE	0x1fc81	40	NUL	I contacted Jordan Rowe, the Vandenburg	64ab0010
+MW_MAIN.EXE	0x1fcaa	32	NUL	faction leader. He hid me at	15776364
+MW_MAIN.EXE	0x1fccb	40	NUL	home and tended my wounds.	7eb64fba
+MW_MAIN.EXE	0x1fcf4	14	NUL		a024d91f
+MW_MAIN.EXE	0x1fd03	28	NUL		5fd468ba
+MW_MAIN.EXE	0x1fd22	40	NUL	Jordan doubted Jaris led it: too small a	c8e54601
+MW_MAIN.EXE	0x1fd4b	24	NUL	fry. He guessed Kurita	cad9522d
+MW_MAIN.EXE	0x1fd64	40	NUL	was behind it, but I saw no proof.	be1cc682
+MW_MAIN.EXE	0x1fd8d	40	NUL		d0803259
+MW_MAIN.EXE	0x1fdb6	40	NUL		03058a95
+MW_MAIN.EXE	0x1fddf	36	NUL		39b450aa
+MW_MAIN.EXE	0x1fe04	40	NUL		ef0f8c94
+MW_MAIN.EXE	0x1fe2d	40	NUL		a9b40a0a
+MW_MAIN.EXE	0x1fe56	6	NUL		5c2a4a5a
+MW_MAIN.EXE	0x1fe5d	40	NUL		4d13bee4
+MW_MAIN.EXE	0x1fe86	12	NUL		0a59f686
+MW_MAIN.EXE	0x1fe93	40	NUL	He gave me money, a ship ticket and a	67956c02
+MW_MAIN.EXE	0x1febc	40	NUL	used Jenner. I don't know where I'll end	99ab6cb9
+MW_MAIN.EXE	0x1fee5	14	NUL	up.	c99175f4
+MW_MAIN.EXE	0x1fef4	40	NUL		9b9a4e97
+MW_MAIN.EXE	0x1ff1d	14	NUL		63804b04
+MW_MAIN.EXE	0x1ff2c	40	NUL	But I'll find the Chalice Jaris hid,	aa391576
+MW_MAIN.EXE	0x1ff55	28	NUL	surely well guarded. I need	8e1b6ac1
+MW_MAIN.EXE	0x1ff72	40	NUL	a strong mech force. First, funds.	dbff0489
+MW_MAIN.EXE	0x1ff9b	6	NUL		0b26e237
+MW_MAIN.EXE	0x1ffa2	40	NUL		1e84f060
+MW_MAIN.EXE	0x1ffcb	22	NUL		3d3d5bf0
+MW_MAIN.EXE	0x1ffe2	22	NUL		869a9088
+MW_MAIN.EXE	0x1fff9	40	NUL	I'll be a mercenary to hone my skills	33a48175
+MW_MAIN.EXE	0x20022	28	NUL	and earn funds.	3a7b2cb2
+MW_MAIN.EXE	0x2003f	34	NUL	Jaris McBrin, hear this: I will	046700d7
+MW_MAIN.EXE	0x20062	20	NUL	return, and no mech	cb4f4fb3
+MW_MAIN.EXE	0x20077	40	NUL	will stop me.	18631a31
+MW_MAIN.EXE	0x200a0	16	NUL		f63ebea2
+MW_MAIN.EXE	0x200b3	40	NUL	    Gideon Braver Vandenburg	3216e520
+BTECH.EXE	0x1ce14	10	NUL	Act on own	b832b76b
+BTECH.EXE	0x1ce1f	10	NUL	Ambush	7b1bc1c6
+BTECH.EXE	0x1ce2a	10	NUL	Defend	069280e2
+BTECH.EXE	0x1ce35	10	NUL	Attack	b1b92c88
+BTECH.EXE	0x1ce40	10	NUL	Aggr.move	e067cc3c
+BTECH.EXE	0x1ce4b	10	NUL	Evade move	fa7df9c2
+BTECH.EXE	0x1ce56	10	NUL	Retreat	72d7bc0c
+BTECH.EXE	0x1ce61	10	NUL	No combat	862722c4
+BTECH.EXE	0x1ce6c	10	NUL	Defending	f1837bb0
+BTECH.EXE	0x1ce77	10	NUL	Attacking	47a4ecc1
+BTECH.EXE	0x1ce82	10	NUL	Chasing	252f318d
+BTECH.EXE	0x1ce8d	10	NUL	Evading	7c912442
+BTECH.EXE	0x1ce98	10	NUL	Scouting	278b497d
+BTECH.EXE	0x1cea3	10	NUL	Atk. base	c6d9cf4d
+BTECH.EXE	0x1ceae	10	NUL	Guarding	fb4064a5
+BTECH.EXE	0x1ceb9	10	NUL	Retreating	620a38f1
+BTECH.EXE	0x1cec4	12	NUL	<Damage>	08d207e8
+BTECH.EXE	0x1ced1	10	NUL	 Ext.Armor	35274a77
+BTECH.EXE	0x1cedc	10	NUL	 Internal	00d1bc6c
+BTECH.EXE	0x1cee7	10	NUL	 Engine	aa0297b4
+BTECH.EXE	0x1cef2	10	NUL	 Gyro	8216b76a
+BTECH.EXE	0x1cefd	10	NUL	 Sensors	528cfb1c
+BTECH.EXE	0x1cf08	12	NUL	 Life Supp.	40540a02
+BTECH.EXE	0x1cf47	16	NUL	<  Damage  >	8c4627ec
+BTECH.EXE	0x1cf5d	12	NUL	<Select Cmd>	13d8eb74
+BTECH.EXE	0x1cf6a	16	NUL	Set position	c7cf61c8
+BTECH.EXE	0x1cf7b	16	NUL	Base	0dfdeaf5
+BTECH.EXE	0x1cf8c	8	NUL	Damage	5fcbaa9d
+BTECH.EXE	0x1cf95	6	NUL	Weapon	52e0b77c
+BTECH.EXE	0x1d060	4	NUL	LArm	3dfeec8c
+BTECH.EXE	0x1d065	4	NUL	RArm	46ce5c79
+BTECH.EXE	0x1d06a	4	NUL	LLeg	37d40213
+BTECH.EXE	0x1d06f	4	NUL	RLeg	54eec62e
+BTECH.EXE	0x1d074	4	NUL	Cent	2d921781
+BTECH.EXE	0x1d079	4	NUL	LTor	8b0f1be4
+BTECH.EXE	0x1d07e	4	NUL	RTor	09b225f5
+BTECH.EXE	0x1d083	4	NUL	Head	60fa3f99
+BTECH.EXE	0x1d088	4	NUL	OK	09bd0d64
+BTECH.EXE	0x1d08d	4	NUL	Lite	9697f3a4
+BTECH.EXE	0x1d092	4	NUL	Mod	06dad037
+BTECH.EXE	0x1d097	4	NUL	Hvy	0c2fafd5
+BTECH.EXE	0x1d09c	4	NUL	Brkn	a95bdb35
+BTECH.EXE	0x1d0a1	4	NUL	Dead	10dd3f14
+BTECH.EXE	0x1d0a6	20	NUL	Motor L.Arm       :	d845d466
+BTECH.EXE	0x1d0bb	20	NUL	Motor R.Arm       :	b4da2ab7
+BTECH.EXE	0x1d0d0	20	NUL	Motor L.Leg       :	893d664d
+BTECH.EXE	0x1d0e5	20	NUL	Motor R.Leg       :	2a2ecaa4
+BTECH.EXE	0x1d167	20	NUL	Gyro              :	9c64021d
+BTECH.EXE	0x1d17c	20	NUL	Sensor            :	1ada0767
+BTECH.EXE	0x1d191	20	NUL	Life Support      :	97e4a75f
+BTECH.EXE	0x1d1a6	20	NUL	Heat Sinks        :	6d0d1950
+BTECH.EXE	0x1d1bd	20	NUL	Jump Jets         :	1fdaeccf
+BTECH.EXE	0x1d1d4	28	NUL	Arms          Loc.      Dmg	977a184f
+BTECH.EXE	0x1d459	20	NUL	  Please insert it	c2b66038
+BTECH.EXE	0x1d46e	14	NUL	Retreat?	bbba4d29
+BTECH.EXE	0x1d552	10	NUL	G. Braver	2f47eed4
+BTECH.EXE	0x1d944	8	NUL	Garrison	282e1d91
+BTECH.EXE	0x1d94d	8	NUL	Security	daf8fa32
+BTECH.EXE	0x1d956	12	NUL	Guard water	97b89cb4
+BTECH.EXE	0x1d963	12	NUL	Guard arms	a01bbbe9
+BTECH.EXE	0x1d970	14	NUL	Guard fuel	753f2f5f
+BTECH.EXE	0x1d97f	24	NUL	Guard computer center	3b403fdb
+BTECH.EXE	0x1d998	10	NUL	Guard dump	1439cc5e
+BTECH.EXE	0x1d9a3	12	NUL	Guard port	3de96802
+BTECH.EXE	0x1d9b0	8	NUL	Suppress	1729c13d
+BTECH.EXE	0x1d9b9	12	NUL	Relieve unit	06b9ad47
+BTECH.EXE	0x1d9c6	8	NUL	Hostage	beadfa11
+BTECH.EXE	0x1d9cf	8	NUL	Captives	82c3eced
+BTECH.EXE	0x1d9d8	12	NUL	Retake loot	6b904e54
+BTECH.EXE	0x1d9e5	14	NUL	Retake mechs	6b9d427c
+BTECH.EXE	0x1d9f4	12	NUL	Long attack	195ae2e8
+BTECH.EXE	0x1da01	12	NUL	Long defense	448d9008
+BTECH.EXE	0x1da0e	8	NUL	Raid	adee340b
+BTECH.EXE	0x1da17	12	NUL	Siege	8df522bb
+BTECH.EXE	0x1da24	12	NUL	Support atk	c75a4385
+BTECH.EXE	0x1da31	8	NUL	Recon	e9f28908
+BTECH.EXE	0x1da3a	8	NUL	Feint	bf3e61ed
+BTECH.EXE	0x1da43	10	NUL	Rout guard	f15d7cd3
+BTECH.EXE	0x1da4e	12	NUL	Wreck water	8197ed6e
+BTECH.EXE	0x1da5b	12	NUL	Wreck arms	e834862b
+BTECH.EXE	0x1da68	14	NUL	Wreck fuel	948974dd
+BTECH.EXE	0x1da77	14	NUL	Wreck armory	925fc9ad
+BTECH.EXE	0x1da86	24	NUL	Wreck computer center	f3277599
+BTECH.EXE	0x1daa1	10	NUL	Kill guard	4e22d6da
+BTECH.EXE	0x1daac	16	NUL	Destroy new arms	5e645f74
+BTECH.EXE	0x1dabd	14	NUL	Wreck mech fac	6386a623
+BTECH.EXE	0x1dacc	10	NUL	Kill guard	4e22d6da
+BTECH.EXE	0x1dad7	12	NUL	Wreck port	565d70d8
+BTECH.EXE	0x1dae4	16	NUL	Wreck arms/mechs	edde0121
+BTECH.EXE	0x1daf5	8	NUL	Abduct	d65176e4
+BTECH.EXE	0x1db09	14	NUL	<Crew Status>	70be9c20
+BTECH.EXE	0x1db18	14	NUL	<Mech Status>	bf57c5c3
+BTECH.EXE	0x1db27	4	NUL	Good	21937a4a
+BTECH.EXE	0x1db2c	4	NUL	OK	09bd0d64
+BTECH.EXE	0x1db31	4	NUL	Bad	814393d7
+BTECH.EXE	0x1ddeb	16	NUL	Locust	0c32bd9c
+BTECH.EXE	0x1ddfc	16	NUL	Jenner	9ed67f4d
+BTECH.EXE	0x1de0d	16	NUL	Phoenix H.	49b79da0
+BTECH.EXE	0x1de1e	16	NUL	Shadow H.	24fc2ae0
+BTECH.EXE	0x1de2f	16	NUL	Rifleman	3421fa5c
+BTECH.EXE	0x1de40	16	NUL	Warhammer	05f8abe4
+BTECH.EXE	0x1de51	16	NUL	Marauder	03954072
+BTECH.EXE	0x1de62	16	NUL	Battlemaster	87e0c57c
+BTECH.EXE	0x1de73	14	NUL	G. Braver	f2a07092
+BTECH.EXE	0x1de82	16	NUL	Elli Gujar	d85deb06
+BTECH.EXE	0x1de93	16	NUL	Karen Blak	ca0e485f
+BTECH.EXE	0x1dea4	12	NUL	Taris Ren	bdf85fb5
+BTECH.EXE	0x1deb1	4	NUL	TJ	4208e54b
+BTECH.EXE	0x1deb6	14	NUL	B. Sajak	0fbcecf1
+BTECH.EXE	0x1dec5	12	NUL	Pam North	b0824ae0
+BTECH.EXE	0x1ded2	12	NUL	Tara Ellis	d8b23282
+BTECH.EXE	0x1dedf	10	NUL	A. Morris	1302f94a
+BTECH.EXE	0x1deea	14	NUL	Ilsa Marn	cee95d62
+BTECH.EXE	0x1def9	4	NUL	Ara	1e769f15
+BTECH.EXE	0x1defe	10	NUL	S. Miller	1369c4f2
+BTECH.EXE	0x1df09	14	NUL	Rose Artz	fbe82731
+BTECH.EXE	0x1df18	14	NUL	JJ Kitter	ebdeda78
+BTECH.EXE	0x1df27	14	NUL	Emma Meyer	26b15c34
+BTECH.EXE	0x1df36	16	NUL	Erin Falls	9c7c2be6
+BTECH.EXE	0x1df47	16	NUL	A. Chu Lai	50aef576
+BTECH.EXE	0x1df58	14	NUL	Zera Tith	55049817
+BTECH.EXE	0x1df67	16	NUL	Chaney Ti	85e12f1d
+BTECH.EXE	0x1df78	14	NUL	Bob True	857bd1ea
+BTECH.EXE	0x1df87	16	NUL	Ted Hegel	37b0565d
+BTECH.EXE	0x1df98	16	NUL	Tim Seers	a5c6f570
+BTECH.EXE	0x1dfa9	14	NUL	Z. Rodgers	9836e8de
+BTECH.EXE	0x1dfb8	14	NUL	T.D. Bente	6cf21ee4
+BTECH.EXE	0x1dfc7	10	NUL	T. Rich	c4da4753
+BTECH.EXE	0x1dfd2	12	NUL	John Zo	b58f1c5d
+BTECH.EXE	0x1dfdf	10	NUL	Kelly T	48c6e5b6
+BTECH.EXE	0x1dfea	14	NUL	Kinji Tsi	479039a7
+BTECH.EXE	0x1dff9	14	NUL	Billy Chow	34df9fde
+BTECH.EXE	0x1e008	16	NUL	Alex Bear	eeae6df8
+BTECH.EXE	0x1e019	16	NUL	Pete Ryan	da43ea8f
+BTECH.EXE	0x1e02a	16	NUL	B. Hendrick	427369c0
+BTECH.EXE	0x1e03b	12	NUL	A. Cooper	8b682463
+BTECH.EXE	0x1e048	16	NUL	Tricky Lee	b850d4db
+BTECH.EXE	0x1e059	6	NUL	Killer	4737666a
+BTECH.EXE	0x1e060	14	NUL	R. Tosak	8b099dff
+BTECH.EXE	0x1e06f	16	NUL	G. Lowfall	5d50277d
+BTECH.EXE	0x1e080	14	NUL	Dark Horse	8d362296
+BTECH.EXE	0x1e08f	14	NUL	Jim Eagle	8c41b8fc
+BTECH.EXE	0x1e09e	14	NUL	Tank Smith	adf34560
+BTECH.EXE	0x1e0ad	14	NUL	Kevin Cole	653824a0
+BTECH.EXE	0x1e0bc	14	NUL	J. Holmars	c17046b6
+BTECH.EXE	0x1e0cb	14	NUL	Nasty Bill	988e40e2
