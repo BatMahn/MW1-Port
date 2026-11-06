@@ -51,3 +51,10 @@
 # two pilot names with no pair (swapped in memory once the engine has started, like the others)
 1d259 t KILLER
 1d0b1 t TJ
+# damage panel: the DOS labels are upper case and indented; match the other rows
+1c352 w Engine
+1c37c w Sensors
+1c3a6 w Heat Sinks
+1c34d s
+1c37c s
+1c3a6 s

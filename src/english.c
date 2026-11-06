@@ -363,7 +363,14 @@ void english_program_loaded(const char *name, u16 seg)
             int is_name = 0; if (mx <= 24) for (int i = 0; i + 1 < mx; i++) { if (mem[at + i] == 0x0D) { is_name = 0; break; } if (mem[at + i] == 0x81 && mem[at + i + 1] == 0x45) is_name = 1; }
             if (o <= mx && !is_name) {
                 for (int i = 0; i < o; i++) mem[at + i] = out[i];
-                for (int i = o; i < mx; i++) mem[at + i] = ' ';
+                /* running text (opening, story): the text routine counts characters per line, not
+                 * bytes, and wraps a line that has too many; pad with full-width spaces (two bytes,
+                 * one character) so a padded line stays within the count */
+                if (!strcasecmp(col[3], "FWPAD")) {
+                    int i = o;
+                    if ((mx - o) & 1) mem[at + i++] = ' ';
+                    for (; i + 1 < mx; i += 2) { mem[at + i] = 0x81; mem[at + i + 1] = 0x40; }
+                } else for (int i = o; i < mx; i++) mem[at + i] = ' ';
                 if (ninplace < 4096) inplace_at[ninplace++] = at;
             } else {
                 /* too long once laid out: the routine is handed the record start (after the
@@ -603,10 +610,10 @@ static void font_fix_memory(void)
     if (!f) return;
     size_t n = fread(font, 1, sizeof font, f); fclose(f);
     if (n < 3072) return;
-    const u8 *orig = font + ('?' - 0x20) * 32;
     u8 fixed[3072]; memcpy(fixed, font, 3072); font_fix(fixed, 0, 3072);
-    u8 *p = mem, *end = mem + 0xA0000 - 32;
-    while (p < end && (p = memmem(p, end - p, orig, 32))) { memcpy(p, fixed + ('?' - 0x20) * 32, 32); p += 32; }
+    /* the whole font sits in memory as one block: find it by its first glyphs and patch it */
+    u8 *p = mem, *end = mem + 0xA0000 - 3072;
+    while (p < end && (p = memmem(p, end - p, font, 256))) { if (!memcmp(p, font, 3072)) memcpy(p, fixed, 3072); p += 256; }
 }
 void english_bt_drawing(void) { if (patrol_lo && english_dir && !bt_swapped && bt_loaded_ms >= 0) { bt_names(1); bt_swapped = 1; font_fix_memory(); } }
 void english_program_exit(void) { if (bt_swapped) { bt_names(0); bt_swapped = 0; } }
@@ -646,6 +653,15 @@ void font_fix(u8 *b, long pos, size_t n)
         "...###..###.....", "........###.....", ".......###......", "......###.......",
         "......###.......", "......###.......", "................", "......###.......",
         "......###.......", "................", "................", "................" };
+    /* the full stop is two pixels at the very bottom of the cell, where the briefing panel
+     * clips it: give it a proper dot on the baseline */
+    { static const char *dot[16] = { "", "", "", "", "", "", "", "", "", "", "",
+        "......##........", "......##........", "", "", "" };
+      long gd = ('.' - 0x20) * 32;
+      for (int y = 0; y < 16; y++) for (int half = 0; half < 2; half++) {
+          long o = gd + y * 2 + half - pos; if (o < 0 || o >= (long)n) continue;
+          u8 v = 0; for (int x = 0; x < 8 && dot[y][0]; x++) if (dot[y][half * 8 + x] == '#') v |= 0x80 >> x;
+          b[o] = v; } }
     long g = ('?' - 0x20) * 32;
     for (int y = 0; y < 16; y++) for (int half = 0; half < 2; half++) {
         long o = g + y * 2 + half - pos;

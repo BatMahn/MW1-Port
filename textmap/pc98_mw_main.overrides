@@ -152,3 +152,18 @@
 0b4e3 l 4 MED
 0b4e8 l 4 HVY
 0b4ed l 4 DEAD
+# functional text the DOS game and the table lack (our own wording)
+0999a l 30 Not enough memory.
+099bb l 32 Can't load the sound data.
+0ba4d l 15 RELOAD COST:
+0ba69 l 7 FUNDS:
+0c118 l 24 M.LASER         R.Arm   
+0c1e9 l 24 L.LASER         R.Arm   
+0c34b l 24 L.LASER         R.Arm   
+0ce68 l 10 ENGINE:
+0ce8a l 10 GYRO:
+0ceac l 10 SENSORS:
+0cece l 10 LIFE SUP:
+0cf12 l 16 L ARM MOTOR:
+0ea33 l 40 No pay for two months running,
+0ea5c l 22 so the crew left.

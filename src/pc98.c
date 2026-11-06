@@ -143,7 +143,7 @@ int pc98_video_out(u16 port, u8 v)
         if (getenv("MW_CGDBG")) { static int n; if (n++ < 400) { u32 sp = lin(cpu.s[SS], cpu.r[SP]); fprintf(stderr, "cg %02x%02x at %04x:%04x stk %04x %04x %04x %04x %04x %04x %04x %04x si=%04x ds=%04x di=%04x es=%04x\n", cg_hi, v, cpu.s[CS], cpu.ip, rw(sp), rw(sp+2), rw(sp+4), rw(sp+6), rw(sp+8), rw(sp+10), rw(sp+12), rw(sp+14), cpu.r[SI], cpu.s[DS], cpu.r[DI], cpu.s[ES]); } }
         return 1;
     case 0xA3: cg_hi = v; return 1;
-    case 0xA5: cg_line = v; return 1;
+    case 0xA5: cg_line = v; if (getenv("MW_CGLINE")) { static int n; if (n++ < 64) fprintf(stderr, "a5 %02x hi %02x lo %02x at %04x:%04x\n", v, cg_hi, cg_lo, cpu.s[CS], cpu.ip); } return 1;
     case 0x7FDF: if (!(v & 0x80)) { int bit = (v >> 1) & 7; if (v & 1) mouse_write_c(ms_portc | (1 << bit)); else mouse_write_c(ms_portc & ~(1 << bit)); } return 1;
     case 0xBFDB: ms_freq = v & 3; return 1;
     case 0x62: case 0xA2:
@@ -251,7 +251,7 @@ void pc98_render(void)
     if (!text_on) { if (english_art_on) art_apply(); return; }
     /* text layer: 80x25 cells of 8x16, attribute bits: 0 secret, 1 blink, 2 reverse, 3 underline, 5-7 GRB colour */
     static const u32 tcol[8] = { 0xFF000000, 0xFF0000FF, 0xFFFF0000, 0xFFFF00FF, 0xFF00FF00, 0xFF00FFFF, 0xFFFFFF00, 0xFFFFFFFF };
-    for (int row = 0; row < 25; row++)
+    for (int row = 0; row < 25; row++) {
         for (int col = 0; col < 80; col++) {
             u32 a = 0xA0000 + (row * 80 + col) * 2;
             u16 code = mem[a] | (mem[a + 1] << 8);
@@ -264,9 +264,10 @@ void pc98_render(void)
                 u8 bits;
                 if (code < 0x100) { const u8 *g = ank16(code); bits = g ? g[y] : (code < 0x80 ? (u8)font8x8_basic[code][y >> 1] : 0); if (g) bits = rev8(bits); }
                 else {
-                    /* kanji: low byte = JIS first byte - 0x20, high byte = second byte; bit 7 of the high byte marks the right half */
+                    /* kanji: low byte = JIS first byte - 0x20 (bit 7 set in the cell holding the right
+                     * half), high byte = second byte */
                     const u8 *g = kanji16((code & 0x7F) + 0x20, (code >> 8) & 0x7F);
-                    int right = (code >> 15) & 1;
+                    int right = ((code >> 7) & 1) | ((code >> 15) & 1);
                     bits = g ? rev8(g[y * 2 + right]) : ((y == 0 || y == 15) ? 0xFF : 0x81);
                 }
                 if (rev) bits = ~bits;
@@ -274,6 +275,7 @@ void pc98_render(void)
                 for (int x = 0; x < 8; x++) if (bits & (1 << x)) out[x] = fg;
             }
         }
+    }
     if (english_art_on) art_apply();
 }
 
