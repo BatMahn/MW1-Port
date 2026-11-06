@@ -24,21 +24,21 @@ MW_MAIN.EXE	0xaa9e	4	NUL	Good	21937a4a
 MW_MAIN.EXE	0xaaa6	4	NUL	Dead	04430c14
 MW_MAIN.EXE	0xaaae	4	NUL	Unk.	aa47a5f9
 MW_MAIN.EXE	0xaae8	55	NUL	No enemy showed. Dull job, but you⏎got paid unscathed.	112bc22a
-MW_MAIN.EXE	0xab2a	112	FWPAD	Failing so simple a job shows your worth. A true⏎warrior would choose death.⏎	81dbe7ea
-MW_MAIN.EXE	0xab9b	83	FWPAD	We overrated you badly. You dare return in⏎shame?	c7b87e99
-MW_MAIN.EXE	0xabef	102	FWPAD	Is that your best? Some mercenary. We⏎can't trust you with Marik work.⏎	e7c53778
-MW_MAIN.EXE	0xac56	67	FWPAD	You're unworthy of Liao work. Go die.⏎	eacb5c39
-MW_MAIN.EXE	0xac9a	75	FWPAD	You're no warrior. Don't show your⏎face until you've improved.	c15e8169
-MW_MAIN.EXE	0xacf0	55	FWPAD	Superb results. Too good to be a⏎mere mercenary.	799bda0b
-MW_MAIN.EXE	0xad28	59	FWPAD	You met our expectations. Your⏎skill deserves praise.	febc37bb
-MW_MAIN.EXE	0xad64	67	FWPAD	Well done. This success brings us great profit.⏎	541e8a38
-MW_MAIN.EXE	0xada8	55	FWPAD	A perfect victory. You've⏎earned our trust.	af1c68d6
-MW_MAIN.EXE	0xade0	55	FWPAD	Fine fighting. Keep meeting⏎our expectations.	dfe1c392
-MW_MAIN.EXE	0xae1e	83	FWPAD	You used up all supplies. Extra costs come⏎out of your pay.	ba14bf71
-MW_MAIN.EXE	0xae72	89	FWPAD	Not a complete success. Sorry, we can't pay⏎in full.	926ef3b5
-MW_MAIN.EXE	0xaecc	83	FWPAD	You missed the return rocket. That cost⏎comes out of your pay.	45f57ed3
-MW_MAIN.EXE	0xaf20	91	FWPAD	Not a complete success. Your pay is only this.⏎	1d8c1517
-MW_MAIN.EXE	0xaf7c	302	FWPAD	Dark Wing is destroyed; the infantry flee. You recover⏎Hahn's Chalice from their empty base, McBrin's plot is⏎exposed and House Vandenburg's honor is restored.⏎⏎⏎⏎	c77d59ce
+MW_MAIN.EXE	0xab2a	112	NUL	Failing so simple a job shows your worth. A true⏎warrior would choose death.⏎	81dbe7ea
+MW_MAIN.EXE	0xab9b	83	NUL	We overrated you badly. You dare return in⏎shame?	c7b87e99
+MW_MAIN.EXE	0xabef	102	NUL	Is that your best? Some mercenary. We⏎can't trust you with Marik work.⏎	e7c53778
+MW_MAIN.EXE	0xac56	67	NUL	You're unworthy of Liao work. Go die.⏎	eacb5c39
+MW_MAIN.EXE	0xac9a	75	NUL	You're no warrior. Don't show your⏎face until you've improved.	c15e8169
+MW_MAIN.EXE	0xacf0	55	NUL	Superb results. Too good to be a⏎mere mercenary.	799bda0b
+MW_MAIN.EXE	0xad28	59	NUL	You met our expectations. Your⏎skill deserves praise.	febc37bb
+MW_MAIN.EXE	0xad64	67	NUL	Well done. This success brings us great profit.⏎	541e8a38
+MW_MAIN.EXE	0xada8	55	NUL	A perfect victory. You've⏎earned our trust.	af1c68d6
+MW_MAIN.EXE	0xade0	55	NUL	Fine fighting. Keep meeting⏎our expectations.	dfe1c392
+MW_MAIN.EXE	0xae1e	83	NUL	You used up all supplies. Extra costs come⏎out of your pay.	ba14bf71
+MW_MAIN.EXE	0xae72	89	NUL	Not a complete success. Sorry, we can't pay⏎in full.	926ef3b5
+MW_MAIN.EXE	0xaecc	83	NUL	You missed the return rocket. That cost⏎comes out of your pay.	45f57ed3
+MW_MAIN.EXE	0xaf20	91	NUL	Not a complete success. Your pay is only this.⏎	1d8c1517
+MW_MAIN.EXE	0xaf7c	302	NUL	Dark Wing is destroyed; the infantry flee. You recover⏎Hahn's Chalice from their empty base, McBrin's plot is⏎exposed and House Vandenburg's honor is restored.⏎⏎⏎⏎	c77d59ce
 MW_MAIN.EXE	0xb0ae	105	NUL	Dark Wing could not be defeated. In the chaos, escaping⏎alive was all you could do.	2bf96db0
 MW_MAIN.EXE	0xb11a	14	NUL	G. Braver	f2a07092
 MW_MAIN.EXE	0xb148	12	NUL	Mech Crew	b5ccf402
@@ -76,44 +76,44 @@ MW_MAIN.EXE	0xb4d4	32	NUL	No demand for mechs now.	dcb52f6a
 MW_MAIN.EXE	0xb51a	10	NUL	Check Mech	c5880ff2
 MW_MAIN.EXE	0xb52a	12	NUL	Buy Ammo	23636df3
 MW_MAIN.EXE	0xb53c	10	NUL	Buy Mech	b3fdc516
-MW_MAIN.EXE	0xbaa2	4	FWPAD	OK	09bd0d64
-MW_MAIN.EXE	0xbaa7	10	FWPAD	Light dmg	fdba578e
-MW_MAIN.EXE	0xbab2	10	FWPAD	Medium dmg	65b11981
-MW_MAIN.EXE	0xbabd	10	FWPAD	Heavy dmg	92a91193
-MW_MAIN.EXE	0xbac8	8	FWPAD	Disabled	f925b936
+MW_MAIN.EXE	0xbaa2	4	NUL	OK	09bd0d64
+MW_MAIN.EXE	0xbaa7	10	NUL	Light dmg	fdba578e
+MW_MAIN.EXE	0xbab2	10	NUL	Medium dmg	65b11981
+MW_MAIN.EXE	0xbabd	10	NUL	Heavy dmg	92a91193
+MW_MAIN.EXE	0xbac8	8	NUL	Disabled	f925b936
 MW_MAIN.EXE	0xbad9	4	NUL	OK	09bd0d64
 MW_MAIN.EXE	0xbaed	4	NUL	Out	cc41cb51
-MW_MAIN.EXE	0xbb11	46	FWPAD	Not enough funds to repair everything!	4090c2cd
-MW_MAIN.EXE	0xbb40	22	FWPAD	All parts are OK.	4db85321
-MW_MAIN.EXE	0xbb57	13	FWPAD	Repaired	f7980ba9
-MW_MAIN.EXE	0xbb65	28	FWPAD	Parts are in short supply.	2e01156a
+MW_MAIN.EXE	0xbb11	46	NUL	Not enough funds to repair everything!	4090c2cd
+MW_MAIN.EXE	0xbb40	22	NUL	All parts are OK.	4db85321
+MW_MAIN.EXE	0xbb57	13	NUL	     Repaired	f7980ba9
+MW_MAIN.EXE	0xbb65	28	NUL	Parts are in short supply.	2e01156a
 MW_MAIN.EXE	0xbc1a	8	NUL	Fix Part	804fbbf1
 MW_MAIN.EXE	0xbc28	8	NUL	Fix All	bd997d96
 MW_MAIN.EXE	0xbc36	8	NUL	Reload	831bc6dd
 MW_MAIN.EXE	0xbc44	6	NUL	Sell	1cdf6ce6
 MW_MAIN.EXE	0xbc50	8	NUL	EXIT	19486efd
-MW_MAIN.EXE	0xbcb5	17	FWPAD	Locust : Wasp :	8892d745
-MW_MAIN.EXE	0xbcc7	17	FWPAD	Jenner : Phoenix	97df87e1
-MW_MAIN.EXE	0xbcd9	17	FWPAD	Hawk : Shadow	865ba4a6
-MW_MAIN.EXE	0xbceb	17	FWPAD	Hawk : Wolverine	ce809eea
-MW_MAIN.EXE	0xbcfd	17	FWPAD	: Rifleman :	012cfc11
-MW_MAIN.EXE	0xbd0f	17	FWPAD	Warhammer :	a71b1360
-MW_MAIN.EXE	0xbd21	17	FWPAD	Marauder :	40b96305
-MW_MAIN.EXE	0xbd33	17	FWPAD	Battlemaster :	dd9c6aed
-MW_MAIN.EXE	0xbd45	17	FWPAD	Dropship :	4776f89b
-MW_MAIN.EXE	0xbd57	17	FWPAD		b05ef825
-MW_MAIN.EXE	0xbd69	17	FWPAD		e7f1dd1b
-MW_MAIN.EXE	0xbd91	10	FWPAD	Locust	1545e155
-MW_MAIN.EXE	0xbd9c	6	FWPAD	Wasp	05ce1e81
-MW_MAIN.EXE	0xbda3	10	FWPAD	Jenner	97aea39c
-MW_MAIN.EXE	0xbdae	12	FWPAD	Phoenix Hawk	2ca222a1
-MW_MAIN.EXE	0xbdbb	14	FWPAD	Shadow Hawk	e6891501
-MW_MAIN.EXE	0xbdca	10	FWPAD	Wolverine	11051a36
-MW_MAIN.EXE	0xbdd5	12	FWPAD	Rifleman	5e990774
-MW_MAIN.EXE	0xbde2	14	FWPAD	Warhammer	cc4b0f85
-MW_MAIN.EXE	0xbdf1	10	FWPAD	Marauder	9110575b
-MW_MAIN.EXE	0xbdfc	14	FWPAD	Battlemaster	a211385d
-MW_MAIN.EXE	0xbe0b	14	FWPAD	Dropship	9db6bf63
+MW_MAIN.EXE	0xbcb5	17	NUL	Locust         : 	8892d745
+MW_MAIN.EXE	0xbcc7	17	NUL	Wasp           : 	97df87e1
+MW_MAIN.EXE	0xbcd9	17	NUL	Jenner         : 	865ba4a6
+MW_MAIN.EXE	0xbceb	17	NUL	Phoenix Hawk   : 	ce809eea
+MW_MAIN.EXE	0xbcfd	17	NUL	Shadow Hawk    : 	012cfc11
+MW_MAIN.EXE	0xbd0f	17	NUL	Wolverine      : 	a71b1360
+MW_MAIN.EXE	0xbd21	17	NUL	Rifleman       : 	40b96305
+MW_MAIN.EXE	0xbd33	17	NUL	Warhammer      : 	dd9c6aed
+MW_MAIN.EXE	0xbd45	17	NUL	Marauder       : 	4776f89b
+MW_MAIN.EXE	0xbd57	17	NUL	Battlemaster   : 	b05ef825
+MW_MAIN.EXE	0xbd69	17	NUL	Dropship       : 	e7f1dd1b
+MW_MAIN.EXE	0xbd91	10	NUL	Locust	1545e155
+MW_MAIN.EXE	0xbd9c	6	NUL	Wasp	05ce1e81
+MW_MAIN.EXE	0xbda3	10	NUL	Jenner	97aea39c
+MW_MAIN.EXE	0xbdae	12	NUL	Phoenix Hawk	2ca222a1
+MW_MAIN.EXE	0xbdbb	14	NUL	Shadow Hawk	e6891501
+MW_MAIN.EXE	0xbdca	10	NUL	Wolverine	11051a36
+MW_MAIN.EXE	0xbdd5	12	NUL	Rifleman	5e990774
+MW_MAIN.EXE	0xbde2	14	NUL	Warhammer	cc4b0f85
+MW_MAIN.EXE	0xbdf1	10	NUL	Marauder	9110575b
+MW_MAIN.EXE	0xbdfc	14	NUL	Battlemaster	a211385d
+MW_MAIN.EXE	0xbe0b	14	NUL	Dropship	9db6bf63
 MW_MAIN.EXE	0xbf50	16	NUL	No pilot	079b68fc
 MW_MAIN.EXE	0xbf61	47	NUL	                EXIT                 EXIT      	0dfe0d06
 MW_MAIN.EXE	0xbfcc	43	NUL	      C-Bills⏎offered. Sell it?	37daae0d
@@ -125,59 +125,59 @@ MW_MAIN.EXE	0xc0b1	30	NUL	Ammo is already full.	ee7bdfd4
 MW_MAIN.EXE	0xc0d0	47	NUL	Not enough funds⏎to reload everything.	499402dc
 MW_MAIN.EXE	0xc373	51	NUL	Arms      Loc. Dmg⏎⏎⏎⏎⏎⏎⏎⏎⏎⏎⏎⏎Repair cost:⏎Funds:	7daf3ceb
 MW_MAIN.EXE	0xc699	4	NUL	None	c03561ee
-MW_MAIN.EXE	0xc6bd	26	FWPAD	M.LASER Center MG R.Arm	026ad7a7
-MW_MAIN.EXE	0xc6d8	26	FWPAD	MG L.Arm EXIT	2d5c02c6
-MW_MAIN.EXE	0xc6f3	26	FWPAD		e98e17ef
-MW_MAIN.EXE	0xc70e	8	FWPAD		19486efd
+MW_MAIN.EXE	0xc6bd	26	NUL	M.LASER         Center    	026ad7a7
+MW_MAIN.EXE	0xc6d8	26	NUL	MG              R.Arm     	2d5c02c6
+MW_MAIN.EXE	0xc6f3	26	NUL	MG              L.Arm     	e98e17ef
+MW_MAIN.EXE	0xc70e	8	NUL	EXIT	19486efd
 MW_MAIN.EXE	0xc733	26	NUL	SRM-2           L.Torso   	6913ff0b
 MW_MAIN.EXE	0xc74e	8	NUL	EXIT	19486efd
-MW_MAIN.EXE	0xc773	26	FWPAD	M.LASER R.Arm M.LASER	412832b7
-MW_MAIN.EXE	0xc78e	26	FWPAD	R.Arm M.LASER L.Arm	412832b7
-MW_MAIN.EXE	0xc7a9	26	FWPAD	M.LASER L.Arm EXIT	d98761f6
-MW_MAIN.EXE	0xc7c4	26	FWPAD		d98761f6
-MW_MAIN.EXE	0xc7df	8	FWPAD		19486efd
-MW_MAIN.EXE	0xc804	26	FWPAD	M.LASER R.Arm M.LASER	412832b7
-MW_MAIN.EXE	0xc81f	26	FWPAD	L.Arm MG L.Arm MG R.Arm	d98761f6
-MW_MAIN.EXE	0xc83a	26	FWPAD	EXIT	e98e17ef
-MW_MAIN.EXE	0xc855	26	FWPAD		2d5c02c6
-MW_MAIN.EXE	0xc870	8	FWPAD		19486efd
-MW_MAIN.EXE	0xc895	26	FWPAD	LRM-5 R.Torso SRM-2 Head	9dbc4b1a
-MW_MAIN.EXE	0xc8b0	26	FWPAD	M.LASER R.Arm EXIT	35703592
-MW_MAIN.EXE	0xc8cb	26	FWPAD		412832b7
-MW_MAIN.EXE	0xc8e6	8	FWPAD		19486efd
+MW_MAIN.EXE	0xc773	26	NUL	M.LASER         R.Arm     	412832b7
+MW_MAIN.EXE	0xc78e	26	NUL	M.LASER         R.Arm     	412832b7
+MW_MAIN.EXE	0xc7a9	26	NUL	M.LASER         L.Arm     	d98761f6
+MW_MAIN.EXE	0xc7c4	26	NUL	M.LASER         L.Arm     	d98761f6
+MW_MAIN.EXE	0xc7df	8	NUL	EXIT	19486efd
+MW_MAIN.EXE	0xc804	26	NUL	M.LASER         R.Arm     	412832b7
+MW_MAIN.EXE	0xc81f	26	NUL	M.LASER         L.Arm     	d98761f6
+MW_MAIN.EXE	0xc83a	26	NUL	MG              L.Arm     	e98e17ef
+MW_MAIN.EXE	0xc855	26	NUL	MG              R.Arm     	2d5c02c6
+MW_MAIN.EXE	0xc870	8	NUL	EXIT	19486efd
+MW_MAIN.EXE	0xc895	26	NUL	LRM-5           R.Torso   	9dbc4b1a
+MW_MAIN.EXE	0xc8b0	26	NUL	SRM-2           Head      	35703592
+MW_MAIN.EXE	0xc8cb	26	NUL	M.LASER         R.Arm     	412832b7
+MW_MAIN.EXE	0xc8e6	8	NUL	EXIT	19486efd
 MW_MAIN.EXE	0xc90b	26	NUL	SRM-6           L.Torso   	e3c05767
 MW_MAIN.EXE	0xc926	26	NUL	M.LASER         Head      	90b313a3
 MW_MAIN.EXE	0xc941	8	NUL	EXIT	19486efd
-MW_MAIN.EXE	0xc966	26	FWPAD	L.LASER L.Arm AC-5 R.Arm	2f3853eb
-MW_MAIN.EXE	0xc981	26	FWPAD	AC-5 L.Arm M.LASER	2f74dba1
-MW_MAIN.EXE	0xc99c	26	FWPAD	R.Torso M.LASER L.Arm	93c50db4
-MW_MAIN.EXE	0xc9b7	26	FWPAD	EXIT	4b2582f7
-MW_MAIN.EXE	0xc9d2	26	FWPAD		d98761f6
-MW_MAIN.EXE	0xc9ed	8	FWPAD		19486efd
-MW_MAIN.EXE	0xca12	26	FWPAD	PPC L.Arm SRM-6 R.Torso	c4d6b588
-MW_MAIN.EXE	0xca2d	26	FWPAD	M.LASER R.Torso M.LASER	956e6fda
-MW_MAIN.EXE	0xca48	26	FWPAD	L.Torso S.LASER R.Torso	4b2582f7
-MW_MAIN.EXE	0xca63	26	FWPAD	S.LASER L.Torso MG	bd54f862
-MW_MAIN.EXE	0xca7e	26	FWPAD	R.Torso MG L.Torso EXIT	5c25cc5d
-MW_MAIN.EXE	0xca99	26	FWPAD		3ff9118c
-MW_MAIN.EXE	0xcab4	26	FWPAD		cc896db2
-MW_MAIN.EXE	0xcacf	26	FWPAD		d4f0079f
-MW_MAIN.EXE	0xcaea	8	FWPAD		19486efd
-MW_MAIN.EXE	0xcb0f	26	FWPAD	PPC L.Arm M.LASER R.Arm	c4d6b588
-MW_MAIN.EXE	0xcb2a	26	FWPAD	M.LASER L.Arm AC-5	412832b7
-MW_MAIN.EXE	0xcb45	26	FWPAD	R.Torso EXIT	d98761f6
-MW_MAIN.EXE	0xcb60	26	FWPAD		70c4fcdd
-MW_MAIN.EXE	0xcb7b	8	FWPAD		19486efd
-MW_MAIN.EXE	0xcba0	26	FWPAD	M.LASER R.Torso M.LASER	4b2582f7
-MW_MAIN.EXE	0xcbbb	26	FWPAD	R.Torso M.LASER R.Torso	4b2582f7
-MW_MAIN.EXE	0xcbd6	26	FWPAD	MG L.Arm MG L.Arm SRM-6	4b2582f7
-MW_MAIN.EXE	0xcbf1	26	FWPAD	L.Torso M.LASER L.Torso	e98e17ef
-MW_MAIN.EXE	0xcc0c	26	FWPAD	M.LASER L.Torso M.LASER	e98e17ef
-MW_MAIN.EXE	0xcc27	26	FWPAD	L.Torso EXIT	e3c05767
-MW_MAIN.EXE	0xcc42	26	FWPAD		bd54f862
-MW_MAIN.EXE	0xcc5d	26	FWPAD		bd54f862
-MW_MAIN.EXE	0xcc78	26	FWPAD		bd54f862
-MW_MAIN.EXE	0xcc93	8	FWPAD		19486efd
+MW_MAIN.EXE	0xc966	26	NUL	L.LASER         L.Arm     	2f3853eb
+MW_MAIN.EXE	0xc981	26	NUL	AC-5            R.Arm     	2f74dba1
+MW_MAIN.EXE	0xc99c	26	NUL	AC-5            L.Arm     	93c50db4
+MW_MAIN.EXE	0xc9b7	26	NUL	M.LASER         R.Torso   	4b2582f7
+MW_MAIN.EXE	0xc9d2	26	NUL	M.LASER         L.Arm     	d98761f6
+MW_MAIN.EXE	0xc9ed	8	NUL	EXIT	19486efd
+MW_MAIN.EXE	0xca12	26	NUL	PPC             L.Arm     	c4d6b588
+MW_MAIN.EXE	0xca2d	26	NUL	SRM-6           R.Torso   	956e6fda
+MW_MAIN.EXE	0xca48	26	NUL	M.LASER         R.Torso   	4b2582f7
+MW_MAIN.EXE	0xca63	26	NUL	M.LASER         L.Torso   	bd54f862
+MW_MAIN.EXE	0xca7e	26	NUL	S.LASER         R.Torso   	5c25cc5d
+MW_MAIN.EXE	0xca99	26	NUL	S.LASER         L.Torso   	3ff9118c
+MW_MAIN.EXE	0xcab4	26	NUL	MG              R.Torso   	cc896db2
+MW_MAIN.EXE	0xcacf	26	NUL	MG              L.Torso   	d4f0079f
+MW_MAIN.EXE	0xcaea	8	NUL	EXIT	19486efd
+MW_MAIN.EXE	0xcb0f	26	NUL	PPC             L.Arm     	c4d6b588
+MW_MAIN.EXE	0xcb2a	26	NUL	M.LASER         R.Arm     	412832b7
+MW_MAIN.EXE	0xcb45	26	NUL	M.LASER         L.Arm     	d98761f6
+MW_MAIN.EXE	0xcb60	26	NUL	AC-5            R.Torso   	70c4fcdd
+MW_MAIN.EXE	0xcb7b	8	NUL	EXIT	19486efd
+MW_MAIN.EXE	0xcba0	26	NUL	M.LASER         R.Torso   	4b2582f7
+MW_MAIN.EXE	0xcbbb	26	NUL	M.LASER         R.Torso   	4b2582f7
+MW_MAIN.EXE	0xcbd6	26	NUL	M.LASER         R.Torso   	4b2582f7
+MW_MAIN.EXE	0xcbf1	26	NUL	MG              L.Arm     	e98e17ef
+MW_MAIN.EXE	0xcc0c	26	NUL	MG              L.Arm     	e98e17ef
+MW_MAIN.EXE	0xcc27	26	NUL	SRM-6           L.Torso   	e3c05767
+MW_MAIN.EXE	0xcc42	26	NUL	M.LASER         L.Torso   	bd54f862
+MW_MAIN.EXE	0xcc5d	26	NUL	M.LASER         L.Torso   	bd54f862
+MW_MAIN.EXE	0xcc78	26	NUL	M.LASER         L.Torso   	bd54f862
+MW_MAIN.EXE	0xcc93	8	NUL	EXIT	19486efd
 MW_MAIN.EXE	0xcf1b	28	NUL	Parts are in short supply.	2e01156a
 MW_MAIN.EXE	0xd0ab	8	NUL	Buy Ammo	07488e6f
 MW_MAIN.EXE	0xd0b4	8	NUL	SellAmmo	5438beab
@@ -201,16 +201,16 @@ MW_MAIN.EXE	0xd89a	38	NUL	Light mechs:        Advance:         %	af4229e5
 MW_MAIN.EXE	0xd8ee	8	NUL	Accept	8f816a0d
 MW_MAIN.EXE	0xd8fc	8	NUL	Next job	b3f48520
 MW_MAIN.EXE	0xd90a	8	NUL	EXIT	19486efd
-MW_MAIN.EXE	0xd972	9	FWPAD	:･:Kurita	87b2b41b
-MW_MAIN.EXE	0xd97c	10	FWPAD	Steiner	009e13dc
-MW_MAIN.EXE	0xd987	6	FWPAD	Marik	6531aca5
-MW_MAIN.EXE	0xd98e	6	FWPAD	Liao	4956f8a0
-MW_MAIN.EXE	0xd995	8	FWPAD	Davion	6ba42be4
+MW_MAIN.EXE	0xd972	9	NUL	:･:Kurita	87b2b41b
+MW_MAIN.EXE	0xd97c	10	NUL	Steiner	009e13dc
+MW_MAIN.EXE	0xd987	6	NUL	Marik	6531aca5
+MW_MAIN.EXE	0xd98e	6	NUL	Liao	4956f8a0
+MW_MAIN.EXE	0xd995	8	NUL	Davion	6ba42be4
 MW_MAIN.EXE	0xd9ec	16	ctl0a	Accept offer	463874e2
-MW_MAIN.EXE	0xdab9	36	FWPAD	No jobs on offer right now.	612d29f6
-MW_MAIN.EXE	0xdade	68	FWPAD	We can't accept your terms.⏎Contract talks are over.⏎	17bd9ec1
-MW_MAIN.EXE	0xdb23	11	FWPAD	Signed...	a553ce1b
-MW_MAIN.EXE	0xdb2f	101	FWPAD	Considering your past actions toward⏎us, we have no intention of offering⏎you work at present.⏎	0b950e49
+MW_MAIN.EXE	0xdab9	36	NUL	No jobs on offer right now.	612d29f6
+MW_MAIN.EXE	0xdade	68	NUL	We can't accept your terms.⏎Contract talks are over.⏎	17bd9ec1
+MW_MAIN.EXE	0xdb23	11	NUL	Signed...	a553ce1b
+MW_MAIN.EXE	0xdb2f	101	NUL	Considering your past actions toward⏎us, we have no intention of offering⏎you work at present.⏎	0b950e49
 MW_MAIN.EXE	0xe81f	8	NUL	EXIT	19486efd
 MW_MAIN.EXE	0xe9fd	6	NUL	Kurita	9d6c877c
 MW_MAIN.EXE	0xea09	10	NUL	Steiner	009e13dc
@@ -668,10 +668,10 @@ MW_MAIN.EXE	0x126f9	32	NUL	Honed my skills in Gray Death.	4b4aec99
 MW_MAIN.EXE	0x1271d	14	NUL	J. Holmars	c17046b6
 MW_MAIN.EXE	0x1272e	36	NUL	I've worked with top mercenaries.	68f51733
 MW_MAIN.EXE	0x12756	14	NUL	Nasty Bill	988e40e2
-MW_MAIN.EXE	0x12767	36	FWPAD	Dirty or not, I always win. No	4fbc3621
-MW_MAIN.EXE	0x1278c	38	FWPAD	mercenaries in the bar now. You	c3a63bab
-MW_MAIN.EXE	0x127b3	30	FWPAD	can't hire 4+ crew. You can't	cab05caa
-MW_MAIN.EXE	0x127d2	30	FWPAD	hire 3+ crew.	d193f75d
+MW_MAIN.EXE	0x12767	36	NUL	Dirty or not, I always win.	4fbc3621
+MW_MAIN.EXE	0x1278c	38	NUL	No mercenaries in the bar now.	c3a63bab
+MW_MAIN.EXE	0x127b3	30	NUL	You can't hire 4+ crew.	cab05caa
+MW_MAIN.EXE	0x127d2	30	NUL	You can't hire 3+ crew.	d193f75d
 MW_MAIN.EXE	0x1280d	26	NUL	Really quit?	b08ee300
 MW_MAIN.EXE	0x1282d	26	NUL	Start over?	2145b1b9
 MW_MAIN.EXE	0x1289a	12	NUL	Quit game	038a2ed4
@@ -683,15 +683,15 @@ MW_MAIN.EXE	0x128f7	10	NUL	Practice	0097584f
 MW_MAIN.EXE	0x1299f	32	NUL	Choose a game to load	f2d1e749
 MW_MAIN.EXE	0x129c5	32	NUL	Choose a game to save	3e8a892f
 MW_MAIN.EXE	0x12ac3	17	NUL	   Cancel	93988bf1
-MW_MAIN.EXE	0x12c09	4	FWPAD	Easy	b3585370
-MW_MAIN.EXE	0x12c0e	4	FWPAD	Norm	cbce888b
-MW_MAIN.EXE	0x12c13	4	FWPAD	Full	acb4842c
-MW_MAIN.EXE	0x12c18	59	FWPAD	Disk is full. Could not save the⏎game.	e2950759
-MW_MAIN.EXE	0x12c54	65	FWPAD	Disk error. Could not save the⏎game.	44786567
-MW_MAIN.EXE	0x12c96	63	FWPAD	Disk error. Please check the⏎drive.	30330266
-MW_MAIN.EXE	0x12cd6	49	FWPAD	Put Game Disk 3 in drive⏎B.	182c1ba6
-MW_MAIN.EXE	0x12d08	30	FWPAD	Directory GDT not found.	17fd1b14
-MW_MAIN.EXE	0x12d27	55	FWPAD	Disk is write-protected. Please⏎check.	41198040
+MW_MAIN.EXE	0x12c09	4	NUL	Easy	b3585370
+MW_MAIN.EXE	0x12c0e	4	NUL	Norm	cbce888b
+MW_MAIN.EXE	0x12c13	4	NUL	Full	acb4842c
+MW_MAIN.EXE	0x12c18	59	NUL	Disk is full. Could not save the⏎game.	e2950759
+MW_MAIN.EXE	0x12c54	65	NUL	Disk error. Could not save the⏎game.	44786567
+MW_MAIN.EXE	0x12c96	63	NUL	Disk error. Please check the⏎drive.	30330266
+MW_MAIN.EXE	0x12cd6	49	NUL	Put Game Disk 3 in drive⏎B.	182c1ba6
+MW_MAIN.EXE	0x12d08	30	NUL	Directory GDT not found.	17fd1b14
+MW_MAIN.EXE	0x12d27	55	NUL	Disk is write-protected. Please⏎check.	41198040
 MW_MAIN.EXE	0x12de0	4	NUL	Job	aaf4f2a9
 MW_MAIN.EXE	0x12dea	12	NUL	Enemy mechs	b2fbc5a1
 MW_MAIN.EXE	0x12dfc	13	NUL	Heavy mechs:	b19558eb
@@ -700,7 +700,6 @@ MW_MAIN.EXE	0x12e22	13	NUL	Light mechs:	04eb1dd3
 MW_MAIN.EXE	0x12f70	208	NUL	Skull and black wings? Never heard. Gray Death has a⏎skull, but they're mercs, not bandits.⏎⏎⏎	c29ff714
 MW_MAIN.EXE	0x13044	186	NUL	If Kurita or Davion use skull and wings, Grigg Griez⏎may know. You may not live through the visit.⏎⏎⏎	f42a2d63
 MW_MAIN.EXE	0x13102	209	NUL	See Grigg? Crazy. Maybe tomorrow; I'll talk to his⏎men. Triple price for this drink.⏎⏎⏎⏎	43ac5957
-MW_MAIN.EXE	0x132aa	74	NUL	                             is where Grigg may be found.⏎	593718e0
 MW_MAIN.EXE	0x132f8	316	NUL	An old engineer, for a brandy: "Gray Death uses a skull,⏎so does Valasek's ship. Find Grigg Griez; he'd know."⏎⏎⏎⏎⏎⏎	cb1ff886
 MW_MAIN.EXE	0x13438	425	NUL	Two brutes took me to a secret bunker: dancers, revelers, like⏎Arabian Nights. From a raised seat Grigg Griez watched coldly.⏎⏎⏎⏎⏎⏎⏎⏎	a51c0caa
 MW_MAIN.EXE	0x137a6	57	NUL	Grigg's eyes gleamed. "Perfect."⏎	785d1dd9
@@ -715,9 +714,7 @@ MW_MAIN.EXE	0x13f43	117	NUL	Your fate in the 31st-century Successor States⏎was
 MW_MAIN.EXE	0x13fbc	449	NUL	I fled. Brown chased me but fell, gasping: "Damn Grigg...⏎Find his JumpShip, the Stone Arrow... he never gives up..."⏎⏎⏎⏎⏎⏎⏎⏎	df3f4816
 MW_MAIN.EXE	0x14181	382	NUL	I fled. Brown, choking, fell: "The Stone Arrow... avenge me⏎on Grigg..." Death showed on his face.⏎⏎⏎⏎⏎	38cf618f
 MW_MAIN.EXE	0x14303	241	NUL	A JumpShip called Stone Arrow? Never heard it. 25⏎C-Bills and I'll look; 75 more if I find something.⏎⏎⏎⏎	d95605f8
-MW_MAIN.EXE	0x1451a	62	NUL	                             is where⏎he guards, I hear.	5125c48a
 MW_MAIN.EXE	0x1455c	226	NUL	In a factory corner stood a rare SCP-1N Scorpion. A man⏎cursing its wiring turned; his badge read 'Andrew Puritan'.⏎⏎⏎	6bafa089
-MW_MAIN.EXE	0x147c1	75	NUL	                             - I'll go.⏎His woman should be there."	ecd1b4da
 MW_MAIN.EXE	0x14811	387	NUL	Behind the mech factory a path led to an abandoned plant⏎with bored guards. A figure stepped out; a gyrojet round⏎grazed me and smashed the fence.⏎⏎⏎⏎⏎⏎⏎⏎⏎⏎  Fight⏎  Flee	a1f9cb73
 MW_MAIN.EXE	0x14998	179	NUL	He aimed carefully and fired again. A round tore off⏎my right arm, the next hit my chest.⏎⏎	390f82a1
 MW_MAIN.EXE	0x14a4f	117	NUL	Your fate in the 31st-century Successor States⏎was a grisly death.⏎⏎Play again?⏎⏎  Replay?⏎  End	d90e932c
@@ -743,7 +740,6 @@ MW_MAIN.EXE	0x15eae	378	NUL	Luck favored Kearney. "Fool, Vandenburg!" cried Tash
 MW_MAIN.EXE	0x1602c	117	NUL	Your fate in the 31st-century Successor States⏎was a grisly death.⏎⏎Play again?⏎⏎  Replay?⏎  End	d90e932c
 MW_MAIN.EXE	0x160a5	466	NUL	Luck favored Tasha. She chopped Kearney's neck and he⏎fell. "Well done, Gideon. We hurt Matabushi badly.⏎We're M16, Davion special forces.⏎⏎⏎⏎⏎⏎⏎⏎⏎	be5d59a6
 MW_MAIN.EXE	0x1627a	463	NUL	We learned of a huge asset move. This disk shows who killed⏎your family and where Hahn's Chalice is hidden. Split it and⏎10 million C-Bills with me? I'm the last M16 survivor." She⏎smiled.⏎⏎⏎⏎⏎⏎	d3e04716
-MW_MAIN.EXE	0x166fa	70	NUL	                             ⏎is there, guarded by Dark Wing.	d6bced0f
 MW_MAIN.EXE	0x16744	310	NUL	I leapt onto a VTOL as it lifted off. Below, the desert⏎burned; bodies lay inside.⏎⏎⏎⏎⏎	0f47ca1b
 MW_MAIN.EXE	0x1687e	682	NUL	In the cockpit Kearney held a gun on a long-haired woman.⏎"Too bad, Tasha." She dived; both fell. "Just in time,⏎Gideon. She's a ringleader." Tasha: "Lies! He's a Kurita⏎spy!"⏎⏎⏎⏎⏎⏎⏎⏎⏎⏎⏎⏎  Trust Tasha⏎  Trust Kearney	46621873
 MW_MAIN.EXE	0x16b2c	234	NUL	Personal Message (1/5)⏎From: Tasha⏎Address: unknown⏎Pages: 5 (incl. this)⏎⏎We got secret Matabushi mail. Relevant parts follow.⏎	aa1a4243
@@ -759,7 +755,6 @@ MW_MAIN.EXE	0x17890	390	NUL	The Widow drew a pistol, but she held her saber at a
 MW_MAIN.EXE	0x17a19	505	NUL	She said her name was Tasha. "Kearney fooled you, Gideon! He's⏎a Kurita Guard spy. He framed the Widow for Anders Moon so⏎she'd kill you."⏎⏎⏎⏎⏎⏎⏎⏎	1992ba1f
 MW_MAIN.EXE	0x17c15	484	NUL	"I doubt Kurita's lord has heard of Anders Moon. But since⏎you left, Kurita-linked trader Matabushi has surged into⏎Davion space. I think it's behind the plot."⏎⏎⏎⏎⏎⏎	9bab0a16
 MW_MAIN.EXE	0x17dfe	857	NUL	A noisy group wore red jackets with a black spider. Their⏎queen, a red-haired beauty, said coldly: "Listen, boy. I pity⏎your family, but you're mistaken. We never worked on any Anders⏎world."⏎⏎⏎⏎⏎⏎⏎⏎⏎⏎⏎⏎⏎⏎⏎⏎  Trust her⏎  Don't believe it	bc9e7ccc
-MW_MAIN.EXE	0x18260	144	NUL	                             is there.⏎Their aim is attacking Davion space; job length unknown.⏎Why interested?⏎⏎- Jordan	d4dab769
 MW_MAIN.EXE	0x182f4	312	NUL	 ⏎Draconis, Galedon⏎Land's End⏎ Bandits raid outer region⏎⏎Bandits took a mining site; others raided the armory. No trace.⏎⏎	a7a5b51f
 MW_MAIN.EXE	0x18430	380	NUL	Draconis, Galedon District⏎Thestria⏎13 Aug 3024⏎ Kurita Guard tightens Davion border⏎⏎Retaliation expected after territory lost to Wolf's Dragoons.⏎⏎⏎⏎	a27029f5
 MW_MAIN.EXE	0x185b0	349	NUL	Federated Suns, New Avalon⏎6 Nov 3027⏎ Galahad 3027 and Thor end⏎⏎Both finished on schedule.⏎⏎⏎⏎	e8b2ac65
@@ -983,11 +978,11 @@ MW_MAIN.EXE	0x1ffa2	40	FWPAD		1e84f060
 MW_MAIN.EXE	0x1ffcb	22	FWPAD		3d3d5bf0
 MW_MAIN.EXE	0x1ffe2	22	FWPAD		869a9088
 MW_MAIN.EXE	0x1fff9	40	FWPAD		33a48175
-MW_MAIN.EXE	0x20022	28	FWPAD		3a7b2cb2
-MW_MAIN.EXE	0x2003f	34	FWPAD		046700d7
-MW_MAIN.EXE	0x20062	20	FWPAD		cb4f4fb3
-MW_MAIN.EXE	0x20077	40	FWPAD		18631a31
-MW_MAIN.EXE	0x200a0	16	FWPAD		f63ebea2
+MW_MAIN.EXE	0x20022	28	NUL	and earn funds.	3a7b2cb2
+MW_MAIN.EXE	0x2003f	34	NUL	Jaris McBrin, hear this: I will	046700d7
+MW_MAIN.EXE	0x20062	20	NUL	return, and no mech	cb4f4fb3
+MW_MAIN.EXE	0x20077	40	NUL	will stop me.	18631a31
+MW_MAIN.EXE	0x200a0	16	NUL		f63ebea2
 MW_MAIN.EXE	0x200b3	40	NUL	    Gideon Braver Vandenburg	3216e520
 BTECH.EXE	0x1ce14	10	NUL	Act on own	b832b76b
 BTECH.EXE	0x1ce1f	10	NUL	Ambush	7b1bc1c6
@@ -1135,3 +1130,15 @@ BTECH.EXE	0x1e09e	14	NUL	Tank Smith	adf34560
 BTECH.EXE	0x1e0ad	14	NUL	Kevin Cole	653824a0
 BTECH.EXE	0x1e0bc	14	NUL	J. Holmars	c17046b6
 BTECH.EXE	0x1e0cb	14	NUL	Nasty Bill	988e40e2
+MW_MAIN.EXE	0x131d7	210	NUL	The bartender signals with his eyes toward a bearded,           ⏎mean-looking man sitting alone. He looks like he could pull     ⏎a pistol at any moment, but after a short talk he gives      ⏎you a lead: "Go to	2bd66a47
+MW_MAIN.EXE	0x132c7	45	NUL	 and you might find Grigg."	6891872e
+MW_MAIN.EXE	0x135e2	448	NUL	 ⏎Griez's voice was ominous and heavy.⏎ "Is this the skull and wings you're looking for?"⏎Griez put a crest up on his display.⏎It was exactly what you had been searching for.⏎ "I'll tell you what I know about this crest -⏎ if you carry something to Dustball for me.⏎ My people will graft it onto your body under artificial skin.⏎ Deliver it to Dustball and my agent there⏎ will give you the information. Deal?"⏎⏎⏎  YES⏎  NO	b53445bb
+MW_MAIN.EXE	0x143f8	289	NUL	A buddy of mine who runs a repair shop near the spaceport says  ⏎the JumpShip Stone Arrow stops here now and then.            ⏎Her captain is Willard Puritan, a man called Kangaroo Jack.⏎He has an older brother, Andrew, in a mercenary unit.⏎They're working for Marik now, on escort duty at	11d57ac1
+MW_MAIN.EXE	0x14537	33	NUL	, I hear.	4dcf27f0
+MW_MAIN.EXE	0x14642	382	NUL	"You hardly see these anymore. This is one of the last."        ⏎The man cursed at the wiring while he talked.                   ⏎But when the talk turned to his brother he went quiet.          ⏎ "Willard and I don't get along. Still, I can guess.    ⏎ If you're asking about him, it's not for a good reason."⏎He grinned as if he had worked something out.⏎ "If I were you, I'd go to	48f6e2b4
+MW_MAIN.EXE	0x147de	46	NUL	.⏎ His woman should be there."	ee145938
+MW_MAIN.EXE	0x1644c	685	NUL	Tasha then wired you a large sum, along with the next disk      ⏎about the raid on Anders Moon.                                  ⏎                    ⏎ The raid on Anders Moon and the murder of Cameron Vandenburg⏎⏎Behind it: Matabushi, a trading house based in Kurita space.⏎Seeking markets beyond Kurita, it had long eyed Anders Moon, and⏎hired the mercenary unit Dark Wing to kill C. Vandenburg.⏎Grigg Griez carried the unit there.⏎Kurita's military, planning to invade Davion space, bribed⏎McBrin and swayed public opinion at the same time.⏎The Wolf's Dragoons the Kurita spy Carney hinted at, the spider⏎crest and the Black Widows had nothing to do with it.⏎⏎Khan's Grail is now at	e6de88eb
+MW_MAIN.EXE	0x16717	41	NUL	⏎guarded by Dark Wing.	cc0196c5
+MW_MAIN.EXE	0x1815b	260	NUL	Personal message                                                ⏎From: Jordan Rowe   ⏎Federated Suns, Draconis March⏎Anders Moon⏎⏎Gideon,⏎How are you?⏎The Wolf's Dragoons unit known by a spider crest is the⏎Black Widows, led by Natasha Kerensky. They're now at	e429baf1
+MW_MAIN.EXE	0x1827d	115	NUL	.⏎Raiding Davion space is their main job; how long, unknown.⏎Why the interest?⏎⏎ Jordan	793968ef
+MW_MAIN.EXE	0x1aecb	433	NUL	 ⏎Several trucks came out of the warehouse and headed for the⏎DropShip's cargo hatch. Men climbed out and began loading cargo.⏎⏎A luxurious black hovercraft drew up. Two burly men with⏎weapons ready stepped out, followed by a pot-bellied⏎Grigg Griez.⏎The old man's time and place had been right.⏎But besides the two bodyguards, many guards were on patrol.⏎⏎⏎⏎  Give up⏎  Wait and watch	0dc1137a

@@ -15,6 +15,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 #include <strings.h>
 #include <dirent.h>
 
@@ -199,14 +200,22 @@ void english_program_loaded(const char *name, u16 seg)
     long dlen; u8 *dos = load_mz_image(english_dir, name, &dlen);
     if (!dos) { fclose(f); logmsg("english: %s not found in %s", name, english_dir); return; }
     /* per-string overrides found in testing: r = redirect only, skip = keep Japanese */
-    unsigned ov_off[256]; char ov_act[256]; char ov_text[256][32]; int nov = 0;
+    static unsigned ov_off[1024]; static char ov_act[1024]; static char ov_text[1024][160]; int nov = 0;
     { char op[200]; snprintf(op, sizeof op, "textmap/pc98_%s.overrides", mapname);
       FILE *o = fopen(op, "r"); char line[128];
-      while (o && fgets(line, sizeof line, o) && nov < 256) { unsigned x; char act[16];
+      while (o && fgets(line, sizeof line, o) && nov < 1024) { unsigned x; char act[16];
           if (line[0] != '#' && sscanf(line, "%x %15s", &x, act) == 2) {
               ov_off[nov] = x; ov_act[nov] = act[0]; ov_text[nov][0] = 0;
               if (act[0] == 'w' || act[0] == 'h' || act[0] == 't' || act[0] == 'l' || act[0] == 'H') { char *q = strchr(line + 5, act[0]); q = q ? q + 1 : line; while (*q == ' ') q++;
-                  snprintf(ov_text[nov], sizeof ov_text[nov], "%s", q); char *e = strpbrk(ov_text[nov], "\r\n"); if (e) *e = 0; }
+                  snprintf(ov_text[nov], sizeof ov_text[nov], "%s", q); char *e = strpbrk(ov_text[nov], "\r\n"); if (e) *e = 0;
+                  /* escapes for our own text: \\r line break, \\xHH any byte (control codes in templates) */
+                  char *r = ov_text[nov], *w = r;
+                  while (*r) {
+                      if (r[0] == '\\' && r[1] == 'r') { *w++ = 0x0D; r += 2; }
+                      else if (r[0] == '\\' && r[1] == 'x' && isxdigit((unsigned char)r[2]) && isxdigit((unsigned char)r[3])) { char h[3] = { r[2], r[3], 0 }; *w++ = (char)strtol(h, NULL, 16); r += 4; }
+                      else *w++ = *r++;
+                  }
+                  *w = 0; }
               nov++; } }
       if (o) fclose(o); }
     u32 base = seg * 16; unsigned a, b; double conf; int inplace = 0, moved = 0;
@@ -372,6 +381,9 @@ void english_program_loaded(const char *name, u16 seg)
                     for (; i + 1 < mx; i += 2) { mem[at + i] = 0x81; mem[at + i + 1] = 0x40; }
                 } else for (int i = o; i < mx; i++) mem[at + i] = ' ';
                 if (ninplace < 4096) inplace_at[ninplace++] = at;
+                /* text inside a longer record (after a header or a place-name field): mark the range
+                 * so its characters are drawn narrow even when the record starts elsewhere */
+                if (ndone < 4096) { done_lo[ndone] = at; done_hi[ndone++] = at + mx; }
             } else {
                 /* too long once laid out: the routine is handed the record start (after the
                  * previous terminator), so redirect that, keeping the record's header bytes */
