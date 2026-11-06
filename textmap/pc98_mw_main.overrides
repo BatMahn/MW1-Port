@@ -1,0 +1,154 @@
+# image offset  action   (r = draw-time redirect only, never in place; s = leave Japanese)
+# date line: year suffix and month table (1-9 are three bytes, 10-12 four)
+0a48b w ,
+0d3b6 w JAN
+0d3ba w FEB
+0d3be w MAR
+0d3c2 w APR
+0d3c6 w MAY
+0d3ca w JUN
+0d3ce w JUL
+0d3d2 w AUG
+0d3d6 w SEP
+0d3da w OCT
+0d3df w NOV
+0d3e4 w DEC
+# currency unit: also drawn by the number routine, which reads two-byte characters only;
+# keep the Japanese bytes in memory and swap only when the text routines draw it
+12153 r
+# currency unit after amounts: four half-width characters in FEh form
+0ac5c h CB
+0b5d7 h CB
+0cd60 h CB
+# mech names: copied into the mission data the combat engine reads (it looks mechs up by
+# their Japanese names), so keep the Japanese bytes in memory and swap only when drawn
+0add9 r
+0ade5 r
+0aded r
+0ae17 r
+0ae23 r
+0ae41 r
+0b6c7 r
+0b6d9 r
+0b6eb r
+0b6fd r
+0b70f r
+0b721 r
+0b745 r
+0b757 r
+0b791 r
+0b79c r
+0b7a3 r
+0b7ae r
+0b7bb r
+0b7ca r
+0b7d5 r
+0b7f1 r
+0b7fc r
+# people's names (commander, pilots, mercenaries): the commander name is handed to the
+# combat engine in the mission data, and it refuses to start if the name isn't one it knows,
+# so names keep their Japanese bytes in memory and are swapped only when drawn
+09a29 r
+0ab1a r
+0cdc1 r
+0e7f3 r
+0f87e r
+100d1 r
+103e3 r
+10455 r
+10507 r
+106fd r
+109c1 r
+10c16 r
+10ec1 r
+11012 r
+115ec r
+11627 r
+116c4 r
+1170b r
+1175e r
+117c0 r
+1180e r
+118be r
+119ac r
+119ee r
+11a6d r
+11ad0 r
+11b15 r
+11b57 r
+11bba r
+11bea r
+11c38 r
+11cb7 r
+11cf2 r
+11d2d r
+11da8 r
+11ddd r
+11e18 r
+11e70 r
+11eb0 r
+11f67 r
+11fa4 r
+12007 r
+1205d r
+1209f r
+120e5 r
+1211a r
+12153 r
+# house menu: the aligner paired it with an unrelated two-line DOS label; the second tier covers it
+0d1a0 s
+0d1b4 s
+# house attitude levels (one or two kanji each): our own labels, swapped in when drawn
+0ad4f t HOSTILE
+0ad54 t POOR
+0ad57 t NEUTRAL
+0ad5a t GOOD
+0ad5d t LOYAL
+# first mech-name table: the DOS build splits two names over two strings
+0adf9 t PHOENIX HAWK
+0ae07 t SHADOW HAWK
+# options menu: "resume game" item was paired with an unrelated DOS label
+122d3 s
+# mech status / repair readout: labels inside records that also hold value placeholders
+0bc07 l 10 ENGINE:
+0bc29 l 10 GYRO:
+0bc4b l 10 SENSORS:
+0bc6d l 10 LIFE SUP:
+0bc8f l 16 HEAT SINKS:
+0bcb1 l 16 L ARM MOTOR:
+0bcd3 l 5 RArm 
+0bcf5 l 5 LLeg 
+0bd17 l 5 RLeg 
+0bd39 H 22 JUMP JETS
+0bd60 l 5 ARMR:
+0bd73 l 20 WEAPON    LOC   DMG
+0bd93 l 11 REPAIR COST
+0bd9f l 7 FUNDS:
+# mech spec sheet templates (two screens): our own labels, value fields kept
+0b5a2 l 20    MECH SPEC SHEET  
+0b5b7 l 7 TYPE:
+0b5bf l 5 STAT:
+0b5c5 l 18 REPAIR COST:
+0b5e0 l 13 MASS (t):
+0b5ee l 13 SPD km/h:
+0b5fc l 18 JUMP (m):
+0b60f l 5 WPNS:
+0cd2b l 20    MECH SPEC SHEET  
+0cd40 l 7 TYPE:
+0cd48 l 5 STAT:
+0cd4e l 18 REPAIR COST:
+0cd69 l 13 MASS (t):
+0cd77 l 13 SPD km/h:
+0cd85 l 18 JUMP (m):
+0cd98 l 5 WPNS:
+0cda4 l 6 PRICE:
+0cdab l 7 FUNDS:
+# damage levels: long forms, and the four-byte short forms the repair readout uses
+0b4a7 l 10 LIGHT DMG
+0b4b2 l 10 MED DMG
+0b4bd l 10 HEAVY DMG
+0b4c8 l 8 DISABLED
+0b4de l 4 LITE
+0b4e3 l 4 MED
+0b4e8 l 4 HVY
+0b4ed l 4 DEAD

@@ -1,0 +1,23 @@
+# your game data (never commit)
+/DOS/
+/dos/
+/PC98/
+/pc98/
+/MT32/
+/mt32/
+mechwarrior_pc98_translation.tsv
+# build output
+/build/
+/generated/
+/mechwarrior
+/mechwarrior.exe
+*.o
+SDL2.dll
+# test/run leftovers
+/run/
+*.state
+*.ppm
+*.raw
+mem.bin
+tvram.bin
+__pycache__/

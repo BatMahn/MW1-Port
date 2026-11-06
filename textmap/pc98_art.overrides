@@ -1,0 +1,9 @@
+# x y w h hash text  -- artwork labels; hash 0 = just report the hash (MW_ARTHASH=1)
+# debriefing (mission results)
+382 17 160 20 9e681fa5 CREW STATUS
+382 125 160 20 5b36c5a2 MECH STATUS
+367 232 84 18 e094bf8f LOOT TOTAL
+382 252 69 18 61e991bd PAYMENT
+# crew card: the first and last labels are drawn character by character, not from a string
+16 158 64 19 0abe777d <Name
+16 222 64 19 7ec6e85d <Mech

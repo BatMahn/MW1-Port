@@ -1,0 +1,53 @@
+# image offset  action   (r = draw-time redirect only, never in place; s = leave Japanese)
+# people's names: matched against the commander/pilot names in the mission data,
+# so they keep their Japanese bytes in memory
+1c3a6 r
+1c752 r
+1d00d r
+1d01e r
+1d073 r
+1d093 r
+1d0a4 r
+1d0b6 r
+1d0c5 r
+1d0d2 r
+1d0df r
+1d0ea r
+1d0fe r
+1d118 r
+1d127 r
+1d136 r
+1d158 r
+1d167 r
+1d178 r
+1d187 r
+1d198 r
+1d1b8 r
+1d1d2 r
+1d1df r
+1d1ea r
+1d208 r
+1d219 r
+1d22a r
+1d23b r
+1d248 r
+1d260 r
+1d26f r
+1d280 r
+1d28f r
+1d29e r
+1d2ad r
+1d2bc r
+1d2cb r
+# briefing status headings: paired with unrelated short DOS labels; the second tier covers them
+1cd09 w <CREW STATUS>
+1cd18 w <MECH STATUS>
+# remaining combat-engine labels with no pair in either tier (our own wording)
+1c014 w ACT ALONE
+1c0c4 w <DAMAGE>
+1c15d w <ORDERS>
+1c3d4 w WPN       LOC    DMG
+1ccf5 w HOSTAGES
+# two pilot names with no pair (swapped in memory once the engine has started, like the others)
+1d259 t KILLER
+1d0b1 t TJ
