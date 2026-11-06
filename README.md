@@ -29,6 +29,9 @@ MW1-Port/
 
 Folder names are not case-sensitive (`DOS`, `dos`, `Dos` all work).
 
+On macOS the program is `MechWarrior.app` (with `textmap/` and `fonts/` inside it); the
+`DOS/`, `PC98/` and `MT32/` folders go next to the app.
+
 ### DOS/ — DOS MechWarrior (1989)
 
 Copy the files of the installed `MECHWAR` folder into `DOS/` (top level, no subfolders).
@@ -111,7 +114,26 @@ owners.
 
 ---
 
-## 2. Building
+## 2. Ready-made builds
+
+The [Releases](../../releases) page has builds for Windows (x86_64), macOS (Apple Silicon
+and Intel) and Linux (x86_64). Each zip unpacks to an `MW1-Port` folder with empty `DOS/`,
+`PC98/` and `MT32/` folders: put your game data in them (section 1) and run the program.
+
+- **macOS**: `MechWarrior.app`. It isn't notarised, so the first time right-click it → Open,
+  or run `xattr -dr com.apple.quarantine MW1-Port` in Terminal.
+- **Linux**: needs SDL2 installed (`sudo apt install libsdl2-2.0-0` or your distro's package).
+- **Windows**: everything needed is in the folder.
+
+These builds are made without any game files, so they run the game on the built-in x86
+interpreter: everything works, it just uses more CPU than a build from source with your data,
+which recompiles the game's code to native code (section 3). Any machine from the last decade
+manages either comfortably.
+
+Builds run automatically on every push (Actions tab → build → artifacts). Pushing a tag such
+as `v1.0` publishes them as a release.
+
+## 3. Building from source
 
 Needs a C/C++ compiler, SDL2 (with `sdl2-config`), `make` and `python3`.
 
@@ -119,7 +141,8 @@ Needs a C/C++ compiler, SDL2 (with `sdl2-config`), `make` and `python3`.
 
     xcode-select --install      # compiler, make, python3
     brew install sdl2
-    make
+    make                        # ./mechwarrior
+    make app                    # optional: MechWarrior.app with its icon
 
 **Linux** (Debian/Ubuntu shown)
 
@@ -141,7 +164,7 @@ x86 interpreter (correct, but uses more CPU).
 
 ---
 
-## 3. Playing
+## 4. Playing
 
     ./mechwarrior                 PC-98 edition (English if DOS/ is present)
     ./mechwarrior --skip-intro    same, fast-forwarding the five-minute opening
@@ -160,7 +183,7 @@ Other options: `--data DIR` (look for the folders in DIR), `--mt32 DIR`, `--cycl
 
 ---
 
-## 4. How it works (short)
+## 5. How it works (short)
 
 - **CPU**: the game's 8086 code is statically recompiled to C (`tools/recomp.py`), using the
   coverage traces in `trace/` plus recursive descent; anything not found runs on the
@@ -178,7 +201,7 @@ Other options: `--data DIR` (look for the folders in DIR), `--mt32 DIR`, `--cycl
   painted into the pictures. Names the combat engine checks against its mission data are
   kept Japanese in memory and switched to English only once its start-up check is done.
 
-## 5. Known limitations
+## 6. Known limitations
 
 - The PC-98 title logo keeps its Japanese title (it is the game's artwork).
 - A few story fragments have no entry in either the DOS game or `pc98_english.tsv` and stay
@@ -187,7 +210,7 @@ Other options: `--data DIR` (look for the folders in DIR), `--mt32 DIR`, `--cycl
   and half-width characters look slightly different from real hardware.
 - The PC-98 opening's hardware smooth-scroll isn't emulated.
 
-## 6. Developer notes
+## 7. Developer notes
 
 `--dir PATH` runs a game folder directly (the current folder is kept). Testing aids:
 `--headless MS` with `--key T:SCAN[:HOLD]`, `--mouse T:DX:DY:BTN`, `--shot T`,
@@ -197,7 +220,10 @@ Other options: `--data DIR` (look for the folders in DIR), `--mt32 DIR`, `--cycl
 `MW_TXTDBG=ms` (text draw log), `MW_ARTHASH=1`, `MW_MPULOG=1`.
 Text maps are rebuilt with `tools/textalign.py`.
 
-## 7. Third-party code
+## 8. Third-party code
+
+The program icon is in `icons/` (`MechWarrior.icns`; `mechwarrior.ico` and the built-in window icon are made from it).
+
 
 | Component | Licence | Path |
 |---|---|---|

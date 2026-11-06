@@ -1,0 +1,103 @@
+# Builds MW1-Port for Linux, macOS (Apple Silicon and Intel) and Windows.
+# No game data is available here, so these builds have no recompiled game code and run the
+# game on the built-in x86 interpreter (correct, a little more CPU). Building from source with
+# your own data in DOS/ and PC98/ adds the recompiled code.
+#
+# Every push and pull request builds and uploads the packages as workflow artifacts.
+# Pushing a tag like v1.0 also publishes them as a GitHub release.
+name: build
+
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  linux:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install SDL2
+        run: sudo apt-get update && sudo apt-get install -y libsdl2-dev
+      - name: Build
+        run: make -j4
+      - name: Package
+        run: sh tools/package.sh linux-x86_64 mechwarrior
+      - uses: actions/upload-artifact@v4
+        with:
+          name: MW1-Port-linux-x86_64
+          path: dist/*.zip
+
+  macos:
+    strategy:
+      matrix:
+        include:
+          - runner: macos-14
+            arch: arm64
+          - runner: macos-13
+            arch: x86_64
+    runs-on: ${{ matrix.runner }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install SDL2 and dylibbundler
+        run: brew install sdl2 dylibbundler
+      - name: Build MechWarrior.app
+        run: make -j4 app
+      - name: Bundle SDL2 into the app and sign it (ad hoc)
+        run: |
+          dylibbundler -od -b -x MechWarrior.app/Contents/MacOS/mechwarrior \
+                       -d MechWarrior.app/Contents/libs/ -p @executable_path/../libs/
+          codesign --force --deep -s - MechWarrior.app
+      - name: Package
+        run: sh tools/package.sh macos-${{ matrix.arch }} MechWarrior.app
+      - uses: actions/upload-artifact@v4
+        with:
+          name: MW1-Port-macos-${{ matrix.arch }}
+          path: dist/*.zip
+
+  windows:
+    runs-on: windows-latest
+    defaults:
+      run:
+        shell: msys2 {0}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: msys2/setup-msys2@v2
+        with:
+          msystem: MINGW64
+          install: >-
+            make zip
+            mingw-w64-x86_64-gcc
+            mingw-w64-x86_64-SDL2
+      - name: Build
+        run: make -j4
+      - name: Collect DLLs
+        run: |
+          mkdir -p dlls
+          ldd mechwarrior.exe | awk '/mingw64/ {print $3}' | xargs -r -I{} cp {} dlls/
+          ls dlls
+      - name: Package
+        run: sh tools/package.sh windows-x86_64 mechwarrior.exe dlls
+      - uses: actions/upload-artifact@v4
+        with:
+          name: MW1-Port-windows-x86_64
+          path: dist/*.zip
+
+  release:
+    if: startsWith(github.ref, 'refs/tags/v')
+    needs: [linux, macos, windows]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          path: artifacts
+          merge-multiple: true
+      - uses: softprops/action-gh-release@v2
+        with:
+          files: artifacts/*.zip
+          generate_release_notes: true

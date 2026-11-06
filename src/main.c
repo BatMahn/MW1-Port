@@ -174,9 +174,14 @@ static int setup_layout(const char *data_root, int game_dir_given, int want_dos,
     if (data_root) snprintf(base, sizeof base, "%s", data_root);
     else { char *b = SDL_GetBasePath(); snprintf(base, sizeof base, "%s", b ? b : "."); if (b) SDL_free(b); }
     size_t bl = strlen(base); while (bl > 1 && (base[bl - 1] == '/' || base[bl - 1] == '\\')) base[--bl] = 0;
+    /* inside a macOS app bundle the program's own files (textmap/, fonts/) are in
+     * Contents/Resources and the game data folders sit next to the .app */
+    char res[1024]; snprintf(res, sizeof res, "%s", base);
+    if (!data_root) { char *app = strstr(base, ".app/Contents");
+        if (app) { *app = 0; char *sl = strrchr(base, '/'); if (sl && sl != base) *sl = 0; else snprintf(base, sizeof base, "."); } }
     /* normal play runs from the program's folder (textmap/, fonts/, saved data); with an explicit
      * --dir the current folder is kept (development runs) */
-    if (!game_dir_given && CHDIR(base) != 0) fprintf(stderr, "can't enter %s\n", base);
+    if (!game_dir_given && CHDIR(res) != 0) fprintf(stderr, "can't enter %s\n", res);
     int dos_folder = find_ci(base, "DOS", lay_dos, sizeof lay_dos);
     int have_dos = dos_folder && has_file(lay_dos, "MW.EXE");                                   /* playable */
     int have_dos_text = dos_folder && has_file(lay_dos, "MW_MAIN.EXE") && has_file(lay_dos, "BTECH.EXE");   /* English source */
@@ -315,6 +320,10 @@ int main(int argc, char **argv)
         SDL_RenderSetLogicalSize(ren, 960, 720);
         SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "0");
         tex = SDL_CreateTexture(ren, SDL_PIXELFORMAT_ARGB8888, SDL_TEXTUREACCESS_STREAMING, FB_W, FB_H);
+        { /* window icon (the .app / .exe icons are set by the platform packaging) */
+          #include "icon_rgba.h"
+          SDL_Surface *ic = SDL_CreateRGBSurfaceWithFormatFrom((void *)mw_icon_rgba, 64, 64, 32, 64 * 4, SDL_PIXELFORMAT_RGBA32);
+          if (ic) { SDL_SetWindowIcon(win, ic); SDL_FreeSurface(ic); } }
     }
     { char p[1200]; snprintf(p, sizeof p, "%s/IO98.SYS", game_dir); if (access(p, F_OK) == 0) machine_pc98 = 1; }
     getenv_dbg = getenv("MW_DBG") != NULL;

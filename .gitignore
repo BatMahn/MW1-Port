@@ -21,3 +21,7 @@ SDL2.dll
 mem.bin
 tvram.bin
 __pycache__/
+/dist/
+/libs/
+/dlls/
+/MechWarrior.app/

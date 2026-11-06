@@ -12,6 +12,7 @@ UNAME := $(shell uname -s 2>/dev/null)
 ifneq (,$(findstring MINGW,$(UNAME))$(findstring MSYS,$(UNAME)))
   EXE := mechwarrior.exe
   PLATFORM_LIBS := -static-libgcc -static-libstdc++
+  RES_OBJ := build/mechwarrior_res.o
 else
   EXE := mechwarrior
   PLATFORM_LIBS :=
@@ -45,12 +46,26 @@ C_OBJ    = $(patsubst %.c,$(OBJDIR)/%.o,$(C_SRC) $(GEN_SRC))
 CXX_OBJ  := $(patsubst %.cpp,$(OBJDIR)/%.o,$(CXX_SRC))
 MT32_OBJ := $(patsubst %.cpp,$(OBJDIR)/%.o,$(MT32_SRC))
 
-.PHONY: all generate distclean clean
+.PHONY: all generate distclean clean app
 all: generated/images.inc
 	@$(MAKE) --no-print-directory $(EXE)
 
-$(EXE): $(C_OBJ) $(CXX_OBJ) $(MT32_OBJ)
+$(EXE): $(C_OBJ) $(CXX_OBJ) $(MT32_OBJ) $(RES_OBJ)
 	$(CXX) -o $@ $^ $(SDL_LIBS) $(PLATFORM_LIBS) -lm
+
+# Windows: program icon
+build/mechwarrior_res.o: src/mechwarrior.rc icons/mechwarrior.ico
+	@mkdir -p build
+	windres -i src/mechwarrior.rc -o $@
+
+# macOS: MechWarrior.app (icon, Info.plist); put DOS/ PC98/ MT32/ next to the .app
+app: all
+	rm -rf MechWarrior.app
+	mkdir -p MechWarrior.app/Contents/MacOS MechWarrior.app/Contents/Resources
+	cp $(EXE) MechWarrior.app/Contents/MacOS/mechwarrior
+	cp -R textmap fonts MechWarrior.app/Contents/Resources/
+	cp icons/MechWarrior.icns MechWarrior.app/Contents/Resources/
+	cp tools/Info.plist MechWarrior.app/Contents/Info.plist
 
 $(OBJDIR)/%.o: %.c src/*.h generated/images.inc
 	@mkdir -p $(dir $@)
@@ -78,7 +93,7 @@ generate:
 	@rm -rf $(OBJDIR)/generated $(OBJDIR)/src/recomp.o
 
 clean:
-	rm -rf $(OBJDIR) $(EXE)
+	rm -rf $(OBJDIR) $(EXE) MechWarrior.app
 
 distclean: clean
 	rm -rf generated
