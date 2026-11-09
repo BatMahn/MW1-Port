@@ -2,7 +2,7 @@
  * SDL, so sound stays in step with the game's own clock. */
 #include "machine.h"
 #include "runtime.h"
-#include <SDL.h>
+#include "sdl_port.h"
 #include <math.h>
 #include <string.h>
 #include <stdio.h>
@@ -11,7 +11,11 @@
 void opn_init(void); void opn_generate(s16 *buf, int n, int out_rate);
 
 #define RATE 44100
+#ifdef MW_SDL3
+static SDL_AudioStream *dev;
+#else
 static SDL_AudioDeviceID dev;
+#endif
 FILE *wav_out;   /* --wav: raw 44.1k stereo s16 capture of everything played */
 static opl3_chip opl;
 static int spk_on; static double spk_freq, spk_phase;
@@ -27,13 +31,22 @@ static double sn_ph[3]; static u16 sn_lfsr = 0x4000; static double sn_nph;
 
 void audio_init(void)
 {
+#ifdef MW_SDL3
+    SDL_AudioSpec spec = { SDL_AUDIO_S16, 2, RATE };
+    dev = SDL_OpenAudioDeviceStream(SDL_AUDIO_DEVICE_DEFAULT_PLAYBACK, &spec, NULL, NULL);
+#else
     SDL_AudioSpec want = { 0 }, have;
     want.freq = RATE; want.format = AUDIO_S16SYS; want.channels = 2; want.samples = 1024;
     dev = SDL_OpenAudioDevice(NULL, 0, &want, &have, 0);
+#endif
     OPL3_Reset(&opl, RATE);
     if (mt32_dir) mt32_open(mt32_dir, RATE);
     opn_init();
+#ifdef MW_SDL3
+    if (dev) SDL_ResumeAudioStreamDevice(dev);
+#else
     if (dev) SDL_PauseAudioDevice(dev, 0);
+#endif
 }
 
 void audio_speaker(int on, double freq) { spk_on = on; spk_freq = freq; }
@@ -69,7 +82,11 @@ void audio_advance(double emu_ms)
     if (n > RATE / 4) n = RATE / 4;
     gen_ms += n * 1000.0 / RATE;
     /* don't let the queue grow without bound (e.g. after a pause) */
+#ifdef MW_SDL3
+    if (dev && SDL_GetAudioStreamQueued(dev) > RATE * 4 / 5 && !wav_out) return;
+#else
     if (dev && SDL_GetQueuedAudioSize(dev) > RATE * 4 / 5 && !wav_out) return;
+#endif
     static s16 buf[RATE / 4 * 2];
     if (used_adlib && !machine_pc98) OPL3_GenerateStream(&opl, buf, n);
     else memset(buf, 0, n * 4);
@@ -100,7 +117,11 @@ void audio_advance(double emu_ms)
         buf[i * 2] = l > 32767 ? 32767 : l < -32768 ? -32768 : l;
         buf[i * 2 + 1] = r > 32767 ? 32767 : r < -32768 ? -32768 : r;
     }
+#ifdef MW_SDL3
+    { extern int audio_muted; if (dev && !audio_muted) SDL_PutAudioStreamData(dev, buf, n * 4); }
+#else
     { extern int audio_muted; if (dev && !audio_muted) SDL_QueueAudio(dev, buf, n * 4); }
+#endif
 }
 
 

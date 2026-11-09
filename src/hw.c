@@ -180,8 +180,13 @@ static u8 pc98_port_in(u16 port)
     case 0x188: return opn_read(0);
     case 0x18A: return opn_read(1);
     case 0xA460: return 0xFF;                /* no PC-9801-86 */
+    /* system port B: bit 5 set means the 8 MHz-family clock (PIT input 1.9968 MHz). We run the
+     * PIT at 2.4576 MHz (10 MHz family, as the BIOS area at 0:0501 also says), so bit 5 must be
+     * clear: the game picks its timer divisor from it (FFFFh here, CFFEh on 8 MHz machines),
+     * and the wrong one made it run 23% fast. */
+    case 0x42: return 0xDF;
     }
-    logmsg("pc98 in %04x", port);
+    logmsg("pc98 in %04x at %04x:%04x", port, cpu.s[CS], cpu.ip);
     return 0xFF;
 }
 static void pc98_port_out(u16 port, u8 v);
@@ -207,6 +212,7 @@ u8 port_in(u16 port)
     case 0x330: if (mpu_ack) { mpu_ack = 0; return 0xFE; } return 0xFF;
     }
     if (port >= 0x3C0 && port <= 0x3DF) return video_port_in(port);
+    if (getenv("MW_IOLOG")) { static int n; if (n++ < 200) fprintf(stderr, "unhandled in %04x at %04x:%04x\n", port, cpu.s[CS], cpu.ip); }
     return 0xFF;
 }
 
@@ -228,16 +234,22 @@ static void pc98_port_out(u16 port, u8 v)
     case 0x77: port_out_pit_ctl(v); return;
     case 0x188: opn_write(0, v); opn_wcount++; if (log_enabled > 1) logmsg("OPN reg %02x", v); return;
     case 0x18A: opn_write(1, v); if (log_enabled > 1) logmsg("OPN data %02x", v); return;
-    case 0x37: case 0x35: case 0x43: case 0x5F: return;
+    /* 7Fh: high byte of the word writes the graphics code uses for the GRCG tile register at 7Eh
+     * (out dx, ax with dx = 7Eh); nothing is attached there */
+    case 0x37: case 0x35: case 0x43: case 0x5F: case 0x7F: return;
     }
-    logmsg("pc98 out %04x <- %02x", port, v);
+    { static int n; if (n++ < 20) logmsg("pc98 out %04x <- %02x at %04x:%04x", port, v, cpu.s[CS], cpu.ip); }
 }
 
 void port_out(u16 port, u8 v)
 {
     if (machine_pc98) { pc98_port_out(port, v); return; }
     switch (port) {
-    case 0x20: if (v == 0x20) pic_eoi(0); return;
+    case 0x20:
+        if (getenv("MW_PICLOG")) { static int n; if (n++ < 40) fprintf(stderr, "pic cmd %02x\n", v); }
+        if (v == 0x20) pic_eoi(0);                                   /* non-specific EOI */
+        else if ((v & 0xF8) == 0x60) pic_isr &= ~(1 << (v & 7));     /* specific EOI */
+        return;
     case 0x21: pic_mask = (pic_mask & 0xFF00) | v; return;
     case 0x40: case 0x41: case 0x42: pit_write(port - 0x40, v);
         if (port == 0x42) audio_speaker((port61 & 3) == 3, PIT_HZ / (pit[2].reload ? pit[2].reload : 65536));
@@ -267,6 +279,7 @@ void port_out(u16 port, u8 v)
     case 0x331: if (getenv("MW_MPULOG")) fprintf(stderr, "mpu cmd %02x\n", v); if (v == 0xFF || v == 0x3F) mpu_ack = 1; return;  /* reset / UART mode -> ACK */
     }
     if (port >= 0x3C0 && port <= 0x3DF) { video_port_out(port, v); return; }
+    if (getenv("MW_IOLOG")) { static int n; if (n++ < 200) fprintf(stderr, "unhandled out %04x <- %02x at %04x:%04x\n", port, v, cpu.s[CS], cpu.ip); }
 }
 u16 port_inw(u16 p) { return port_in(p) | (port_in(p + 1) << 8); }
 void port_outw(u16 p, u16 v) { port_out(p, v & 0xFF); port_out(p + 1, v >> 8); }

@@ -6,7 +6,7 @@
 #   make clean      remove the program and objects (generated code is kept)
 #   make distclean  also remove the generated code
 #
-# Needs: a C/C++ compiler, SDL2 (sdl2-config on the PATH), python3.
+# Needs: a C/C++ compiler, SDL 3 (pkg-config) or SDL 2 (sdl2-config), python3.
 
 UNAME := $(shell uname -s 2>/dev/null)
 ifneq (,$(findstring MINGW,$(UNAME))$(findstring MSYS,$(UNAME)))
@@ -20,8 +20,17 @@ endif
 
 CC  ?= cc
 CXX ?= c++
-SDL_CFLAGS := $(shell sdl2-config --cflags)
-SDL_LIBS   := $(shell sdl2-config --libs)
+# SDL 3 when pkg-config finds it (macOS: brew install sdl3), else SDL 2. Force with SDL=2 or SDL=3.
+ifeq ($(SDL),)
+  SDL := $(shell pkg-config --exists sdl3 2>/dev/null && echo 3 || echo 2)
+endif
+ifeq ($(SDL),3)
+  SDL_CFLAGS := $(shell pkg-config --cflags sdl3) -DMW_SDL3
+  SDL_LIBS   := $(shell pkg-config --libs sdl3)
+else
+  SDL_CFLAGS := $(shell sdl2-config --cflags)
+  SDL_LIBS   := $(shell sdl2-config --libs)
+endif
 CFLAGS   ?= -O2 -g
 CXXFLAGS ?= -O2 -g
 CFLAGS   += -Wall -Wno-unused-function -Isrc -Igenerated $(SDL_CFLAGS)

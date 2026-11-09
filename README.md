@@ -135,12 +135,13 @@ as `v1.0` publishes them as a release.
 
 ## 3. Building from source
 
-Needs a C/C++ compiler, SDL2 (with `sdl2-config`), `make` and `python3`.
+Needs a C/C++ compiler, SDL 3 (found with `pkg-config`) or SDL 2 (`sdl2-config`), `make` and `python3`.
+SDL 3 is used when present; `make SDL=2` forces SDL 2.
 
 **macOS**
 
     xcode-select --install      # compiler, make, python3
-    brew install sdl2
+    brew install sdl3
     make                        # ./mechwarrior
     make app                    # optional: MechWarrior.app with its icon
 
@@ -151,9 +152,9 @@ Needs a C/C++ compiler, SDL2 (with `sdl2-config`), `make` and `python3`.
 
 **Windows** (MSYS2, "MINGW64" shell)
 
-    pacman -S mingw-w64-x86_64-gcc mingw-w64-x86_64-SDL2 make python
+    pacman -S mingw-w64-x86_64-gcc mingw-w64-x86_64-pkgconf mingw-w64-x86_64-sdl3 make python
     make
-    cp /mingw64/bin/SDL2.dll .   # SDL2.dll must sit next to mechwarrior.exe
+    cp /mingw64/bin/SDL3.dll .   # SDL3.dll must sit next to mechwarrior.exe
 
 Put the game data in place (section 1) **before** the first `make`: the build recompiles the
 game's code from `DOS/` and `PC98/` into `generated/`. If you add data later, run

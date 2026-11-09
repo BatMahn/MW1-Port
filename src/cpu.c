@@ -158,16 +158,25 @@ void cpu_step(void)
     case 0x06: case 0x0E: case 0x16: case 0x1E: cpu_push(cpu.s[op >> 3]); break;
     case 0x07: case 0x17: case 0x1F: cpu.s[op >> 3] = cpu_pop(); break;
     case 0x0F: cpu.s[CS] = cpu_pop(); break;
-    case 0x27: { u8 al = cpu.r[AX] & 0xFF; int cf = cpu.flags & F_CF;
-        if ((al & 0xF) > 9 || (cpu.flags & F_AF)) { al += 6; cpu.flags |= F_AF; } else cpu.flags &= ~F_AF;
-        if ((cpu.r[AX] & 0xFF) > 0x99 || cf) { al += 0x60; cpu.flags |= F_CF; } else cpu.flags &= ~F_CF;
+    /* BCD adjusts, as the 8086/8088 does them (checked against hardware test vectors): the
+     * second step's threshold is 9Fh when the first step adjusted, and AAA/AAS adjust AL and AH
+     * separately (no carry from AL into AH) */
+    case 0x27: { u8 al = cpu.r[AX] & 0xFF, old = al; int cf = cpu.flags & F_CF, af0 = cpu.flags & F_AF, af = 0;
+        if ((al & 0xF) > 9 || af0) { al += 6; af = 1; }
+        SETF(F_AF, af);
+        if (old > (af0 ? 0x9F : 0x99) || cf) { al += 0x60; cpu.flags |= F_CF; } else cpu.flags &= ~F_CF;
         *r8p(0) = al; szp8(al); } break;
-    case 0x2F: { u8 al = cpu.r[AX] & 0xFF; int cf = cpu.flags & F_CF; u8 old = al;
-        if ((al & 0xF) > 9 || (cpu.flags & F_AF)) { al -= 6; cpu.flags |= F_AF; } else cpu.flags &= ~F_AF;
-        if (old > 0x99 || cf) { al -= 0x60; cpu.flags |= F_CF; } else cpu.flags &= ~F_CF;
+    case 0x2F: { u8 al = cpu.r[AX] & 0xFF, old = al; int cf = cpu.flags & F_CF, af0 = cpu.flags & F_AF, af = 0;
+        if ((al & 0xF) > 9 || af0) { al -= 6; af = 1; }
+        SETF(F_AF, af);
+        if (old > (af0 ? 0x9F : 0x99) || cf) { al -= 0x60; cpu.flags |= F_CF; } else cpu.flags &= ~F_CF;
         *r8p(0) = al; szp8(al); } break;
-    case 0x37: if ((cpu.r[AX] & 0xF) > 9 || (cpu.flags & F_AF)) { cpu.r[AX] += 0x106; cpu.flags |= F_AF | F_CF; } else cpu.flags &= ~(F_AF | F_CF); cpu.r[AX] &= 0xFF0F; break;
-    case 0x3F: if ((cpu.r[AX] & 0xF) > 9 || (cpu.flags & F_AF)) { cpu.r[AX] -= 6; *r8p(4) -= 1; cpu.flags |= F_AF | F_CF; } else cpu.flags &= ~(F_AF | F_CF); cpu.r[AX] &= 0xFF0F; break;
+    case 0x37: { u8 al = cpu.r[AX] & 0xFF, ah = cpu.r[AX] >> 8;
+        if ((al & 0xF) > 9 || (cpu.flags & F_AF)) { al += 6; ah += 1; cpu.flags |= F_AF | F_CF; } else cpu.flags &= ~(F_AF | F_CF);
+        cpu.r[AX] = (ah << 8) | (al & 0x0F); } break;
+    case 0x3F: { u8 al = cpu.r[AX] & 0xFF, ah = cpu.r[AX] >> 8;
+        if ((al & 0xF) > 9 || (cpu.flags & F_AF)) { al -= 6; ah -= 1; cpu.flags |= F_AF | F_CF; } else cpu.flags &= ~(F_AF | F_CF);
+        cpu.r[AX] = (ah << 8) | (al & 0x0F); } break;
     case 0x40: case 0x41: case 0x42: case 0x43: case 0x44: case 0x45: case 0x46: case 0x47:
         { int cf = cpu.flags & F_CF; cpu.r[op & 7] = incdec(cpu.r[op & 7], 0, 1); cpu.flags = (cpu.flags & ~F_CF) | cf; } break;
     case 0x48: case 0x49: case 0x4A: case 0x4B: case 0x4C: case 0x4D: case 0x4E: case 0x4F:
@@ -242,7 +251,7 @@ void cpu_step(void)
     case 0xCD: { u8 n = fetch8(); cpu_interrupt(n); } break;
     case 0xCE: if (cpu.flags & F_OF) cpu_interrupt(4); break;
     case 0xCF: cpu.ip = cpu_pop(); cpu.s[CS] = cpu_pop(); cpu.flags = (cpu_pop() & 0x0FD5) | 2; break;
-    case 0xD4: { u8 b = fetch8(); if (!b) { div_fault(); break; } u8 al = cpu.r[AX] & 0xFF; cpu.r[AX] = ((al / b) << 8) | (al % b); szp8(cpu.r[AX] & 0xFF); } break;
+    case 0xD4: { u8 b = fetch8(); if (!b) { szp8(0); div_fault(); break; } u8 al = cpu.r[AX] & 0xFF; cpu.r[AX] = ((al / b) << 8) | (al % b); szp8(cpu.r[AX] & 0xFF); } break;
     case 0xD5: { u8 b = fetch8(); u8 al = (cpu.r[AX] & 0xFF) + (cpu.r[AX] >> 8) * b; cpu.r[AX] = al; szp8(al); } break;
     case 0xD6: *r8p(0) = (cpu.flags & F_CF) ? 0xFF : 0; break;
     case 0xD7: *r8p(0) = rb(lin(cpu.s[seg_ovr >= 0 ? seg_ovr : DS], cpu.r[BX] + (cpu.r[AX] & 0xFF))); break;

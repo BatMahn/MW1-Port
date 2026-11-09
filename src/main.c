@@ -5,7 +5,7 @@
 #include "pc98.h"
 #include <unistd.h>
 #include <strings.h>
-#include <SDL.h>
+#include "sdl_port.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -32,6 +32,9 @@ static char anchor_file[64]; static double anchor_t = -1;   /* --anchor FILE: la
  * silent until the game loads its first non-opening picture; holding F12
  * fast-forwards anywhere. Game timing is unaffected (it's emulated time). */
 static int skip_intro, intro_turbo, key_turbo;
+/* keyboard typematic: the keyboard itself repeats a held key (make codes, after 500 ms at
+ * about 20 per second); the host's own repeats are ignored so timing follows game time */
+static int rep_sc; static double rep_next;
 int audio_muted;
 void intro_file_opened(const char *p)
 {
@@ -115,16 +118,30 @@ static void present(void)
 {
     if (machine_pc98) {
         pc98_render();
-        if (!tex98) tex98 = SDL_CreateTexture(ren, SDL_PIXELFORMAT_ARGB8888, SDL_TEXTUREACCESS_STREAMING, 640, 400);
+        if (!tex98) {
+            tex98 = SDL_CreateTexture(ren, SDL_PIXELFORMAT_ARGB8888, SDL_TEXTUREACCESS_STREAMING, 640, 400);
+#ifdef MW_SDL3
+            SDL_SetTextureScaleMode(tex98, SDL_SCALEMODE_NEAREST);
+#endif
+        }
         SDL_UpdateTexture(tex98, NULL, fb98, 640 * 4);
+#ifdef MW_SDL3
+        SDL_RenderClear(ren); SDL_RenderTexture(ren, tex98, NULL, NULL); SDL_RenderPresent(ren);
+#else
         SDL_RenderClear(ren); SDL_RenderCopy(ren, tex98, NULL, NULL); SDL_RenderPresent(ren);
+#endif
         return;
     }
     video_render();
     SDL_UpdateTexture(tex, NULL, framebuffer, FB_W * 4);
-    SDL_Rect src = { 0, 0, fb_width, FB_H };
     SDL_RenderClear(ren);
+#ifdef MW_SDL3
+    SDL_FRect src = { 0, 0, (float)fb_width, (float)FB_H };
+    SDL_RenderTexture(ren, tex, &src, NULL);
+#else
+    SDL_Rect src = { 0, 0, fb_width, FB_H };
     SDL_RenderCopy(ren, tex, &src, NULL);
+#endif
     SDL_RenderPresent(ren);
 }
 
@@ -172,7 +189,11 @@ static int setup_layout(const char *data_root, int game_dir_given, int want_dos,
 {
     char base[1024];
     if (data_root) snprintf(base, sizeof base, "%s", data_root);
+#ifdef MW_SDL3
+    else { const char *b = SDL_GetBasePath(); snprintf(base, sizeof base, "%s", b ? b : "."); }
+#else
     else { char *b = SDL_GetBasePath(); snprintf(base, sizeof base, "%s", b ? b : "."); if (b) SDL_free(b); }
+#endif
     size_t bl = strlen(base); while (bl > 1 && (base[bl - 1] == '/' || base[bl - 1] == '\\')) base[--bl] = 0;
     /* inside a macOS app bundle the program's own files (textmap/, fonts/) are in
      * Contents/Resources and the game data folders sit next to the .app */
@@ -312,6 +333,22 @@ int main(int argc, char **argv)
     } }
     if (!setup_layout(data_root, game_dir_given, want_dos, japanese))
         fatal("no game data found next to the program: put the DOS files in DOS/ and/or the PC-98 disk images in PC98/ (see README)");
+#ifdef MW_SDL3
+    if (headless) { SDL_SetHint(SDL_HINT_VIDEO_DRIVER, "dummy"); SDL_SetHint(SDL_HINT_AUDIO_DRIVER, "dummy"); }
+    if (!SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO)) fatal("SDL_Init: %s", SDL_GetError());
+    if (!headless) {
+        win = SDL_CreateWindow("MechWarrior", 960, 720, SDL_WINDOW_RESIZABLE | SDL_WINDOW_HIGH_PIXEL_DENSITY);
+        ren = SDL_CreateRenderer(win, NULL);
+        SDL_SetRenderVSync(ren, 1);
+        SDL_SetRenderLogicalPresentation(ren, 960, 720, SDL_LOGICAL_PRESENTATION_LETTERBOX);
+        tex = SDL_CreateTexture(ren, SDL_PIXELFORMAT_ARGB8888, SDL_TEXTUREACCESS_STREAMING, FB_W, FB_H);
+        SDL_SetTextureScaleMode(tex, SDL_SCALEMODE_NEAREST);
+        { /* window icon (the .app / .exe icons are set by the platform packaging) */
+          #include "icon_rgba.h"
+          SDL_Surface *ic = SDL_CreateSurfaceFrom(64, 64, SDL_PIXELFORMAT_RGBA32, (void *)mw_icon_rgba, 64 * 4);
+          if (ic) { SDL_SetWindowIcon(win, ic); SDL_DestroySurface(ic); } }
+    }
+#else
     if (headless) { SDL_setenv("SDL_VIDEODRIVER", "dummy", 1); SDL_setenv("SDL_AUDIODRIVER", "dummy", 1); }
     if (SDL_Init(SDL_INIT_VIDEO | SDL_INIT_AUDIO | SDL_INIT_TIMER) < 0) fatal("SDL_Init: %s", SDL_GetError());
     if (!headless) {
@@ -325,11 +362,16 @@ int main(int argc, char **argv)
           SDL_Surface *ic = SDL_CreateRGBSurfaceWithFormatFrom((void *)mw_icon_rgba, 64, 64, 32, 64 * 4, SDL_PIXELFORMAT_RGBA32);
           if (ic) { SDL_SetWindowIcon(win, ic); SDL_FreeSurface(ic); } }
     }
+#endif
     { char p[1200]; snprintf(p, sizeof p, "%s/IO98.SYS", game_dir); if (access(p, F_OK) == 0) machine_pc98 = 1; }
     getenv_dbg = getenv("MW_DBG") != NULL;
     if (getenv("MW_WATCH")) watch_addr = strtoul(getenv("MW_WATCH"), NULL, 16);
     audio_init();
+#ifdef MW_SDL3
+    if (!headless) SDL_SetWindowRelativeMouseMode(win, true);
+#else
     if (!headless) SDL_SetRelativeMouseMode(SDL_TRUE);
+#endif
     cpu_reset();
     bios_init();
     video_init();
@@ -402,20 +444,27 @@ int main(int argc, char **argv)
             next_frame = t + (turbo ? 500.0 : 1000.0 / 60.0);
             SDL_Event e;
             while (SDL_PollEvent(&e)) {
-                if (e.type == SDL_QUIT) quit_flag = 1;
-                else if (e.type == SDL_MOUSEMOTION) mouse_host_motion(e.motion.xrel, e.motion.yrel);
-                else if (e.type == SDL_MOUSEBUTTONDOWN || e.type == SDL_MOUSEBUTTONUP) mouse_host_button(e.button.button == SDL_BUTTON_LEFT ? 0 : e.button.button == SDL_BUTTON_RIGHT ? 1 : 2, e.type == SDL_MOUSEBUTTONDOWN);
-                else if ((e.type == SDL_KEYDOWN || e.type == SDL_KEYUP) && !e.key.repeat) {
-                    if (e.key.keysym.scancode == SDL_SCANCODE_RETURN && (e.key.keysym.mod & KMOD_ALT) && e.type == SDL_KEYDOWN) {
+                if (e.type == EV_QUIT) quit_flag = 1;
+                else if (e.type == EV_MOUSEMOTION) mouse_host_motion((int)e.motion.xrel, (int)e.motion.yrel);
+                else if (e.type == EV_MOUSEDOWN || e.type == EV_MOUSEUP) mouse_host_button(e.button.button == SDL_BUTTON_LEFT ? 0 : e.button.button == SDL_BUTTON_RIGHT ? 1 : 2, e.type == EV_MOUSEDOWN);
+                else if ((e.type == EV_KEYDOWN || e.type == EV_KEYUP) && !e.key.repeat) {
+                    if (KEY_SC(e) == SDL_SCANCODE_RETURN && (KEY_MOD(e) & MOD_ALT) && e.type == EV_KEYDOWN) {
+#ifdef MW_SDL3
+                        SDL_SetWindowFullscreen(win, !(SDL_GetWindowFlags(win) & SDL_WINDOW_FULLSCREEN));
+#else
                         SDL_SetWindowFullscreen(win, (SDL_GetWindowFlags(win) & SDL_WINDOW_FULLSCREEN_DESKTOP) ? 0 : SDL_WINDOW_FULLSCREEN_DESKTOP);
+#endif
                         continue;
                     }
-                    if (e.key.keysym.scancode == SDL_SCANCODE_F12) { key_turbo = e.type == SDL_KEYDOWN; continue; }
-                    int sc = pc_scancode(e.key.keysym.scancode);
-                    if (sc) kbd_host_event(sc, e.type == SDL_KEYDOWN, 0);
+                    if (KEY_SC(e) == SDL_SCANCODE_F12) { key_turbo = e.type == EV_KEYDOWN; continue; }
+                    int sc = pc_scancode(KEY_SC(e));
+                    if (sc) kbd_host_event(sc, e.type == EV_KEYDOWN, 0);
+                    if (sc && e.type == EV_KEYDOWN) { rep_sc = sc; rep_next = t + 500.0; }
+                    else if (sc && sc == rep_sc) rep_sc = 0;
                 }
             }
             present();
+            if (rep_sc && t >= rep_next && !headless) { kbd_host_event(rep_sc, 1, 0); rep_next = t + 50.0; }
         }
         /* pace emulated time to wall-clock time: sleep instead of spinning */
         double wall = (SDL_GetPerformanceCounter() - t0) * 1000.0 / freq;

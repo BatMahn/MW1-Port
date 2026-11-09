@@ -22,7 +22,7 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v5
-      - name: Install SDL2
+      - name: Install SDL2 (Ubuntu doesn't package SDL 3 yet; the code builds with either)
         run: sudo apt-get update && sudo apt-get install -y libsdl2-dev
       - name: Build
         run: make -j4
@@ -45,11 +45,11 @@ jobs:
     runs-on: ${{ matrix.runner }}
     steps:
       - uses: actions/checkout@v5
-      - name: Install SDL2 and dylibbundler
-        run: brew install sdl2 dylibbundler
+      - name: Install SDL3 and dylibbundler
+        run: brew install sdl3 dylibbundler
       - name: Build MechWarrior.app
         run: make -j4 app
-      - name: Bundle SDL2 into the app and sign it (ad hoc)
+      - name: Bundle SDL3 into the app and sign it (ad hoc)
         run: |
           dylibbundler -od -b -x MechWarrior.app/Contents/MacOS/mechwarrior \
                        -d MechWarrior.app/Contents/libs/ -p @executable_path/../libs/
@@ -74,7 +74,8 @@ jobs:
           install: >-
             make zip
             mingw-w64-x86_64-gcc
-            mingw-w64-x86_64-SDL2
+            mingw-w64-x86_64-pkgconf
+            mingw-w64-x86_64-sdl3
       - name: Build
         run: make -j4
       - name: Collect DLLs
