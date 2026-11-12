@@ -32,6 +32,7 @@ static char anchor_file[64]; static double anchor_t = -1;   /* --anchor FILE: la
  * silent until the game loads its first non-opening picture; holding F12
  * fast-forwards anywhere. Game timing is unaffected (it's emulated time). */
 static int skip_intro, intro_turbo, key_turbo;
+static int cycles_given;   /* --cycles wins over the speed stored in a save state */
 /* keyboard typematic: the keyboard itself repeats a held key (make codes, after 500 ms at
  * about 20 per second); the host's own repeats are ignored so timing follows game time */
 static int rep_sc; static double rep_next;
@@ -276,7 +277,7 @@ int main(int argc, char **argv)
         else if (!strcmp(argv[i], "--dos")) want_dos = 1;
         else if (!strcmp(argv[i], "--japanese")) japanese = 1;
         else if (!strcmp(argv[i], "--mt32") && i + 1 < argc) { extern const char *mt32_dir; mt32_dir = argv[++i]; }
-        else if (!strcmp(argv[i], "--cycles") && i + 1 < argc) cycles_per_ms = atoi(argv[++i]);
+        else if (!strcmp(argv[i], "--cycles") && i + 1 < argc) { cycles_per_ms = atoi(argv[++i]); cycles_given = cycles_per_ms; }
         else if (!strcmp(argv[i], "--log")) log_enabled++;
         else if (!strcmp(argv[i], "--ring")) ring_on = 1;
         else if (!strcmp(argv[i], "--interp")) rc_enabled = 0;
@@ -314,7 +315,7 @@ int main(int argc, char **argv)
                 "  --skip-intro      fast-forward the PC-98 opening (F12 fast-forwards anywhere)\n"
                 "  --data DIR        look for DOS/, PC98/, MT32/ in DIR instead of next to the program\n"
                 "  --mt32 DIR        folder with the MT-32 ROMs (default MT32/)\n"
-                "  --cycles N        emulated CPU speed (default 30000)\n"
+                "  --cycles N        emulated CPU speed in instructions/ms (default: DOS 3000, PC-98 4000; Ctrl+F9/F10 adjust)\n"
                 "  Alt+Enter toggles fullscreen.\n", argv[0]);
             return 1;
         }
@@ -343,6 +344,9 @@ int main(int argc, char **argv)
         SDL_SetRenderLogicalPresentation(ren, 960, 720, SDL_LOGICAL_PRESENTATION_LETTERBOX);
         tex = SDL_CreateTexture(ren, SDL_PIXELFORMAT_ARGB8888, SDL_TEXTUREACCESS_STREAMING, FB_W, FB_H);
         SDL_SetTextureScaleMode(tex, SDL_SCALEMODE_NEAREST);
+        /* started from a terminal (not the .app), macOS leaves the terminal in front with the
+         * keyboard: bring our window forward so it gets the keys */
+        SDL_RaiseWindow(win);
         { /* window icon (the .app / .exe icons are set by the platform packaging) */
           #include "icon_rgba.h"
           SDL_Surface *ic = SDL_CreateSurfaceFrom(64, 64, SDL_PIXELFORMAT_RGBA32, (void *)mw_icon_rgba, 64 * 4);
@@ -356,6 +360,7 @@ int main(int argc, char **argv)
         ren = SDL_CreateRenderer(win, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
         SDL_RenderSetLogicalSize(ren, 960, 720);
         SDL_SetHint(SDL_HINT_RENDER_SCALE_QUALITY, "0");
+        SDL_RaiseWindow(win);
         tex = SDL_CreateTexture(ren, SDL_PIXELFORMAT_ARGB8888, SDL_TEXTUREACCESS_STREAMING, FB_W, FB_H);
         { /* window icon (the .app / .exe icons are set by the platform packaging) */
           #include "icon_rgba.h"
@@ -364,6 +369,12 @@ int main(int argc, char **argv)
     }
 #endif
     { char p[1200]; snprintf(p, sizeof p, "%s/IO98.SYS", game_dir); if (access(p, F_OK) == 0) machine_pc98 = 1; }
+    /* emulated CPU speed (instructions per millisecond). The strategy screens run off the game's
+     * timer, but combat draws as fast as the CPU allows and moves things per frame, so its speed
+     * follows the CPU: these defaults put each edition near the machines it was made for
+     * (DOS: a 286/386SX-class PC; PC-98: a 386SX-class PC-9801). --cycles N overrides. */
+    if (!cycles_given) cycles_per_ms = machine_pc98 ? 4000 : 3000;
+    if (cycles_given) cycles_per_ms = cycles_given;
     getenv_dbg = getenv("MW_DBG") != NULL;
     if (getenv("MW_WATCH")) watch_addr = strtoul(getenv("MW_WATCH"), NULL, 16);
     audio_init();
@@ -407,7 +418,8 @@ int main(int argc, char **argv)
             if (idle_hint && !no_idle) {
                 extern int idle_hint; idle_hint = 0;
                 if (getenv("MW_IDLEDBG")) { static int n; if (n++ % 2000 == 0) fprintf(stderr, "idle at %04x:%04x\n", cpu.s[CS], cpu.ip); }
-                int64_t irq = (int64_t)(next_irq_ms() * cycles_per_ms) + 1;
+                extern int64_t ms_to_cycles(double ms);
+                int64_t irq = ms_to_cycles(next_irq_ms()) + 1;
                 int64_t to = irq < target ? irq : target;
                 if (to > cycles_done) { idle_skipped += to - cycles_done; cycles_done = to; }
             }
@@ -443,6 +455,18 @@ int main(int argc, char **argv)
         if (t >= next_frame) {
             next_frame = t + (turbo ? 500.0 : 1000.0 / 60.0);
             SDL_Event e;
+            /* testing aid: MW_INJECT=ms:sdlscancode[,...] pushes real key events (down, then up 150 ms
+             * later) through the same path as the keyboard */
+            { static int ni = -1; static double it[32]; static int isc[32], st[32];
+              if (ni < 0) { ni = 0; const char *ev = getenv("MW_INJECT"); while (ev && *ev && ni < 32) { it[ni] = strtod(ev, (char **)&ev); if (*ev == ':') ev++; isc[ni] = strtol(ev, (char **)&ev, 10); st[ni++] = 0; if (*ev == ',') ev++; } }
+              for (int q = 0; q < ni; q++) if (st[q] < 2 && t >= it[q] + (st[q] ? 150 : 0)) {
+                  SDL_Event k; memset(&k, 0, sizeof k);
+#ifdef MW_SDL3
+                  k.type = st[q] ? SDL_EVENT_KEY_UP : SDL_EVENT_KEY_DOWN; k.key.scancode = isc[q]; k.key.down = !st[q];
+#else
+                  k.type = st[q] ? SDL_KEYUP : SDL_KEYDOWN; k.key.keysym.scancode = isc[q]; k.key.state = st[q] ? SDL_RELEASED : SDL_PRESSED;
+#endif
+                  SDL_PushEvent(&k); st[q]++; } }
             while (SDL_PollEvent(&e)) {
                 if (e.type == EV_QUIT) quit_flag = 1;
                 else if (e.type == EV_MOUSEMOTION) mouse_host_motion((int)e.motion.xrel, (int)e.motion.yrel);
@@ -457,7 +481,23 @@ int main(int argc, char **argv)
                         continue;
                     }
                     if (KEY_SC(e) == SDL_SCANCODE_F12) { key_turbo = e.type == EV_KEYDOWN; continue; }
+                    /* Ctrl+F9 / Ctrl+F10: emulated CPU slower / faster (combat speed follows it); plain
+                     * F9/F10 stay with the game */
+                    int ctl = (KEY_MOD(e) & MOD_CTRL) != 0;
+                    if (ctl && (KEY_SC(e) == SDL_SCANCODE_F9 || KEY_SC(e) == SDL_SCANCODE_F10) && e.type == EV_KEYDOWN) {
+                        static const int steps[] = { 1000, 1500, 2000, 3000, 4000, 5000, 6000, 8000, 12000, 20000, 30000 };
+                        extern void set_cpu_speed(int c); int k = 0;
+                        while (k < 10 && steps[k] < cycles_per_ms) k++;
+                        if (KEY_SC(e) == SDL_SCANCODE_F9 && k > 0) k--;
+                        else if (KEY_SC(e) == SDL_SCANCODE_F10 && k < 10 && steps[k] <= cycles_per_ms) k++;
+                        set_cpu_speed(steps[k]);
+                        char title[64]; snprintf(title, sizeof title, "MechWarrior  (CPU speed %d)", steps[k]);
+                        SDL_SetWindowTitle(win, title);
+                        continue;
+                    }
+                    if (ctl && (KEY_SC(e) == SDL_SCANCODE_F9 || KEY_SC(e) == SDL_SCANCODE_F10)) continue;
                     int sc = pc_scancode(KEY_SC(e));
+                    if (getenv("MW_KEYLOG")) fprintf(stderr, "key %s sdl %d -> pc %03x\n", e.type == EV_KEYDOWN ? "down" : "up", (int)KEY_SC(e), sc);
                     if (sc) kbd_host_event(sc, e.type == EV_KEYDOWN, 0);
                     if (sc && e.type == EV_KEYDOWN) { rep_sc = sc; rep_next = t + 500.0; }
                     else if (sc && sc == rep_sc) rep_sc = 0;
@@ -474,7 +514,7 @@ int main(int argc, char **argv)
             t0 = SDL_GetPerformanceCounter() - (Uint64)(t * freq / 1000.0);
         }
     }
-    if (headless) write_ppm("shot_exit.ppm");
+    if (headless || getenv("MW_EXITSHOT")) write_ppm("shot_exit.ppm");
     if (headless && machine_pc98) { FILE *f = fopen("tvram.bin", "wb"); fwrite(mem + 0xA0000, 1, 0x4000, f); fclose(f); }
     if (getenv("MW_DUMP")) { FILE *f = fopen("mem.bin", "wb"); fwrite(mem, 1, 0xA0000, f); fclose(f); }
     { void pic_report(void); if (headless) pic_report(); }

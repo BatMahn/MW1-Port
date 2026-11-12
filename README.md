@@ -173,14 +173,21 @@ x86 interpreter (correct, but uses more CPU).
     ./mechwarrior --dos           DOS edition (MT-32 if ROMs are present, else AdLib)
     ./mechwarrior --dos A         DOS edition with AdLib (S speaker, T Tandy, R MT-32)
 
-Alt+Enter toggles fullscreen; F12 fast-forwards while held. The mouse works as the game's
+Alt+Enter toggles fullscreen; F12 fast-forwards while held; Ctrl+F9 / Ctrl+F10 make the emulated
+CPU slower / faster (shown in the window title). The mouse works as the game's
 bus mouse / DOS mouse.
 
 **PC-98 controls in combat** (keyboard): arrows steer and set throttle, Space fires,
 **D** damage panel, **C** lance orders (with a lancemate deployed), Esc retreat.
 
-Other options: `--data DIR` (look for the folders in DIR), `--mt32 DIR`, `--cycles N`
-(emulated CPU speed, default 30000), `--help`.
+**Game speed.** The strategy screens, the opening and the music run off the games' own timers,
+so they always run at the original pace. Combat draws as fast as the CPU allows and moves things
+per frame, so its speed follows the emulated CPU, as it did on the original machines. The
+defaults approximate the machines each edition was made for: 3000 instructions/ms for DOS
+(a 286/386SX-class PC) and 4000 for the PC-98 (a 386SX-class PC-9801, about 10 combat frames a
+second). If combat feels too slow or too fast, adjust with Ctrl+F9 / Ctrl+F10 or start with `--cycles N`.
+
+Other options: `--data DIR` (look for the folders in DIR), `--mt32 DIR`, `--cycles N`, `--help`.
 
 ---
 

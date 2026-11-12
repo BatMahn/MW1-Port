@@ -14,6 +14,7 @@
 #define KEY_SC(e) ((e).key.scancode)
 #define KEY_MOD(e) ((e).key.mod)
 #define MOD_ALT SDL_KMOD_ALT
+#define MOD_CTRL SDL_KMOD_CTRL
 #else
 #include <SDL.h>
 #define EV_QUIT SDL_QUIT
@@ -25,5 +26,6 @@
 #define KEY_SC(e) ((e).key.keysym.scancode)
 #define KEY_MOD(e) ((e).key.keysym.mod)
 #define MOD_ALT KMOD_ALT
+#define MOD_CTRL KMOD_CTRL
 #endif
 #endif

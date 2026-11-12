@@ -17,7 +17,12 @@ int cycles_per_ms = 30000;
 int hle_retry;
 static void poll_note(int nothing);
 
-double emu_time_ms(void) { return (double)cycles_done / cycles_per_ms; }
+/* emulated time: cycles run at the current speed, plus the time accumulated before the last
+ * speed change (so the speed can be changed while playing without time jumping) */
+static double time_base_ms; static int64_t cycles_base;
+double emu_time_ms(void) { return time_base_ms + (double)(cycles_done - cycles_base) / cycles_per_ms; }
+int64_t ms_to_cycles(double ms) { return cycles_base + (int64_t)((ms - time_base_ms) * cycles_per_ms); }
+void set_cpu_speed(int c) { time_base_ms = emu_time_ms(); cycles_base = cycles_done; cycles_per_ms = c; }
 
 /* ---------------- PIT ---------------- */
 typedef struct { u16 reload; u8 mode, rw, latch_flip, write_flip; u16 latched; int latched_valid; double start_ms; } PitCh;
@@ -477,6 +482,6 @@ void hw_snap(FILE *f, int save)
     S(kbd_queue); S(kq_head); S(kq_tail); S(port60); S(port61); S(kbd_next_ms); S(kb_shift);
     S(mpu_ack); S(adlib_idx); S(adlib_status); S(adlib_t1_ms); S(adlib_t2_ms); S(adlib_t1); S(adlib_t2); S(adlib_ctl);
     S(ms_x); S(ms_y); S(ms_btn); S(ms_mick_x); S(ms_mick_y); S(ms_rel); S(ms_press);
-    S(last_poll); S(poll_run); S(next_vs); S(cycles_per_ms);
+    S(last_poll); S(poll_run); S(next_vs); S(cycles_per_ms); S(time_base_ms); S(cycles_base);
     if (!save && getenv("MW_SNAPDBG")) fprintf(stderr, "pic mask %04x isr %04x irr %04x kbd_next %.1f kq %d/%d\n", pic_mask, pic_isr, pic_irr, kbd_next_ms, kq_head, kq_tail);
 }
