@@ -509,11 +509,22 @@ int main(int argc, char **argv)
         /* pace emulated time to wall-clock time: sleep instead of spinning */
         double wall = (SDL_GetPerformanceCounter() - t0) * 1000.0 / freq;
         if (turbo) { t0 = SDL_GetPerformanceCounter() - (Uint64)(t * freq / 1000.0); continue; }
+        /* with sound playing, the sound card's clock sets the pace: keep about 50 ms queued.
+         * Pacing by the system clock instead lets the two clocks drift apart, and the queue then
+         * either runs dry or overflows; both are heard as warbling on held notes. */
+        { extern int audio_active(void); extern double audio_queued_ms(void);
+          if (audio_active() && !audio_muted) {
+              int waited = 0;
+              while (audio_queued_ms() > 50 && waited < 100) { SDL_Delay(1); waited++; }
+              t0 = SDL_GetPerformanceCounter() - (Uint64)(t * freq / 1000.0);
+              continue;
+          } }
         if (t > wall + 1.0) SDL_Delay((Uint32)(t - wall));
         else if (wall - t > 250) { /* host stalled: don't try to catch up in a burst */
             t0 = SDL_GetPerformanceCounter() - (Uint64)(t * freq / 1000.0);
         }
     }
+    { extern long audio_drops, audio_underruns; if (log_enabled || getenv("MW_EXITSHOT")) fprintf(stderr, "audio: %ld chunks dropped, %ld underruns, emulated %.1f s\n", audio_drops, audio_underruns, emu_time_ms() / 1000.0); }
     if (headless || getenv("MW_EXITSHOT")) write_ppm("shot_exit.ppm");
     if (headless && machine_pc98) { FILE *f = fopen("tvram.bin", "wb"); fwrite(mem + 0xA0000, 1, 0x4000, f); fclose(f); }
     if (getenv("MW_DUMP")) { FILE *f = fopen("mem.bin", "wb"); fwrite(mem, 1, 0xA0000, f); fclose(f); }

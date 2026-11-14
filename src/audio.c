@@ -3,6 +3,7 @@
 #include "machine.h"
 #include "runtime.h"
 #include "sdl_port.h"
+#include <stdlib.h>
 #include <math.h>
 #include <string.h>
 #include <stdio.h>
@@ -69,11 +70,29 @@ void audio_tandy_write(u8 v)
     }
 }
 static long mpu_bytes;
-void audio_mpu_data(u8 v) { used_mt32 = 1; mpu_bytes++; mt32_byte(v); }
+void audio_mpu_data(u8 v)
+{
+    used_mt32 = 1; mpu_bytes++;
+    { static FILE *ml; static int tried; if (!tried) { tried = 1; if (getenv("MW_MIDILOG")) ml = fopen(getenv("MW_MIDILOG"), "w"); }
+      if (ml) fprintf(ml, "%.3f %02x\n", emu_time_ms(), v); }
+    mt32_byte(v);
+}
 long audio_mpu_count(void) { return mpu_bytes; }
 
 static const float sn_db[16] = { 1.0f, .794f, .631f, .501f, .398f, .316f, .251f, .200f, .158f, .126f, .100f, .079f, .063f, .050f, .040f, 0 };
 
+long audio_drops, audio_underruns;
+/* milliseconds of sound waiting to be played */
+double audio_queued_ms(void)
+{
+    if (!dev) return 0;
+#ifdef MW_SDL3
+    return SDL_GetAudioStreamQueued(dev) / 4.0 * 1000.0 / RATE;
+#else
+    return SDL_GetQueuedAudioSize(dev) / 4.0 * 1000.0 / RATE;
+#endif
+}
+int audio_active(void) { return dev != 0; }
 void audio_advance(double emu_ms)
 {
     if (!dev && !wav_out) { gen_ms = emu_ms; return; }
@@ -81,12 +100,9 @@ void audio_advance(double emu_ms)
     if (n <= 0) return;
     if (n > RATE / 4) n = RATE / 4;
     gen_ms += n * 1000.0 / RATE;
-    /* don't let the queue grow without bound (e.g. after a pause) */
-#ifdef MW_SDL3
-    if (dev && SDL_GetAudioStreamQueued(dev) > RATE * 4 / 5 && !wav_out) return;
-#else
-    if (dev && SDL_GetQueuedAudioSize(dev) > RATE * 4 / 5 && !wav_out) return;
-#endif
+    /* safety valve only: pacing keeps the queue near 50 ms (see audio_queued_ms); dropping a
+     * chunk is audible as a stutter, so only when the queue is badly behind (after a pause) */
+    if (dev && audio_queued_ms() > 500 && !wav_out) { audio_drops++; return; }
     static s16 buf[RATE / 4 * 2];
     if (used_adlib && !machine_pc98) OPL3_GenerateStream(&opl, buf, n);
     else memset(buf, 0, n * 4);
@@ -117,6 +133,7 @@ void audio_advance(double emu_ms)
         buf[i * 2] = l > 32767 ? 32767 : l < -32768 ? -32768 : l;
         buf[i * 2 + 1] = r > 32767 ? 32767 : r < -32768 ? -32768 : r;
     }
+    { extern int audio_muted; if (dev && !audio_muted && audio_queued_ms() < 0.5) audio_underruns++; }
 #ifdef MW_SDL3
     { extern int audio_muted; if (dev && !audio_muted) SDL_PutAudioStreamData(dev, buf, n * 4); }
 #else
