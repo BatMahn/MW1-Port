@@ -48,7 +48,37 @@ extern "C" int mt32_open(const char *romdir, int rate)
     return 1;
 }
 
-extern "C" void mt32_byte(unsigned char b) { if (parser) parser->parseStream(&b, 1); }
+/* The game's music sets MT-32 part channels with duplicates (MECH.MUS assigns parts 7 and 8
+ * to the channels of parts 3 and 2; MECHBAR.MUS doubles three parts). Munt layers every part
+ * that listens to a channel, and the doubled voices beat against each other: a warble that the
+ * reference recordings of the game don't have. So a part whose channel is already taken by a
+ * lower part is switched off as the setting goes by. */
+static unsigned char sx[512]; static int sxn = -1;
+static void dedupe_channels(unsigned char *m, int n)
+{
+    /* F0 41 dev 16 12 a1 a2 a3 data... sum F7; system area 10 00 xx, channels at 0Dh-15h */
+    if (n < 11 || m[1] != 0x41 || m[3] != 0x16 || m[4] != 0x12 || m[5] != 0x10 || m[6] != 0x00) return;
+    int base = m[7], ndata = n - 10, changed = 0;
+    unsigned char ch[9]; int have[9];
+    for (int p = 0; p < 9; p++) { int off = 0x0D + p - base; have[p] = off >= 0 && off < ndata; ch[p] = have[p] ? m[8 + off] : 0xFF; }
+    for (int p = 1; p < 9; p++) {
+        if (!have[p] || ch[p] >= 0x10) continue;
+        for (int q = 0; q < p; q++) if (have[q] && ch[q] == ch[p]) { m[8 + 0x0D + p - base] = 0x10; ch[p] = 0x10; changed = 1; break; }
+    }
+    if (changed) { unsigned sum = 0; for (int i = 5; i < n - 2; i++) sum += m[i]; m[n - 2] = (128 - (sum & 127)) & 127; }
+}
+extern "C" void mt32_byte(unsigned char b)
+{
+    if (!parser) return;
+    if (b == 0xF0) { sxn = 0; sx[sxn++] = b; return; }
+    if (sxn >= 0) {
+        if (b & 0x80 && b != 0xF7) { sxn = -1; parser->parseStream(&b, 1); return; }   /* aborted sysex */
+        if (sxn < (int)sizeof sx) sx[sxn++] = b;
+        if (b == 0xF7) { dedupe_channels(sx, sxn); parser->parseStream(sx, sxn); sxn = -1; }
+        return;
+    }
+    parser->parseStream(&b, 1);
+}
 
 /* mix n stereo frames into buf */
 extern "C" void mt32_mix(short *buf, int n)
