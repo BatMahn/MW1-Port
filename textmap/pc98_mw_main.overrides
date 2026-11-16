@@ -115,7 +115,7 @@
 0bc4b l 10 SENSORS:
 0bc6d l 10 LIFE SUP:
 0bc8f l 16 HEAT SINKS:
-0bcb1 l 16 L ARM MOTOR:
+0bcb1 l 16 MOTOR:    LArm 
 0bcd3 l 5 RArm 
 0bcf5 l 5 LLeg 
 0bd17 l 5 RLeg 
@@ -159,8 +159,10 @@
 0ce8a l 10 GYRO:
 0ceac l 10 SENSORS:
 0cece l 10 LIFE SUP:
-0cf12 l 16 L ARM MOTOR:
+0cf12 l 16 MOTOR:    LArm 
 0ea33 l 40 No pay for two months running,
 0ea5c l 22 so the crew left.
 # reload dialog: the whole template, drawn in place of the original, with the currency after the amounts
 0ba4c t \x0fRELOAD COST:               CB\rFUNDS:                     CB
+# highlight label drawn over the left-arm motor item when it is selected in Fix Part
+0bf34 l 5 LArm 
