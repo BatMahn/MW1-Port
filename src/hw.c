@@ -39,6 +39,7 @@ static u16 pit_count(int ch)
     if (pit[ch].mode == 3) c = (c * 2) % r;  /* square wave counts down by 2 */
     return c;
 }
+static u8 port61 = 0x30;   /* system control port B (speaker gate / data) */
 static void pit_write(int ch, u8 v)
 {
     PitCh *p = &pit[ch];
@@ -50,7 +51,10 @@ static void pit_write(int ch, u8 v)
     }
     if (done) {
         p->start_ms = emu_time_ms();
-        if (ch == 0) { pit0_next_ms = p->start_ms + pit_period_ms(0); logmsg("PIT0 reload %u (%.2f Hz)", p->reload, 1000.0 / pit_period_ms(0)); }
+        /* channel 2 drives the PC speaker: a new count while the speaker is on changes its pitch
+         * at once (sweeping effects), as on the real timer */
+        if (ch == 2 && !machine_pc98) audio_speaker((port61 & 3) == 3, PIT_HZ / (p->reload ? p->reload : 65536));
+        if (ch == 0) { pit0_next_ms = p->start_ms + pit_period_ms(0); logmsg("PIT0 reload %u (%.2f Hz) at %04x:%04x", p->reload, 1000.0 / pit_period_ms(0), cpu.s[CS], cpu.ip); }
     }
 }
 static u8 pit_read(int ch)
@@ -96,7 +100,7 @@ static void pic_check(void)
 
 /* ---------------- keyboard ---------------- */
 static u8 kbd_queue[64]; static int kq_head, kq_tail;
-static u8 port60, port61 = 0x30;
+static u8 port60;
 static double kbd_next_ms;
 static u8 kb_shift;
 
@@ -149,7 +153,10 @@ static void bios_int9(void)
         u8 ascii = 0;
         if (!e0 && c < sizeof sc_lo) ascii = (kb_shift & 3) ? sc_hi[c] : sc_lo[c];
         if ((kb_shift & 4) && ascii >= 'a' && ascii <= 'z') ascii -= 0x60;
-        if (c >= 0x3B && c <= 0x44 && (kb_shift & 3)) c += 0x19;  /* shift-F1..F10 */
+        /* function keys with a modifier get their own scan codes (BIOS: shift +19h, ctrl +23h,
+         * alt +2Dh); Alt with a letter or digit gives no character, digits move to 78h-83h */
+        if (c >= 0x3B && c <= 0x44) { if (kb_shift & 8) c += 0x2D; else if (kb_shift & 4) c += 0x23; else if (kb_shift & 3) c += 0x19; }
+        else if (kb_shift & 8) { if (c >= 0x02 && c <= 0x0D) c += 0x76; ascii = 0; }
         bios_buf_put((c << 8) | ascii);
     }
     mem[0x417] = kb_shift;
@@ -196,15 +203,19 @@ static u8 pc98_port_in(u16 port)
 }
 static void pc98_port_out(u16 port, u8 v);
 
+/* MW_INVENTORY: counts of BIOS/DOS services and I/O ports used, printed at exit */
+static long inv_svc[256][256], inv_in[0x10000], inv_out[0x10000]; static int inv_on = -1;
+static int inv(void) { if (inv_on < 0) inv_on = getenv("MW_INVENTORY") != 0; return inv_on; }
 u8 port_in(u16 port)
 {
+    if (inv()) inv_in[port]++;
     if (machine_pc98) return pc98_port_in(port);
     switch (port) {
     case 0x20: return pic_irr;
     case 0x21: return pic_mask;
     case 0x40: case 0x41: case 0x42: return pit_read(port - 0x40);
     case 0x60: return port60;
-    case 0x61: { static int t; t ^= 0x10; return (port61 & ~0x30) | t | ((pit_count(2) > (pit[2].reload ? pit[2].reload : 65536) / 2) ? 0x20 : 0); }
+    case 0x61: { int t = ((long long)(emu_time_ms() * 1000.0 / 15.085) & 1) ? 0x10 : 0; return (port61 & ~0x30) | t | ((pit_count(2) > (pit[2].reload ? pit[2].reload : 65536) / 2) ? 0x20 : 0); }
     case 0x64: return 0x1C;
     case 0x201: return 0xFF; /* no joystick */
     case 0x388: {
@@ -248,6 +259,7 @@ static void pc98_port_out(u16 port, u8 v)
 
 void port_out(u16 port, u8 v)
 {
+    if (inv()) inv_out[port]++;
     if (machine_pc98) { pc98_port_out(port, v); return; }
     switch (port) {
     case 0x20:
@@ -256,16 +268,16 @@ void port_out(u16 port, u8 v)
         else if ((v & 0xF8) == 0x60) pic_isr &= ~(1 << (v & 7));     /* specific EOI */
         return;
     case 0x21: pic_mask = (pic_mask & 0xFF00) | v; return;
-    case 0x40: case 0x41: case 0x42: pit_write(port - 0x40, v);
+    case 0x40: case 0x41: case 0x42: if (port == 0x42 && getenv("MW_SPKLOG")) fprintf(stderr, "%.3f 42<-%02x rw=%d mode=%d\n", emu_time_ms(), v, pit[2].rw, pit[2].mode); pit_write(port - 0x40, v);
         if (port == 0x42) audio_speaker((port61 & 3) == 3, PIT_HZ / (pit[2].reload ? pit[2].reload : 65536));
         return;
-    case 0x43: port_out_pit_ctl(v); return;
+    case 0x43: if (getenv("MW_SPKLOG")) fprintf(stderr, "%.3f 43<-%02x\n", emu_time_ms(), v); port_out_pit_ctl(v); return;
     case 0x4300: {
         int ch = v >> 6; if (ch == 3) return;
         if (((v >> 4) & 3) == 0) { pit[ch].latched = pit_count(ch); pit[ch].latched_valid = 1; pit[ch].latch_flip = 0; return; }
         pit[ch].rw = (v >> 4) & 3; pit[ch].mode = (v >> 1) & 7; pit[ch].write_flip = 0; pit[ch].latch_flip = 0;
         return; }
-    case 0x61: port61 = v; audio_speaker((v & 3) == 3, PIT_HZ / (pit[2].reload ? pit[2].reload : 65536)); return;
+    case 0x61: if (getenv("MW_SPKLOG")) fprintf(stderr, "%.3f 61<-%02x at %04x:%04x\n", emu_time_ms(), v, cpu.s[CS], cpu.ip); port61 = v; audio_speaker((v & 3) == 3, PIT_HZ / (pit[2].reload ? pit[2].reload : 65536)); return;
     case 0x388: adlib_idx = v; return;
     case 0x389:
         if (adlib_idx == 2) adlib_t1 = v;
@@ -359,7 +371,10 @@ void mouse_host_button(int b, int down)
 static void int33(void)
 {
     switch (cpu.r[AX]) {
-    case 0: cpu.r[AX] = 0xFFFF; cpu.r[BX] = 2; ms_btn = 0; break;
+    case 0: /* reset: driver present, 2 buttons; cursor centred, counters cleared */
+        cpu.r[AX] = 0xFFFF; cpu.r[BX] = 2; ms_btn = 0; ms_x = 320; ms_y = 100; ms_mick_x = ms_mick_y = 0;
+        for (int b = 0; b < 3; b++) ms_rel[b] = ms_press[b] = 0;
+        break;
     case 3: cpu.r[BX] = ms_btn; cpu.r[CX] = ms_x; cpu.r[DX] = ms_y; poll_note(1); break;
     case 4: ms_x = cpu.r[CX]; ms_y = cpu.r[DX]; break;
     case 5: { int b = cpu.r[BX] & 3; cpu.r[AX] = ms_btn; cpu.r[BX] = ms_press[b]; ms_press[b] = 0; cpu.r[CX] = ms_x; cpu.r[DX] = ms_y; } break;
@@ -371,9 +386,23 @@ static void int33(void)
 
 void runtime_irq_service(void);
 
+void inventory_report(void)
+{
+    if (!inv()) return;
+    for (int n = 0; n < 256; n++) for (int a = 0; a < 256; a++) if (inv_svc[n][a]) fprintf(stderr, "inv int %02X ah %02X : %ld\n", n, a, inv_svc[n][a]);
+    for (int p = 0; p < 0x10000; p++) { if (inv_in[p]) fprintf(stderr, "inv in  %04X : %ld\n", p, inv_in[p]); if (inv_out[p]) fprintf(stderr, "inv out %04X : %ld\n", p, inv_out[p]); }
+}
 void hle_callback(u8 n)
 {
     u16 start_ip = cpu.ip - 2;
+    if (inv() && n != 0x08 && n != 0x09 && n != 0x0A && n != 0x1C) {
+        inv_svc[n][cpu.r[AX] >> 8]++;
+        if (n == 0x10 || n == 0x33 || n == 0x15 || (n == 0x21 && (cpu.r[AX] >> 8) == 0x44) || (n == 0x21 && (cpu.r[AX] >> 8) == 0x43)) {
+            static int shown[0x10000 / 8]; u16 ax = cpu.r[AX]; long key = (n << 16) | ax;
+            (void)key; if (!(shown[ax >> 3] & (1 << (ax & 7))) || 1) {}
+            fprintf(stderr, "svc %02X ax=%04X bx=%04X cx=%04X dx=%04X\n", n, ax, cpu.r[BX], cpu.r[CX], cpu.r[DX]);
+        }
+    }
     hle_retry = 0;
     switch (n) {
     case 0x08: { u32 t = rw(0x46C) | (rw(0x46E) << 16); t++; ww(0x46C, t); ww(0x46E, t >> 16); } break;
@@ -431,6 +460,9 @@ void bios_init(void)
     ww(0x463, 0x3D4);
     mem[0x487] = 0x60; mem[0x488] = 0x09;  /* EGA info: 256K, colour monitor */
     mem[0xFFFFE] = 0xFC;  /* machine id: AT. Tandy detection is driven by the launcher choice instead */
+    /* the PC BIOS leaves timer channel 2 (the speaker) in square-wave mode with 16-bit counts after its
+     * power-on beep; games that only load a count (MechWarrior's combat sounds) rely on that */
+    if (!machine_pc98) { pit[2].rw = 3; pit[2].mode = 3; pit[2].reload = 0x0533; }
     if (machine_pc98) {
         pc98_bios_init(); PIT_HZ = 2457600.0; pic_mask = 0xFFFF & ~0x0007;
         /* like the PC-98 BIOS, unclaimed hardware interrupts are acknowledged and ignored */

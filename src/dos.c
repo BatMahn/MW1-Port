@@ -397,7 +397,9 @@ void int21(void)
         long p = ftell(files[h]); cpu.r[AX] = p & 0xFFFF; cpu.r[DX] = p >> 16; CF_CLR(); } break;
     case 0x43: read_asciiz(cpu.s[DS], cpu.r[DX], path, sizeof path); if (resolve_path(path, host, sizeof host)) { cpu.r[CX] = 0x20; CF_CLR(); } else fail(2); break;
     case 0x44:
-        if (AL == 0) { int h = cpu.r[BX]; cpu.r[DX] = h < 3 ? (h == 0 ? 0x81 : 0x82) | 0x80 : 0x02; CF_CLR(); }
+        /* get device info: 0-2 CON (stdin / stdout), 3 AUX, 4 PRN are character devices; files
+         * report drive C, not written yet */
+        if (AL == 0) { int h = cpu.r[BX]; cpu.r[DX] = h == 0 ? 0x80D3 : h < 3 ? 0x80D3 : h == 3 ? 0x80C0 : h == 4 ? 0x80A0 : 0x0042; CF_CLR(); }
         else if (AL == 1) CF_CLR();
         else if (AL == 8) { cpu.r[AX] = 1; CF_CLR(); }
         else { cpu.r[AX] = 0; CF_CLR(); }

@@ -54,6 +54,10 @@ static int analog_mode = 1;
 static u8 pal_idx, pal[16][3];          /* g, r, b (0-15) */
 static u8 dig_pal[4];
 static int gfx_on = 1, text_on = 1;
+/* text display areas set by INT 18h AH=0Eh / 0Fh: start and lines. Recorded but not applied:
+ * read as byte offsets they hide narration the game draws on rows 18-24 of the opening, so that
+ * reading can't be right; MW_TAREAS=1 applies it for experiments */
+static u16 tarea_start[4] = { 0 }, tarea_lines[4] = { 25 }; static int tarea_n = 1; static u8 crt_mode;
 static int vsync_armed;
 static u8 mode_ff[8];
 static u16 gdc_start;                   /* graphics display start (words) */
@@ -131,6 +135,7 @@ u8 pc98_video_in(u16 port, int *handled)
 
 static void gdc_exec_param(int slave)
 {
+    if (getenv("MW_GDCLOG") && (gdc_cmd & 0xF0) == 0x70) { static double last; double t = emu_time_ms(); if (t - last > 0) { fprintf(stderr, "%.1f gdc%d scroll %02x:", t, slave, gdc_cmd); for (int i = 0; i < gdc_np; i++) fprintf(stderr, " %02x", gdc_param[i]); fprintf(stderr, "\n"); } last = t; }
     /* graphics GDC SCROLL command (0x70): start address of display area 1 */
     if (slave && (gdc_cmd & 0xF0) == 0x70 && gdc_np >= 2) gdc_start = gdc_param[0] | ((gdc_param[1] & 0x3F) << 8);
 }
@@ -253,9 +258,11 @@ void pc98_render(void)
     static const u32 tcol[8] = { 0xFF000000, 0xFF0000FF, 0xFFFF0000, 0xFFFF00FF, 0xFF00FF00, 0xFF00FFFF, 0xFFFFFF00, 0xFFFFFFFF };
     for (int row = 0; row < 25; row++) {
         for (int col = 0; col < 80; col++) {
-            u32 a = 0xA0000 + (row * 80 + col) * 2;
+            int ci = row * 80 + col;
+            if (getenv("MW_TAREAS")) { int first = 0; for (int k = 0; k < tarea_n; k++) { if (row < first + tarea_lines[k]) { ci = (tarea_start[k] / 2 + (row - first) * 80 + col) & 0xFFF; break; } first += tarea_lines[k]; } }
+            u32 a = 0xA0000 + ci * 2;
             u16 code = mem[a] | (mem[a + 1] << 8);
-            u8 at = mem[0xA2000 + (row * 80 + col) * 2];
+            u8 at = mem[0xA2000 + ci * 2];
             if (!(at & 1)) continue;                       /* secret (hidden) */
             int rev = (at >> 2) & 1;
             if (code == 0x20 && !rev) continue;
@@ -372,13 +379,16 @@ static void mouse_write_c(u8 v)
 void pc98_int18(void)
 {
     u8 ah = cpu.r[AX] >> 8;
+    if (getenv("MW_INT18LOG") && ah == 0x0F) { u32 t = lin(cpu.r[BX], cpu.r[CX]); fprintf(stderr, "int18 0F table:"); for (int i = 0; i < 8; i++) fprintf(stderr, " %04x", rw(t + i * 2)); fprintf(stderr, "\n"); }
+    if (getenv("MW_INT18LOG") && ah != 0x01 && ah != 0x04 && ah != 0x14) fprintf(stderr, "%.1f int18 ax=%04x bx=%04x cx=%04x dx=%04x\n", emu_time_ms(), cpu.r[AX], cpu.r[BX], cpu.r[CX], cpu.r[DX]);
     switch (ah) {
     case 0x00: if (bq_h == bq_t) { hle_retry = 1; break; } cpu.r[AX] = bq[bq_h]; bq_h = (bq_h + 1) & 63; break;
     case 0x01: if (bq_h == bq_t) { cpu.r[BX] &= 0x00FF; } else { cpu.r[AX] = bq[bq_h]; cpu.r[BX] = (cpu.r[BX] & 0xFF) | 0x0100; } { extern void poll_note_ext(int); poll_note_ext(bq_h == bq_t); } break;
     case 0x02: cpu.r[AX] = (cpu.r[AX] & 0xFF00) | shift_state; break;
     case 0x03: bq_h = bq_t = 0; break;
     case 0x04: cpu.r[AX] = (cpu.r[AX] & 0xFF) | ((getenv("MW_NOKEYMAT") ? 0 : mem[0x52A + (cpu.r[AX] & 0x0F)]) << 8); break;   /* key group state */
-    case 0x0A: case 0x0B: break;           /* text mode set / get */
+    case 0x0A: crt_mode = cpu.r[AX] & 0xFF; break;                         /* set CRT mode */
+    case 0x0B: cpu.r[AX] = (cpu.r[AX] & 0xFF00) | crt_mode; break;          /* sense CRT mode */
     case 0x0C: text_on = 1; break;
     case 0x0D: text_on = 0; break;
     case 0x14: { /* read character pattern: DX = code, BX:CX = buffer */
@@ -398,7 +408,15 @@ void pc98_int18(void)
         if (getenv("MW_FONTDBG")) { u32 sp = lin(cpu.s[SS], cpu.r[SP]); fprintf(stderr, "font read %04x stk", dx); for (int q = 0; q < 24; q++) fprintf(stderr, " %04x", rw(sp + q * 2)); fprintf(stderr, "\n"); }
     } break;
     case 0x1B: case 0x4A: break;  /* KCG access mode / misc: no state to keep */
-    case 0x0E: case 0x0F: case 0x10: case 0x11: case 0x12: case 0x13: case 0x15: break;
+    case 0x0E: tarea_n = 1; tarea_start[0] = cpu.r[DX]; tarea_lines[0] = 25; break;   /* one display area from DX */
+    case 0x0F: { /* display areas DH.. (DL of them) from the table at BX:CX: start offset, line count */
+        u32 t = lin(cpu.r[BX], cpu.r[CX]); int first = cpu.r[DX] >> 8, n = cpu.r[DX] & 0xFF;
+        for (int k = 0; k < n && first + k < 4; k++) { tarea_start[first + k] = rw(t + k * 4); tarea_lines[first + k] = rw(t + k * 4 + 2); }
+        tarea_n = first + n > 4 ? 4 : first + n;
+        int tot = 0; for (int k = 0; k < tarea_n; k++) tot += tarea_lines[k];
+        if (tot < 25 && tarea_n > 0) tarea_lines[tarea_n - 1] += 25 - tot;   /* the last area runs to the bottom */
+    } break;
+    case 0x10: case 0x11: case 0x12: case 0x13: case 0x15: break;
     case 0x16: /* fill text VRAM: DL char, DH attr */
         for (int i = 0; i < 80 * 25; i++) { mem[0xA0000 + i * 2] = cpu.r[DX] & 0xFF; mem[0xA0001 + i * 2] = 0; mem[0xA2000 + i * 2] = cpu.r[DX] >> 8; }
         break;
@@ -430,6 +448,6 @@ void pc98_snap(FILE *f, int save)
 {
     S(ms_dx); S(ms_dy); S(ms_lx); S(ms_ly); S(ms_btn); S(ms_portc); S(ms_freq); S(cg_hi); S(cg_lo); S(cg_line);
     S(gvram); S(disp_bank); S(acc_bank); S(grcg_mode); S(grcg_tile); S(grcg_tidx); S(analog_mode);
-    S(pal_idx); S(pal); S(dig_pal); S(gfx_on); S(text_on); S(vsync_armed); S(mode_ff); S(gdc_start);
+    S(pal_idx); S(pal); S(dig_pal); S(gfx_on); S(text_on); S(tarea_start); S(tarea_lines); S(tarea_n); S(crt_mode); S(vsync_armed); S(mode_ff); S(gdc_start);
     S(gdc_cmd); S(gdc_param); S(gdc_np); S(kq); S(kq_h); S(kq_t); S(bq); S(bq_h); S(bq_t); S(kbd_data); S(shift_state);
 }

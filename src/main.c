@@ -426,6 +426,13 @@ int main(int argc, char **argv)
         }
         double t = emu_time_ms();
         audio_advance(t);
+        if (getenv("MW_JPSCAN") && machine_pc98) { /* report text rows holding kanji (English mode check) */
+                static double nxt; static unsigned seen[4096]; static int ns;
+                if (t >= nxt) { nxt = t + 500;
+                    for (int r = 0; r < 25; r++) { int kj = 0; unsigned h = 2166136261u;
+                        for (int c = 0; c < 80; c++) { u16 code = mem[0xA0000 + (r * 80 + c) * 2] | (mem[0xA0001 + (r * 80 + c) * 2] << 8); h = (h ^ code) * 16777619u; { u8 j1 = code & 0xFF, j2 = code >> 8; if (j2 >= 0x21 && j2 < 0x7F && (j1 == 0x04 || j1 == 0x05 || (j1 >= 0x10 && j1 < 0x50)) && (mem[0xA2000 + (r * 80 + c) * 2] & 1)) kj++; } }
+                        if (kj && (mem[0xA2000 + r * 160] | 1)) { int dup = 0; for (int q = 0; q < ns; q++) if (seen[q] == h) dup = 1;
+                            if (!dup && ns < 4096) { seen[ns++] = h; fprintf(stderr, "jp row %.0f ms row %d: %d kanji\n", t, r, kj); } } } } }
         { extern void english_patrol(void); static double pt; if (t - pt > 50) { pt = t; english_patrol(); } }
         if (save_state_file && anchor_t >= 0 && t >= anchor_t + save_after) { state_io(save_state_file, 1); save_state_file = NULL; }
         if (trace_enabled) { static double ts; if (t - ts > 30000) { ts = t; trace_save(); } }
@@ -525,8 +532,10 @@ int main(int argc, char **argv)
         }
     }
     { extern long audio_drops, audio_underruns; if (log_enabled || getenv("MW_EXITSHOT")) fprintf(stderr, "audio: %ld chunks dropped, %ld underruns, emulated %.1f s\n", audio_drops, audio_underruns, emu_time_ms() / 1000.0); }
+    { extern void inventory_report(void); inventory_report(); }
     if (headless || getenv("MW_EXITSHOT")) write_ppm("shot_exit.ppm");
     if (headless && machine_pc98) { FILE *f = fopen("tvram.bin", "wb"); fwrite(mem + 0xA0000, 1, 0x4000, f); fclose(f); }
+    if (getenv("MW_TVDUMP")) { FILE *f = fopen("tvram.bin", "wb"); fwrite(mem + 0xA0000, 1, 0x4000, f); fclose(f); }
     if (getenv("MW_DUMP")) { FILE *f = fopen("mem.bin", "wb"); fwrite(mem, 1, 0xA0000, f); fclose(f); }
     { void pic_report(void); if (headless) pic_report(); }
     if (log_enabled || rc_verify || headless) { rc_report(); fprintf(stderr, "idle-skipped %.1f%% of emulated time\n", 100.0 * idle_skipped / (cycles_done ? cycles_done : 1)); }

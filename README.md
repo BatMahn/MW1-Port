@@ -218,6 +218,8 @@ Other options: `--data DIR` (look for the folders in DIR), `--mt32 DIR`, `--cycl
   and half-width characters look slightly different from real hardware.
 - The PC-98 opening's hardware smooth-scroll isn't emulated.
 
+See docs/AUDIT_DOS.md and docs/AUDIT_PC98.md for both editions checked item by item against the real machines.
+
 ## 7. Developer notes
 
 `--dir PATH` runs a game folder directly (the current folder is kept). Testing aids:

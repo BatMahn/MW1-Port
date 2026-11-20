@@ -1,3 +1,5 @@
+#include <cstdlib>
+#include <cstdio>
 /* Roland MT-32 through Munt's libmt32emu. The ROM files are the player's own (see README). */
 #include <cstdio>
 #include <cstring>
@@ -61,10 +63,15 @@ static void dedupe_channels(unsigned char *m, int n)
     int base = m[7], ndata = n - 10, changed = 0;
     unsigned char ch[9]; int have[9];
     for (int p = 0; p < 9; p++) { int off = 0x0D + p - base; have[p] = off >= 0 && off < ndata; ch[p] = have[p] ? m[8 + off] : 0xFF; }
-    for (int p = 1; p < 9; p++) {
+    /* the rhythm part (index 8) keeps its channel: a melodic part on the drum channel would
+     * play the drum notes as pitched notes (MECHBAR.MUS puts part 6 there) */
+    if (have[8] && ch[8] < 0x10)
+        for (int p = 0; p < 8; p++) if (have[p] && ch[p] == ch[8]) { m[8 + 0x0D + p - base] = 0x10; ch[p] = 0x10; changed = 1; }
+    for (int p = 1; p < 8; p++) {
         if (!have[p] || ch[p] >= 0x10) continue;
         for (int q = 0; q < p; q++) if (have[q] && ch[q] == ch[p]) { m[8 + 0x0D + p - base] = 0x10; ch[p] = 0x10; changed = 1; break; }
     }
+    if (changed && getenv("MW_MPULOG")) { fprintf(stderr, "mt32: part channels now"); for (int p = 0; p < 9; p++) fprintf(stderr, " %02x", ch[p]); fprintf(stderr, "\n"); }
     if (changed) { unsigned sum = 0; for (int i = 5; i < n - 2; i++) sum += m[i]; m[n - 2] = (128 - (sum & 127)) & 127; }
 }
 extern "C" void mt32_byte(unsigned char b)

@@ -108,7 +108,6 @@ void audio_advance(double emu_ms)
     else memset(buf, 0, n * 4);
     if (machine_pc98) opn_generate(buf, n, RATE);
     if (used_mt32) mt32_mix(buf, n);
-    if (wav_out) fwrite(buf, 4, n, wav_out);
     for (int i = 0; i < n; i++) {
         int s = 0;
         if (spk_on && spk_freq > 20 && spk_freq < 20000) {
@@ -133,6 +132,8 @@ void audio_advance(double emu_ms)
         buf[i * 2] = l > 32767 ? 32767 : l < -32768 ? -32768 : l;
         buf[i * 2 + 1] = r > 32767 ? 32767 : r < -32768 ? -32768 : r;
     }
+    /* the recording gets the full mix (speaker and Tandy included) */
+    if (wav_out) fwrite(buf, 4, n, wav_out);
     { extern int audio_muted; if (dev && !audio_muted && audio_queued_ms() < 0.5) audio_underruns++; }
 #ifdef MW_SDL3
     { extern int audio_muted; if (dev && !audio_muted) SDL_PutAudioStreamData(dev, buf, n * 4); }
